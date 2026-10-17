@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammed Mounir — Portfolio</title>
+  <meta name="description" content="Interactive personal portfolio of Mohammed Mounir — the journey so far, told as a timeline.">
+
+  <!-- ============================================================
+       GOOGLE TAG MANAGER — TODO: REPLACE "GTM-XXXXXXX" WITH THE REAL
+       CONTAINER ID (see js/analytics.js for the setup checklist).
+       Until then the snippet is inert and dataLayer events are
+       collected harmlessly in memory.
+       ============================================================ -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Leaflet (journey map) — only external dependency besides GTM -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- TODO: replace GTM-XXXXXXX here too when the real container exists -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+  <nav class="nav" aria-label="Primary">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">MOHAMMED MOUNIR<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="#timeline">Timeline</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero" id="top">
+    <div class="wrap">
+      <h1>The journey so far,<br><span class="neon-pink">told in chapters.</span></h1>
+      <p class="lede">From Baghdad to Bradford — every era gets its own card. Scroll the timeline, trace the map, and watch this space grow.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#timeline" data-track-cta="explore_timeline">Explore the timeline</a>
+        <a class="btn btn-ghost" href="#journey" data-track-cta="view_journey_map">View the journey map</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= TIMELINE ================= -->
+    <section id="timeline" aria-labelledby="timeline-title">
+      <div class="wrap">
+        <p class="section-kicker">The spine</p>
+        <h2 class="section-title" id="timeline-title">Interactive timeline</h2>
+        <p class="section-sub">Like a museum for a life — one 3D card per chapter. Scroll sideways, hover to tilt, click a card to center it.</p>
+        <p class="timeline-hint">← scroll →</p>
+        <div class="timeline-viewport">
+          <div class="timeline-track" id="timeline-track" aria-live="polite">
+            <!-- Cards render here from data/timeline.json -->
+            <p style="color:#a9b0d6">Loading timeline…</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= JOURNEY MAP ================= -->
+    <section id="journey" aria-labelledby="journey-title">
+      <div class="wrap">
+        <p class="section-kicker">Where it happened</p>
+        <h2 class="section-title" id="journey-title">Journey map</h2>
+        <p class="section-sub">Two views of the same road: the geographic route on the left, the chapter-by-chapter progression path on the right. Click a marker or a node to jump to its card.</p>
+        <div class="map-grid">
+          <div class="map-card">
+            <h3>Geographic map</h3>
+            <p>Baghdad → Libya → Richmond Hill → Toronto → Bradford.</p>
+            <div id="journey-map" role="application" aria-label="Map of journey stops"></div>
+          </div>
+          <div class="path-card">
+            <h3>Progression path</h3>
+            <p>Every chapter as a stop on the road. Dashed nodes are placeholders waiting for content.</p>
+            <svg id="progress-path" role="img" aria-label="Progression path through timeline chapters"></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EXPERIENCE ================= -->
+    <section id="experience" aria-labelledby="experience-title">
+      <div class="wrap">
+        <p class="section-kicker">Work</p>
+        <h2 class="section-title" id="experience-title">Experience</h2>
+        <p class="section-sub">Six years across asset protection, field security leadership, retail management, and web development.</p>
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Asset Protection Representative — Loblaw Companies Ltd.</h3>
+            <p class="role-meta">New Tecumseth, ON · Jan 2026 – Present</p>
+            <ul>
+              <li>Deter theft, fraud, and organized retail crime through surveillance, investigations, and risk-based loss prevention.</li>
+              <li>Run internal and external investigations, build evidence packages, and liaise with law enforcement.</li>
+              <li>Audit shrink, analyze trends, and coach store leadership on AP policy and emergency procedures.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Co-Founder — MOLEX Web Development &amp; Digital Solutions</h3>
+            <p class="role-meta">Bradford, ON (Remote) · Feb 2025 – Present</p>
+            <ul>
+              <li>Design and build digital platforms and SaaS products — lead generation, web design, automated billing, directories.</li>
+              <li>2026: launched True Shield Security's official site, landing foundational client contracts.</li>
+              <li>2025: SparkyLube campaign — 4,300+ unique visitors, 344 confirmed clients upsold.</li>
+              <li>SEO, Google Business Platform, and GA4 data tracking.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Client Internship — SparkyLube</h3>
+            <p class="role-meta">Brantford, ON (Remote) · Contract · Mar 2025 – Jul 2025</p>
+            <ul>
+              <li>Designed, built, and maintained the company website for a local automotive/oil-change business.</li>
+              <li>Print-friendly service menus, integrated online booking, and improved business marketing.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Field Security Manager — ASP Incorporated</h3>
+            <p class="role-meta">Toronto, ON · Jan 2022 – Dec 2025</p>
+            <ul>
+              <li>Oversaw major contracts including Respites, Warner Brothers, Snapchat, and Rogers Stadium.</li>
+              <li>Event Commander — Festa D'Italia 2025, Vaughan Canada Day 2025, VELD 2024 &amp; 2025: zero critical incidents, direct client commendations.</li>
+              <li>Event scale: VELD 35,000+ daily, Vaughan Canada Day 20,000+, Festa D'Italia 15,000+, UJA Walk with Israel 55,000+.</li>
+              <li>Led 50+ frontline personnel; coordinated with police, EMS, and municipal officials.</li>
+              <li>Earlier at ASP: corporate security for Snapchat, crossing-guard mobile supervision, Shelter Movers protection for domestic-abuse relocations, COVID rapid-response across Toronto respites.</li>
+              <li>Previously Security Specialist / Mobile Patrol Supervisor (Nov 2020 – Jan 2022): audited 350+ crosswalks for the City of Toronto School Crossing Guard program.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Store Manager → Interim District Manager — WLKN</h3>
+            <p class="role-meta">Barrie / GTA · Oct 2023 – Dec 2024</p>
+            <ul>
+              <li>Launched the Barrie (Georgian Mall) location end-to-end: merchandising, hiring and training, scheduling, POS/CCTV setup, community marketing.</li>
+              <li>Covered as Interim District Manager across GTA stores (10-week multi-store coverage).</li>
+              <li>WLKN Owner's Award &amp; Employee of the Year, 2024.</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Early chapters</h3>
+            <ul>
+              <li>Canada's Wonderland — seasonal games sales associate; first job, bussed both ways all summer.</li>
+              <li>Staples, Newmarket — Technology Sales Associate (Jan–Sep 2019); led tech sales including warranties &amp; peripherals.</li>
+              <li>Under Armour, Innisfil — Sales Associate (Sep 2019–Jun 2020); won two consecutive monthly sales challenges.</li>
+              <li>Cineplex, Newmarket — Cast Member (Jan–Sep 2018); Employee of the Month, May 2018.</li>
+              <li>Pizza Hut — cook and delivery driver.</li>
+              <li>Gino's Pizza Inc., Newmarket — Cook &amp; Delivery Driver (Sep 2017–Dec 2018).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS + CERTS ================= -->
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="wrap">
+        <p class="section-kicker">Proof</p>
+        <h2 class="section-title" id="skills-title">Skills &amp; certifications</h2>
+        <p class="section-sub">From the master resume and skills tracker — verified, nothing invented.</p>
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Certifications &amp; licences</h3>
+            <ul>
+              <li>PSISB Security Guard &amp; Private Investigator Licence — Ministry of the Solicitor General (to Aug 2028)</li>
+              <li><a href="https://learn.baselgovernance.org/mod/customcert/verify_certificate.php?code=VvToQbpxOE&qrcode=1">Open-Source Intelligence (OSINT)</a> — Basel Institute on Governance (Aug 2026)</li>
+              <li><a href="https://www.credential.net/a3a825cf-adf0-452e-b28b-be9508713b11">Google Analytics (GA4)</a> — Google Skillshop (Oct 2026)</li>
+              <li>Municipal Law Enforcement Officer, Parking — City of Toronto / TPS (renewed Aug 2026)</li>
+              <li>Behavior Detection Training (BDT) — ACTS USA, Toronto (May 2025)</li>
+              <li>OACP Pre-Hiring Assessment — Certificate of Results (Dec 2021)</li>
+              <li>Use of Force, Tactical Baton, Defensive Tactics &amp; Handcuffing — Life Safety Specialists / ASP</li>
+              <li>Managing of Resistant Behaviour (MORB) — ASP (Jun 2023)</li>
+              <li>Tactical Baton Program — Martyn Styra Training &amp; Consulting (Nov 2020)</li>
+              <li>Defensive Tactics and Handcuffing — Martyn Styra Training &amp; Consulting (Nov 2020)</li>
+              <li>Legal Authorities and Use of Force Theory — Martyn Styra Training &amp; Consulting (Nov 2020)</li>
+              <li>Standard First Aid, CPR-C &amp; AED — Rescue7 / CSA (recertification in progress)</li>
+              <li>Naloxone: Overdose Prevention, Recognition &amp; Response — Public Health</li>
+              <li>Supervisor Health &amp; Safety Awareness — Ontario Ministry of Labour</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Skills</h3>
+            <ul>
+              <li><strong>Enforcement:</strong> Criminal Code (ss. 494, 322/334, 380), Trespass to Property Act, PSISA, municipal bylaws, WHMIS, AODA</li>
+              <li><strong>Tactical:</strong> defensive tactics &amp; handcuffing, tactical baton, use-of-force theory, managing resistant behaviour, verbal de-escalation</li>
+              <li><strong>Software &amp; data:</strong> Python, Java, C++, JavaScript, HTML/CSS, SQL, SaaS development, systems analysis, SEO, GA4, OSINT analysis, applied generative AI</li>
+              <li><strong>Platforms:</strong> TrackTik, GeoTab, xGuard, Gatekeeper Purchek, CCTV administration, POS systems, Emprez, Workday, Microsoft 365, Google Workspace</li>
+              <li><strong>Leadership:</strong> multi-unit operational leadership, team coaching &amp; mentorship, conflict resolution, stakeholder &amp; law-enforcement liaison</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <h3>Languages &amp; driving</h3>
+            <ul>
+              <li>English — native / fluent</li>
+              <li>Arabic — conversational / fluent</li>
+              <li>Ontario Driver's Licence — Class G &amp; M</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HIGHLIGHTS / VIPS ================= -->
+    <section id="highlights" aria-labelledby="highlights-title">
+      <div class="wrap">
+        <p class="section-kicker">Standouts</p>
+        <h2 class="section-title" id="highlights-title">VIPs &amp; highlights</h2>
+        <p class="section-sub">Placeholder — notable meetings and moments, in his words.</p>
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Coming soon</h3>
+            <p>TODO: VIP meetings and standout moments — brain-dump needed.</p>
+            <span class="todo-tag">TODO — brain-dump</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= HOBBIES ================= -->
+    <section id="hobbies" aria-labelledby="hobbies-title">
+      <div class="wrap">
+        <p class="section-kicker">Off the clock</p>
+        <h2 class="section-title" id="hobbies-title">Hobbies</h2>
+        <p class="section-sub">Placeholder — including the track chapter when it's ready.</p>
+        <div class="info-grid">
+          <div class="info-card">
+            <h3>Race track</h3>
+            <p>TODO: track-racing details — mirrors the "Race Track" timeline chapter.</p>
+            <span class="todo-tag">TODO — brain-dump</span>
+          </div>
+          <div class="info-card">
+            <h3>Motovlog &amp; more</h3>
+            <p>TODO: Momospeare channel, gaming, RC planes — whatever he wants to showcase.</p>
+            <span class="todo-tag">TODO — brain-dump</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <p class="section-kicker">Say hi</p>
+        <h2 class="section-title" id="contact-title">Contact</h2>
+        <p class="section-sub">Placeholder — real links go here.</p>
+        <div class="contact-card">
+          <p>TODO: contact links (LinkedIn, email, etc.). Keep it to what he's comfortable sharing publicly.</p>
+          <span class="todo-tag">TODO — links</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="year">2026</span> Mohammed Mounir. Built chapter by chapter.</span>
+      <span>v1 scaffold — GitHub Pages ready</span>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
