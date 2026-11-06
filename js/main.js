@@ -142,16 +142,25 @@
     map.on('focus', function () { map.scrollWheelZoom.enable(); });
     map.on('blur', function () { map.scrollWheelZoom.disable(); });
 
-    // Dark basemap to match the neon theme (CARTO dark_all, free for this use).
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      maxZoom: 18
+    // Dark basemap to match the neon theme (Esri World Dark Gray — key-free).
+    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+      attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors, and the GIS user community',
+      maxZoom: 16
     }).addTo(map);
 
     var latlngs = [];
     stops.forEach(function (ch, i) {
       latlngs.push(ch.coords);
-      var marker = L.marker(ch.coords).addTo(map);
+      // Number baked into the pin itself — no floating tooltips to collide
+      // when markers cluster in the GTA.
+      var marker = L.marker(ch.coords, {
+        icon: L.divIcon({
+          className: 'stop-marker',
+          html: '<span>' + (i + 1) + '</span>',
+          iconSize: [30, 30],
+          iconAnchor: [15, 15]
+        })
+      }).addTo(map);
       marker.bindPopup('<strong>' + escapeHtml(ch.title) + '</strong><br>' + escapeHtml(ch.mapLabel || ch.location));
       marker.on('click', function () {
         A.mapMarkerClick(ch.id, ch.mapLabel || ch.location);
@@ -165,7 +174,7 @@
         }
       });
       // Number the stops in journey order via a tooltip
-      marker.bindTooltip(String(i + 1), { permanent: true, direction: 'top', offset: [0, -12], className: 'stop-tip' });
+      marker.bindTooltip(ch.mapLabel || ch.location, { direction: 'top', offset: [0, -18], className: 'stop-tip' });
     });
 
     // Journey polyline — pink-to-cyan gradient feel via two-tone dash
@@ -178,11 +187,11 @@
     var svg = document.getElementById('progress-path');
     if (!svg) return;
 
-    var W = 1000, H = 150, pad = 40;
+    var W = 1000, H = 280, pad = 40;
     var n = chapters.length;
     var stepX = (W - pad * 2) / Math.max(n - 1, 1);
     // Gentle wave so the path feels like a journey, not a ruler
-    function yAt(i) { return H / 2 + Math.sin(i * 0.9) * 34; }
+    function yAt(i) { return H / 2 + Math.sin(i * 0.9) * 80; }
 
     var NS = 'http://www.w3.org/2000/svg';
     svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
@@ -219,7 +228,7 @@
       g.appendChild(c);
 
       var t = document.createElementNS(NS, 'text');
-      t.setAttribute('x', x); t.setAttribute('y', y + 30);
+      t.setAttribute('x', x); t.setAttribute('y', y + 34);
       // Short path labels (timeline.json "pathLabel") so nothing truncates.
       t.textContent = ch.pathLabel || (ch.era.length > 14 ? ch.era.slice(0, 13) + '…' : ch.era);
       g.appendChild(t);

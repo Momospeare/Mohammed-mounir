@@ -405,7 +405,19 @@ section[id] {
 .leaflet-control-attribution a { color: var(--muted); }
 
 /* Progression path (SVG) */
-#progress-path { width: 100%; height: auto; display: block; }
+.path-card { display: flex; flex-direction: column; }
+#progress-path { width: 100%; height: auto; display: block; margin: auto 0; }
+
+/* Numbered map pins (number baked into the marker, no tooltip clutter) */
+.stop-marker { background: none; border: none; }
+.stop-marker span {
+  display: flex; align-items: center; justify-content: center;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: linear-gradient(140deg, var(--pink), var(--cyan));
+  color: #0a0c16; font-weight: 700; font-size: 14px;
+  border: 2px solid #0a0c16;
+  box-shadow: 0 0 0 2px rgba(46, 230, 255, 0.35);
+}
 
 .pp-node { cursor: pointer; }
 .pp-node circle {
@@ -416,8 +428,9 @@ section[id] {
 }
 .pp-node:hover circle, .pp-node:focus circle { fill: var(--cyan); }
 .pp-node text {
-  fill: var(--muted);
-  font-size: 13px;
+  fill: #d5d9f0;
+  font-size: 16px;
+  font-weight: 600;
   text-anchor: middle;
 }
 .pp-node.is-placeholder circle { stroke: var(--pink); stroke-dasharray: 4 3; }
