@@ -3,42 +3,89 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohammed Mounir — Portfolio</title>
-  <meta name="description" content="Interactive personal portfolio of Mohammed Mounir — the journey so far, told as a timeline.">
+  <title>
+    Mohammed Mounir | Asset Protection & Software Development
+  </title>
+  <meta
+    name="description"
+    content="Mohammed Mounir's professional portfolio: asset protection, security operations, retail leadership, software development and technology."
+  >
+  <meta name="author" content="Mohammed Mounir">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0d0f1c">
+  <link
+    rel="canonical"
+    href="https://momospeare.github.io/Mohammed-mounir/"
+  >
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_CA">
+  <meta
+    property="og:title"
+    content="Mohammed Mounir | Professional Portfolio"
+  >
+  <meta
+    property="og:description"
+    content="Security operations, asset protection and software development."
+  >
+  <meta
+    property="og:url"
+    content="https://momospeare.github.io/Mohammed-mounir/"
+  >
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary">
+  <meta
+    name="twitter:title"
+    content="Mohammed Mounir | Professional Portfolio"
+  >
+  <meta
+    name="twitter:description"
+    content="Security operations, asset protection and software development."
+  >
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Mohammed Mounir",
+    "url": "https://momospeare.github.io/Mohammed-mounir/",
+    "jobTitle": "Asset Protection Representative",
+    "description": "Security professional with experience in asset protection, field security leadership, retail operations and web development. Computer Programming and Analysis student at Seneca.",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "Loblaw Companies Limited"
+    },
+    "knowsAbout": [
+      "Asset Protection",
+      "Security Operations",
+      "Loss Prevention",
+      "Web Development",
+      "JavaScript",
+      "Python",
+      "SQL",
+      "Open-Source Intelligence"
+    ]
+  }
+  </script>
 
-  <!-- ============================================================
-       GOOGLE TAG MANAGER — TODO: REPLACE "GTM-XXXXXXX" WITH THE REAL
-       CONTAINER ID (see js/analytics.js for the setup checklist).
-       Until then the snippet is inert and dataLayer events are
-       collected harmlessly in memory.
-       ============================================================ -->
-  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Leaflet (journey map) — only external dependency besides GTM -->
+  <!-- Leaflet (journey map) — only external dependency -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <!-- TODO: replace GTM-XXXXXXX here too when the real container exists -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <a class="skip-link" href="#main">Skip to content</a>
 
   <nav class="nav" aria-label="Primary">
     <div class="wrap nav-inner">
       <a class="brand" href="#top">MOHAMMED MOUNIR<span class="dot">.</span></a>
       <ul class="nav-links">
-        <li><a href="#timeline">Timeline</a></li>
-        <li><a href="#journey">Journey</a></li>
+        <li><a href="#timeline">Journey</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#skills">Skills</a></li>
+        <li><a href="#highlights">Highlights</a></li>
         <li><a href="#hobbies">Hobbies</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -47,8 +94,14 @@
   <!-- ================= HERO ================= -->
   <header class="hero" id="top">
     <div class="wrap">
-      <h1>The journey so far,<br><span class="neon-pink">told in chapters.</span></h1>
-      <p class="lede">From Baghdad to Bradford — every era gets its own card. Scroll the timeline, trace the map, and watch this space grow.</p>
+      <h1>
+        Security experience.<br>
+        <span class="neon-pink">Technology in progress.</span>
+      </h1>
+      <p class="lede">
+        Bridging operational security, asset protection,
+        software development and emerging technology.
+      </p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#timeline" data-track-cta="explore_timeline">Explore the timeline</a>
         <a class="btn btn-ghost" href="#journey" data-track-cta="view_journey_map">View the journey map</a>
@@ -56,19 +109,27 @@
     </div>
   </header>
 
-  <main>
+  <main id="main">
     <!-- ================= TIMELINE ================= -->
     <section id="timeline" aria-labelledby="timeline-title">
       <div class="wrap">
         <p class="section-kicker">The spine</p>
         <h2 class="section-title" id="timeline-title">Interactive timeline</h2>
-        <p class="section-sub">Like a museum for a life — one 3D card per chapter. Scroll sideways, hover to tilt, click a card to center it.</p>
+        <p class="section-sub">Like a museum exhibit — one 3D card per chapter. Scroll sideways, hover to tilt, click a card to center it.</p>
         <p class="timeline-hint">← scroll →</p>
         <div class="timeline-viewport">
-          <div class="timeline-track" id="timeline-track" aria-live="polite">
+          <div class="timeline-track" id="timeline-track">
             <!-- Cards render here from data/timeline.json -->
             <p style="color:#a9b0d6">Loading timeline…</p>
           </div>
+        </div>
+        <div class="timeline-progress"
+             role="progressbar"
+             aria-label="Timeline reading progress"
+             aria-valuemin="0"
+             aria-valuemax="100"
+             aria-valuenow="0">
+          <span id="timeline-progress-fill"></span>
         </div>
       </div>
     </section>
@@ -78,16 +139,16 @@
       <div class="wrap">
         <p class="section-kicker">Where it happened</p>
         <h2 class="section-title" id="journey-title">Journey map</h2>
-        <p class="section-sub">Two views of the same road: the geographic route on the left, the chapter-by-chapter progression path on the right. Click a marker or a node to jump to its card.</p>
+        <p class="section-sub">Two views of the same road: the geographic route on the left, the chapter-by-chapter progression path on the right. Click a node to jump to its card.</p>
         <div class="map-grid">
           <div class="map-card">
             <h3>Geographic map</h3>
-            <p>Baghdad → Libya → Richmond Hill → Toronto → Bradford.</p>
-            <div id="journey-map" role="application" aria-label="Map of journey stops"></div>
+            <p>Where the work happened — markers appear as verified professional locations are added.</p>
+            <div id="journey-map" role="region" aria-label="Geographic journey map"></div>
           </div>
           <div class="path-card">
             <h3>Progression path</h3>
-            <p>Every chapter as a stop on the road. Dashed nodes are placeholders waiting for content.</p>
+            <p>Every chapter as a stop on the road.</p>
             <svg id="progress-path" role="img" aria-label="Progression path through timeline chapters"></svg>
           </div>
         </div>
@@ -212,17 +273,37 @@
       </div>
     </section>
 
-    <!-- ================= HIGHLIGHTS / VIPS ================= -->
+    <!-- ================= HIGHLIGHTS ================= -->
     <section id="highlights" aria-labelledby="highlights-title">
       <div class="wrap">
         <p class="section-kicker">Standouts</p>
-        <h2 class="section-title" id="highlights-title">VIPs &amp; highlights</h2>
-        <p class="section-sub">Placeholder — notable meetings and moments, in his words.</p>
+        <h2 class="section-title" id="highlights-title">Highlights &amp; awards</h2>
+        <p class="section-sub">Recognition for operational leadership and decisive action on the job.</p>
         <div class="info-grid">
           <div class="info-card">
-            <h3>Coming soon</h3>
-            <p>TODO: VIP meetings and standout moments — brain-dump needed.</p>
-            <span class="todo-tag">TODO — brain-dump</span>
+            <h3>Outstanding Young Security Professional (2025)</h3>
+            <p class="role-meta">Outstanding Security Performance Awards (OSPAs)</p>
+            <p>International award recognizing exceptional leadership, innovation, and operational excellence in security.</p>
+          </div>
+          <div class="info-card">
+            <h3>Canadian Security Lifesaver Award — twice</h3>
+            <p class="role-meta">Canadian Security Lifesaver Awards · Aug 2023 &amp; Oct 2022</p>
+            <p>Aug 2023: pulled a pedestrian out of the path of a speeding fire truck at Kipling &amp; Stevenson. Oct 2022: intervened to prevent a child pushed into oncoming traffic from being struck by a TTC bus.</p>
+          </div>
+          <div class="info-card">
+            <h3>CEO Award of Excellence (2023)</h3>
+            <p class="role-meta">ASP Incorporated</p>
+            <p>Recognized as an ASP company success story for exceptional contributions to mobile patrol operations.</p>
+          </div>
+          <div class="info-card">
+            <h3>Owner's Award &amp; Employee of the Year (2024)</h3>
+            <p class="role-meta">WLKN</p>
+            <p>Awarded for outstanding launch execution and multi-store management across the GTA.</p>
+          </div>
+          <div class="info-card">
+            <h3>Employee of the Month (May 2018)</h3>
+            <p class="role-meta">Cineplex</p>
+            <p>Recognized for high guest satisfaction during peak traffic, including the Avengers: Endgame opening premiere.</p>
           </div>
         </div>
       </div>
@@ -233,18 +314,44 @@
       <div class="wrap">
         <p class="section-kicker">Off the clock</p>
         <h2 class="section-title" id="hobbies-title">Hobbies</h2>
-        <p class="section-sub">Placeholder — including the track chapter when it's ready.</p>
+        <p class="section-sub">What keeps the engine running outside work.</p>
         <div class="info-grid">
           <div class="info-card">
-            <h3>Race track</h3>
-            <p>TODO: track-racing details — mirrors the "Race Track" timeline chapter.</p>
-            <span class="todo-tag">TODO — brain-dump</span>
+            <h3>Momospeare motovlog</h3>
+            <p>Duo motovlog with partner Alex — destination rides on the Yamaha MT-07 and Kawasaki Ninja 300, with garage-education content.</p>
           </div>
           <div class="info-card">
-            <h3>Motovlog &amp; more</h3>
-            <p>TODO: Momospeare channel, gaming, RC planes — whatever he wants to showcase.</p>
-            <span class="todo-tag">TODO — brain-dump</span>
+            <h3>Track days</h3>
+            <p>Motorcycle track days — taking the bike to the circuit.</p>
           </div>
+          <div class="info-card">
+            <h3>Gaming</h3>
+            <p>Call of Duty, GTA, Minecraft and Fortnite — including a full GTA series marathon.</p>
+          </div>
+          <div class="info-card">
+            <h3>RC planes</h3>
+            <p>Flying RC model aircraft.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION ================= -->
+    <section id="education" aria-labelledby="education-title">
+      <div class="wrap">
+        <p class="section-kicker">Development</p>
+        <h2 class="section-title" id="education-title">Education</h2>
+        <div class="info-grid">
+          <article class="info-card">
+            <h3>Computer Programming &amp; Analysis</h3>
+            <p class="role-meta">Seneca Polytechnic · Jan 2024 – May 2027 (Expected)</p>
+            <p>Diploma focused on software engineering, relational databases, data structures, and enterprise mainframe analysis. Aspiring goal: Cyber Security Specialist.</p>
+          </article>
+          <article class="info-card">
+            <h3>Police Foundations</h3>
+            <p class="role-meta">Seneca College · Sep 2019 – Apr 2022</p>
+            <p>Ontario College Diploma, graduated with distinction. Coursework in Canadian Criminal Code, forensics, crisis intervention, interviewing and investigative communications.</p>
+          </article>
         </div>
       </div>
     </section>
@@ -252,12 +359,14 @@
     <!-- ================= CONTACT ================= -->
     <section id="contact" aria-labelledby="contact-title">
       <div class="wrap">
-        <p class="section-kicker">Say hi</p>
-        <h2 class="section-title" id="contact-title">Contact</h2>
-        <p class="section-sub">Placeholder — real links go here.</p>
+        <p class="section-kicker">Connect</p>
+        <h2 class="section-title" id="contact-title">Let's build something.</h2>
+        <p class="section-sub">Explore my technical projects and development work.</p>
         <div class="contact-card">
-          <p>TODO: contact links (LinkedIn, email, etc.). Keep it to what he's comfortable sharing publicly.</p>
-          <span class="todo-tag">TODO — links</span>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a>
+            <a class="btn btn-ghost" href="https://github.com/Momospeare/Mohammed-mounir" target="_blank" rel="noopener noreferrer">View GitHub Repository</a>
+          </div>
         </div>
       </div>
     </section>
@@ -266,7 +375,7 @@
   <footer>
     <div class="wrap">
       <span>© <span id="year">2026</span> Mohammed Mounir. Built chapter by chapter.</span>
-      <span>v1 scaffold — GitHub Pages ready</span>
+      <span>Professional portfolio | Built with HTML, CSS &amp; JavaScript.</span>
     </div>
   </footer>
 

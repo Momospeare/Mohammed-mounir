@@ -1,15 +1,15 @@
 /* ============================================================
-   Analytics scaffold — GTM + GA4 (BRAND NEW containers)
+   Analytics scaffold — dataLayer events (local only for now)
    ------------------------------------------------------------
-   TODO (before launch):
+   The GTM snippet was REMOVED from index.html (Nov 2026 audit):
+   it fired requests with a placeholder ID. Events below still
+   push to window.dataLayer harmlessly. To wire real analytics:
      1. Create a new Google Tag Manager container at
         https://tagmanager.google.com and copy its container ID.
-     2. In index.html, replace BOTH occurrences of "GTM-XXXXXXX"
-        (the <head> snippet and the <body> <noscript> snippet).
+     2. Re-add the standard GTM <head> snippet and <body>
+        <noscript> iframe to index.html with the real ID.
      3. In GTM, create a GA4 Configuration tag with your new
         GA4 Measurement ID (G-XXXXXXXXXX) and publish the container.
-   Until the real ID is in place, events below push to window.dataLayer
-   harmlessly (the GTM snippet is inert with a placeholder ID).
    ============================================================ */
 
 (function () {
@@ -24,14 +24,10 @@
    * then wire them to GA4 Event tags.
    *
    * @param {string} name   - snake_case event name, e.g. "timeline_card_click"
-   * @param {Object} params - extra dimensions, e.g. { chapter_id: "libya" }
+   * @param {Object} params - extra dimensions, e.g. { chapter_id: "asp" }
    */
   function track(name, params) {
     window.dataLayer.push(Object.assign({ event: name }, params || {}));
-    // TODO: remove this console line before launch (debug only).
-    if (window.__PORTFOLIO_DEBUG) {
-      console.log('[analytics]', name, params || {});
-    }
   }
 
   // Public API used by main.js

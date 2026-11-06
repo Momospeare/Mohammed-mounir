@@ -1,4 +1,6 @@
-# Mohammed Mounir — Portfolio v1 (scaffold)
+# Mohammed Mounir — Professional Portfolio
+
+Live: **https://momospeare.github.io/Mohammed-mounir/**
 
 GitHub Pages-compatible **static** site. No build step, no framework — vanilla HTML/CSS/JS plus Leaflet (map) via CDN.
 
@@ -16,38 +18,43 @@ python3 -m http.server 8000
 
 ```
 portfolio/
-├── index.html          # structure, GTM snippets (TODO: real ID), Leaflet CDN
+├── index.html          # structure, metadata + JSON-LD, Leaflet CDN
 ├── css/
 │   └── style.css       # GTA 6-inspired theme: neon pink/cyan on calm dark base
 ├── js/
-│   ├── analytics.js    # dataLayer scaffold + PortfolioAnalytics API (TODO: IDs)
-│   └── main.js         # timeline render, 3D tilt, Leaflet map, SVG path, tracking
+│   ├── analytics.js    # dataLayer events (local only — no GTM container yet)
+│   └── main.js         # timeline render, 3D tilt, Leaflet map, SVG path, reveals, tracking
 ├── data/
-│   └── timeline.json   # ALL timeline content — chapters, map stops, placeholders
+│   └── timeline.json   # Professional timeline chapters only
+├── robots.txt
+├── sitemap.xml
 ├── assets/
 │   └── photos/         # (create when ready) real photos go here
 └── README.md
 ```
 
-## What's wired up
+## Sections
 
-- **Timeline** — horizontal scroll-snap track, one 3D-tilt card per chapter from `timeline.json`. Hover tilts (pointer devices only, honors `prefers-reduced-motion`); click/keyboard centers the card.
-- **Photo swap (later, zero code changes)** — set a chapter's `"photo"` to e.g. `"assets/photos/libya.jpg"` and add `"photoCaption"`. The card renderer picks it up automatically.
-- **Journey map** — Leaflet with dark CARTO basemap; numbered markers in journey order (Baghdad → Tripoli/Libya → Richmond Hill → Toronto → Bradford), dashed journey polyline, popups. Scroll-wheel zoom enables on focus so it never hijacks page scroll.
-- **Progression path** — SVG wave with one node per chapter; dashed = placeholder chapter. Click a node to jump to its card.
-- **Analytics** — `dataLayer.push()` events: `timeline_card_click`, `journey_map_marker_click`, `progression_node_click`, `section_view` (IntersectionObserver, once per section), `hero_cta_click`.
+- **Hero** — "Security experience. Technology in progress."
+- **Interactive timeline** — horizontal scroll-snap track, one 3D-tilt card per professional chapter from `data/timeline.json`. Hover tilts (pointer devices only, honors `prefers-reduced-motion`); click/keyboard centers the card. Progress bar underneath.
+- **Journey map** — Leaflet geographic map + SVG progression path. Markers appear only for chapters with verified professional coordinates (currently none — the map shows a deliberate fallback message). Clicking a node or marker jumps to its card.
+- **Experience** — full work history from the master resume and LinkedIn.
+- **Skills & certifications** — from the master resume and skills tracker.
+- **Highlights & awards** — OSPA, Lifesaver Awards, CEO Award, WLKN, Cineplex.
+- **Hobbies** — Momospeare motovlog, track days, gaming, RC planes.
+- **Education** — Seneca CPA (in progress) and Police Foundations (with distinction).
+- **Contact** — LinkedIn + GitHub repository links.
 
-## TODO before launch (all marked with TODO comments in code)
+## Content rules
 
-1. **GTM**: create a new container → replace `GTM-XXXXXXX` in `index.html` (head snippet + noscript).
-2. **GA4**: new property → GA4 Configuration tag in GTM → publish. (Remove the `__PORTFOLIO_DEBUG` console line in `js/analytics.js`.)
-3. **Content**: fill Experience from the master resume; Skills/Certs from the skills tracker; VIPs/Hobbies/Contact from brain-dumps; flip `"placeholder": true` chapters to real content.
-4. **Photos**: drop into `assets/photos/`, reference in `timeline.json`.
-5. **Race track chapter**: append to `timeline.json` — map + path update themselves.
-6. **Domain**: GitHub Pages + Namecheap (Momospeare.com or Mohammedmounir.ca/com — still his call).
+- **Public site = professional + already-public life events only.** No personal-life material: no birthplace, childhood migration, residential addresses, family stories, or personal coordinates. Those live in the private companion site (`~/workspace/portfolio-private/`), never in this repo.
+- **Timeline** — professional chapters only. To add one, append an object to `data/timeline.json` (keep `coords: null` unless the location is a verified professional location).
+- **Photo swap (later, zero code changes)** — set a chapter's `"photo"` to e.g. `"assets/photos/wlkn.jpg"` and add `"photoCaption"`. The card renderer picks it up automatically.
 
-## Notes
+## Analytics
 
-- Nothing deployed, no repo created — local scaffold only, per instructions.
-- Coordinates verified via geocoding: Baghdad (33.3421, 44.39307), Tripoli as Libya marker (32.89534, 13.18105), Richmond Hill (43.84744, -79.3785), Toronto (43.64869, -79.38544), Bradford (44.11474, -79.56283).
-- Timeline copy sticks to his brain-dump wording; nothing invented.
+`dataLayer.push()` events: `timeline_card_click`, `journey_map_marker_click`, `progression_node_click`, `section_view` (IntersectionObserver, once per section), `hero_cta_click`. These stay local until a real GTM container is added — see the header comment in `js/analytics.js` for the setup steps. No placeholder GTM requests are made.
+
+## Deploy
+
+Push to the `main` branch of `Momospeare/Mohammed-mounir` on GitHub; GitHub Pages serves the site from `main` / root. Verify after each deploy: page loads, timeline renders, no console errors, no invalid external requests.

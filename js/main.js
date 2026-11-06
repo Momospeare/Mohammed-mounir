@@ -70,7 +70,9 @@
       // Media slot: real photo if "photo" is set, placeholder icon otherwise.
       // PHOTO SWAP (later): set "photo" in timeline.json — zero code changes.
       var media = ch.photo
-        ? '<img src="' + ch.photo + '" alt="' + escapeAttr(ch.photoCaption || ch.title) + '" loading="lazy">'
+        ? '<img src="' + escapeAttr(ch.photo) +
+          '" alt="' + escapeAttr(ch.photoCaption || ch.title) +
+          '" loading="lazy" decoding="async">'
         : iconFor(ch.icon);
 
       card.innerHTML =
@@ -78,8 +80,7 @@
         '<div class="card-media">' + media + '</div>' +
         '<h3>' + escapeHtml(ch.title) + '</h3>' +
         '<p class="t-location">' + escapeHtml(ch.location) + '</p>' +
-        '<p class="t-text">' + escapeHtml(ch.text) + '</p>' +
-        (ch.placeholder ? '<span class="t-todo">TODO — content to be added</span>' : '');
+        '<p class="t-text">' + escapeHtml(ch.text) + '</p>';
 
       function onActivate() {
         A.timelineCardClick(ch.id, ch.title);
@@ -104,13 +105,16 @@
 
     var raf = null;
     card.addEventListener('pointermove', function (e) {
+      if (e.pointerType !== 'mouse') return;
       var r = card.getBoundingClientRect();
       var px = (e.clientX - r.left) / r.width - 0.5;
       var py = (e.clientY - r.top) / r.height - 0.5;
       if (raf) cancelAnimationFrame(raf);
       raf = requestAnimationFrame(function () {
         card.style.transform =
-          'rotateY(' + (px * 14).toFixed(2) + 'deg) rotateX(' + (-py * 14).toFixed(2) + 'deg) translateZ(6px)';
+          'rotateY(' + (px * 7).toFixed(2) +
+          'deg) rotateX(' + (-py * 7).toFixed(2) +
+          'deg) translateZ(5px)';
       });
     });
     card.addEventListener('pointerleave', function () {
@@ -126,7 +130,11 @@
 
     var stops = chapters.filter(function (ch) { return ch.coords && ch.coords.length === 2; });
     if (!stops.length) {
-      el.innerHTML = '<p style="color:#a9b0d6;padding:20px">No map stops yet.</p>';
+      el.innerHTML =
+        '<p style="color:#a9b0d6;padding:20px">' +
+        'Professional location markers will appear here ' +
+        'as verified locations are added.' +
+        '</p>';
       return;
     }
 
@@ -147,6 +155,14 @@
       marker.bindPopup('<strong>' + escapeHtml(ch.title) + '</strong><br>' + escapeHtml(ch.mapLabel || ch.location));
       marker.on('click', function () {
         A.mapMarkerClick(ch.id, ch.mapLabel || ch.location);
+        var card = document.getElementById('chapter-' + ch.id);
+        if (card) {
+          card.scrollIntoView({
+            behavior: reduceMotion ? 'auto' : 'smooth',
+            inline: 'center',
+            block: 'nearest'
+          });
+        }
       });
       // Number the stops in journey order via a tooltip
       marker.bindTooltip(String(i + 1), { permanent: true, direction: 'top', offset: [0, -12], className: 'stop-tip' });
@@ -243,6 +259,60 @@
     }, { threshold: 0.35 });
 
     document.querySelectorAll('section[id]').forEach(function (s) { observer.observe(s); });
+
+    // Scroll-triggered editorial reveals
+    if (!reduceMotion && 'IntersectionObserver' in window) {
+      var revealObserver = new IntersectionObserver(
+        function (entries, observer) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        }
+      );
+      var revealTargets = document.querySelectorAll(
+        '#experience .info-card, ' +
+        '#skills .info-card, ' +
+        '#education .info-card, ' +
+        '.map-card, .path-card'
+      );
+      revealTargets.forEach(function (element) {
+        element.classList.add('reveal');
+        revealObserver.observe(element);
+      });
+    }
+
+    // Timeline progress indicator
+    var timeline = document.getElementById('timeline-track');
+    var progress = document.getElementById('timeline-progress-fill');
+    var progressBar = document.querySelector('.timeline-progress');
+    if (timeline && progress && progressBar) {
+      function updateTimelineProgress() {
+        var maxScroll =
+          timeline.scrollWidth - timeline.clientWidth;
+        var percentage = maxScroll > 0
+          ? (timeline.scrollLeft / maxScroll) * 100
+          : 100;
+        progress.style.width = percentage + '%';
+        progressBar.setAttribute(
+          'aria-valuenow',
+          String(Math.round(percentage))
+        );
+      }
+      timeline.addEventListener(
+        'scroll',
+        updateTimelineProgress,
+        { passive: true }
+      );
+      window.addEventListener('resize', updateTimelineProgress);
+      updateTimelineProgress();
+    }
 
     // Footer year
     var y = document.getElementById('year');
