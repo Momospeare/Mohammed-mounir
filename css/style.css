@@ -554,6 +554,28 @@ footer .wrap {
   }
 }
 
+/* ---------- Print: clean one-pager for interviews ---------- */
+@media print {
+  :root {
+    --bg: #fff; --bg-2: #fff; --bg-3: #f2f2f2;
+    --ink: #111; --muted: #444; --line: #bbb;
+  }
+  body { background: #fff; }
+  .nav, .skip-link, .timeline-progress, #journey, .hero .cta-row,
+  .contact-card, footer { display: none !important; }
+  section { padding: 18px 0; }
+  /* Timeline becomes a 2-column grid so all 8 cards print */
+  #timeline-track {
+    display: grid; grid-template-columns: 1fr 1fr;
+    overflow: visible; gap: 12px;
+  }
+  .t-scene { min-width: 0; }
+  .t-card { transform: none !important; }
+  /* Reveals must not hide content on paper */
+  .reveal { opacity: 1 !important; transform: none !important; }
+  a { color: #111; }
+}
+
 /* ---------- Motion preferences ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
