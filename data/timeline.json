@@ -1,1 +1,134 @@
-{"_comment":"TIMELINE CONTENT — professional chapters only. This file drives the timeline cards, the journey map markers, and the progression path. Personal-life chapters live in the private companion site (~/workspace/portfolio-private/), never here. To add a professional chapter, append an object. To swap a placeholder illustration for a real photo later, set \"photo\" to a path like \"assets/photos/my-photo.jpg\" — the card renderer picks it up automatically, no code changes needed.","_photo_howto":"Place photos in assets/photos/ (web-friendly: .jpg/.webp, < 300KB each). Then set the chapter's \"photo\" field. Captions go in \"photoCaption\".","chapters":[{"coords":null,"era":"2015","icon":"briefcase","id":"first-job","location":"Vaughan, ON","mapLabel":null,"photo":null,"photoCaption":null,"text":"Seasonal games sales associate at Canada's Wonderland — first job, bussed both ways all summer.","title":"First Job"},{"coords":null,"era":"2017–2020","icon":"briefcase","id":"early-roles","location":"GTA, ON","mapLabel":null,"photo":null,"photoCaption":null,"text":"Cook and delivery driver, Cineplex cast member, Staples technology sales, and Under Armour sales — learning customer service from the floor up.","title":"Early Retail & Service"},{"coords":null,"era":"2020–2025","icon":"briefcase","id":"asp","location":"Toronto, ON","mapLabel":null,"photo":null,"photoCaption":null,"text":"Field Security Manager at ASP Incorporated. Oversaw security contracts, event operations and teams of 50+ frontline personnel.","title":"Field Security Leadership"},{"coords":null,"era":"2023–2024","icon":"briefcase","id":"wlkn","location":"Barrie / GTA","mapLabel":null,"photo":null,"photoCaption":null,"text":"Store Manager and Interim District Manager at WLKN. Led store operations, hiring, training and multi-store coverage.","title":"Retail Operations Leadership"},{"coords":null,"era":"2025–Present","icon":"doc","id":"molex","location":"Bradford, ON (Remote)","mapLabel":null,"photo":null,"photoCaption":null,"text":"Co-founded a digital solutions business focused on web development, digital platforms and SaaS products.","title":"MOLEX Digital Solutions"},{"coords":null,"era":"2025","icon":"doc","id":"sparky","location":"Brantford, ON (Remote)","mapLabel":null,"photo":null,"photoCaption":null,"text":"Designed and maintained a business website, including print-friendly service menus and online booking.","title":"SparkyLube Client Internship"},{"coords":null,"era":"2026–Present","icon":"briefcase","id":"loblaw","location":"New Tecumseth, ON","mapLabel":null,"photo":null,"photoCaption":null,"text":"Asset Protection Representative at Loblaw Companies Ltd. Focused on investigations, loss prevention, evidence development and operational risk.","title":"Asset Protection"},{"coords":null,"era":"Current Studies","icon":"doc","id":"seneca","location":"Seneca","mapLabel":null,"photo":null,"photoCaption":null,"text":"Developing software development and programming skills through post-secondary studies.","title":"Computer Programming & Analysis"}]}
+{
+  "_comment": "TIMELINE CONTENT — professional chapters only. This file drives the timeline cards, the journey map markers, and the progression path. Personal-life chapters live in the private companion site (~/workspace/portfolio-private/), never here. To add a professional chapter, append an object. To swap a placeholder illustration for a real photo later, set \"photo\" to a path like \"assets/photos/my-photo.jpg\" — the card renderer picks it up automatically, no code changes needed.",
+  "_photo_howto": "Place photos in assets/photos/ (web-friendly: .jpg/.webp, < 300KB each). Then set the chapter's \"photo\" field. Captions go in \"photoCaption\".",
+  "chapters": [
+    {
+      "coords": [
+        43.85664,
+        -79.50701
+      ],
+      "era": "2015",
+      "icon": "briefcase",
+      "id": "first-job",
+      "location": "Vaughan, ON",
+      "mapLabel": "Vaughan, ON — Canada's Wonderland",
+      "photo": null,
+      "photoCaption": null,
+      "text": "Seasonal games sales associate at Canada's Wonderland — first job, bussed both ways all summer.",
+      "title": "First Job",
+      "pathLabel": "2015"
+    },
+    {
+      "coords": [
+        44.04029,
+        -79.45792
+      ],
+      "era": "2017–2020",
+      "icon": "briefcase",
+      "id": "early-roles",
+      "location": "GTA, ON",
+      "mapLabel": "Newmarket & Innisfil, ON — Cineplex, Staples, Gino's, Under Armour",
+      "photo": null,
+      "photoCaption": null,
+      "text": "Cook and delivery driver, Cineplex cast member, Staples technology sales, and Under Armour sales — learning customer service from the floor up.",
+      "title": "Early Retail & Service",
+      "pathLabel": "2017–20"
+    },
+    {
+      "coords": [
+        43.64869,
+        -79.38544
+      ],
+      "era": "2020–2025",
+      "icon": "briefcase",
+      "id": "asp",
+      "location": "Toronto, ON",
+      "mapLabel": "Toronto, ON — ASP Incorporated",
+      "photo": null,
+      "photoCaption": null,
+      "text": "Field Security Manager at ASP Incorporated. Oversaw security contracts, event operations and teams of 50+ frontline personnel.",
+      "title": "Field Security Leadership",
+      "pathLabel": "2020–25"
+    },
+    {
+      "coords": [
+        44.3893,
+        -79.68626
+      ],
+      "era": "2023–2024",
+      "icon": "briefcase",
+      "id": "wlkn",
+      "location": "Barrie / GTA",
+      "mapLabel": "Barrie, ON — WLKN, Georgian Mall",
+      "photo": null,
+      "photoCaption": null,
+      "text": "Store Manager and Interim District Manager at WLKN. Led store operations, hiring, training and multi-store coverage.",
+      "title": "Retail Operations Leadership",
+      "pathLabel": "2023–24"
+    },
+    {
+      "coords": [
+        44.11474,
+        -79.56283
+      ],
+      "era": "2025–Present",
+      "icon": "doc",
+      "id": "molex",
+      "location": "Bradford, ON (Remote)",
+      "mapLabel": "Bradford, ON — MOLEX (remote)",
+      "photo": null,
+      "photoCaption": null,
+      "text": "Co-founded a digital solutions business focused on web development, digital platforms and SaaS products.",
+      "title": "MOLEX Digital Solutions",
+      "pathLabel": "2025–"
+    },
+    {
+      "coords": [
+        43.14138,
+        -80.26132
+      ],
+      "era": "2025",
+      "icon": "doc",
+      "id": "sparky",
+      "location": "Brantford, ON (Remote)",
+      "mapLabel": "Brantford, ON — SparkyLube (remote)",
+      "photo": null,
+      "photoCaption": null,
+      "text": "Designed and maintained a business website, including print-friendly service menus and online booking.",
+      "title": "SparkyLube Client Internship",
+      "pathLabel": "2025"
+    },
+    {
+      "coords": [
+        44.15428,
+        -79.86769
+      ],
+      "era": "2026–Present",
+      "icon": "briefcase",
+      "id": "loblaw",
+      "location": "New Tecumseth, ON",
+      "mapLabel": "New Tecumseth, ON — Loblaw",
+      "photo": null,
+      "photoCaption": null,
+      "text": "Asset Protection Representative at Loblaw Companies Ltd. Focused on investigations, loss prevention, evidence development and operational risk.",
+      "title": "Asset Protection",
+      "pathLabel": "2026–"
+    },
+    {
+      "coords": [
+        43.79545,
+        -79.34991
+      ],
+      "era": "Current Studies",
+      "icon": "doc",
+      "id": "seneca",
+      "location": "Seneca",
+      "mapLabel": "Toronto, ON — Seneca Polytechnic, Newnham Campus",
+      "photo": null,
+      "photoCaption": null,
+      "text": "Developing software development and programming skills through post-secondary studies.",
+      "title": "Computer Programming & Analysis",
+      "pathLabel": "Now"
+    }
+  ]
+}

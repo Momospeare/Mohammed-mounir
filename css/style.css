@@ -417,7 +417,7 @@ section[id] {
 .pp-node:hover circle, .pp-node:focus circle { fill: var(--cyan); }
 .pp-node text {
   fill: var(--muted);
-  font-size: 10px;
+  font-size: 13px;
   text-anchor: middle;
 }
 .pp-node.is-placeholder circle { stroke: var(--pink); stroke-dasharray: 4 3; }
@@ -444,7 +444,8 @@ section[id] {
 .info-card ul { margin: 8px 0 0; padding-left: 18px; }
 
 /* ---------- Contact ---------- */
-#contact { text-align: left; }
+#education { padding-bottom: 56px; }
+#contact { text-align: left; padding-top: 40px; }
 
 .contact-card {
   background: linear-gradient(140deg, rgba(255, 46, 136, 0.12), rgba(46, 230, 255, 0.10)), var(--bg-2);

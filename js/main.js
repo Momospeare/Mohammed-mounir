@@ -220,7 +220,8 @@
 
       var t = document.createElementNS(NS, 'text');
       t.setAttribute('x', x); t.setAttribute('y', y + 30);
-      t.textContent = ch.era.length > 14 ? ch.era.slice(0, 13) + '…' : ch.era;
+      // Short path labels (timeline.json "pathLabel") so nothing truncates.
+      t.textContent = ch.pathLabel || (ch.era.length > 14 ? ch.era.slice(0, 13) + '…' : ch.era);
       g.appendChild(t);
 
       function go() {
