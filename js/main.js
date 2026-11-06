@@ -149,6 +149,23 @@
     }).addTo(map);
 
     var latlngs = [];
+    // Cluster the markers: the GTA stops sit within ~50 km, so at the
+    // default zoom they would overlap. A cluster shows the count and
+    // splits apart as the visitor zooms in.
+    var cluster = (typeof L.markerClusterGroup === 'function')
+      ? L.markerClusterGroup({
+          showCoverageOnHover: false,
+          maxClusterRadius: 48,
+          iconCreateFunction: function (c) {
+            return L.divIcon({
+              html: '<span>' + c.getChildCount() + '</span>',
+              className: 'marker-cluster',
+              iconSize: [36, 36]
+            });
+          }
+        })
+      : null;
+    if (cluster) map.addLayer(cluster);
     stops.forEach(function (ch, i) {
       latlngs.push(ch.coords);
       // Number baked into the pin itself — no floating tooltips to collide
@@ -160,7 +177,8 @@
           iconSize: [30, 30],
           iconAnchor: [15, 15]
         })
-      }).addTo(map);
+      });
+      if (cluster) cluster.addLayer(marker); else marker.addTo(map);
       marker.bindPopup('<strong>' + escapeHtml(ch.title) + '</strong><br>' + escapeHtml(ch.mapLabel || ch.location));
       marker.on('click', function () {
         A.mapMarkerClick(ch.id, ch.mapLabel || ch.location);
@@ -224,8 +242,15 @@
       g.setAttribute('aria-label', 'Go to chapter: ' + ch.title);
 
       var c = document.createElementNS(NS, 'circle');
-      c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', 11);
+      c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', 14);
       g.appendChild(c);
+
+      // Invisible hit area: the visible dot is small on phones, so the
+      // tappable target is much larger than what you see.
+      var hit = document.createElementNS(NS, 'circle');
+      hit.setAttribute('cx', x); hit.setAttribute('cy', y); hit.setAttribute('r', 30);
+      hit.setAttribute('fill', '#000'); hit.setAttribute('fill-opacity', '0');
+      g.insertBefore(hit, c);
 
       var t = document.createElementNS(NS, 'text');
       t.setAttribute('x', x); t.setAttribute('y', y + 34);
@@ -249,6 +274,15 @@
 
   /* ---------- Section views + hero CTAs ---------- */
   document.addEventListener('DOMContentLoaded', function () {
+    // Drop the nav's scroll-fade cue once the visitor reaches its end
+    var navLinks = document.querySelector('.nav-links');
+    if (navLinks) {
+      navLinks.addEventListener('scroll', function () {
+        var atEnd = navLinks.scrollLeft + navLinks.clientWidth >= navLinks.scrollWidth - 4;
+        navLinks.classList.toggle('at-end', atEnd);
+      }, { passive: true });
+    }
+
     // Hero CTA tracking (elements carry data-track-cta attributes)
     document.querySelectorAll('[data-track-cta]').forEach(function (el) {
       el.addEventListener('click', function () {

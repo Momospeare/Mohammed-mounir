@@ -138,6 +138,14 @@ section { padding: 88px 0; }
     overflow-x: auto;
     padding: 0 0 12px;
     scrollbar-width: thin;
+    /* Right-edge fade: signals the nav scrolls. Removed by JS once the
+       visitor reaches the end (see .at-end below). */
+    -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent 100%);
+    mask-image: linear-gradient(90deg, #000 88%, transparent 100%);
+  }
+  .nav-links.at-end {
+    -webkit-mask-image: none;
+    mask-image: none;
   }
   .nav-links li {
     flex: 0 0 auto;
@@ -145,7 +153,12 @@ section { padding: 88px 0; }
   .nav-links a {
     white-space: nowrap;
     font-size: 0.85rem;
+    padding: 12px 2px;
   }
+  /* Progression path keeps a readable minimum width and scrolls sideways
+     instead of shrinking the dots and labels below tap/read size. */
+  .path-card { overflow-x: auto; }
+  #progress-path { min-width: 620px; }
 }
 
 /* ---------- Accessibility ---------- */
@@ -419,6 +432,24 @@ section[id] {
   box-shadow: 0 0 0 2px rgba(46, 230, 255, 0.35);
 }
 
+/* Cluster badge: same theme treatment, shows the stop count */
+.marker-cluster { background: none; border: none; }
+.marker-cluster span {
+  display: flex; align-items: center; justify-content: center;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(140deg, var(--pink), var(--cyan));
+  color: #0a0c16; font-weight: 700; font-size: 15px;
+  border: 2px solid #0a0c16;
+  box-shadow: 0 0 0 2px rgba(255, 46, 136, 0.4);
+}
+
+/* Attribution readable on dark tiles */
+.leaflet-control-attribution {
+  background: rgba(10, 12, 22, 0.85) !important;
+  color: var(--muted);
+  padding: 2px 6px;
+}
+
 .pp-node { cursor: pointer; }
 .pp-node circle {
   fill: var(--bg-3);
@@ -429,7 +460,7 @@ section[id] {
 .pp-node:hover circle, .pp-node:focus circle { fill: var(--cyan); }
 .pp-node text {
   fill: #d5d9f0;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   text-anchor: middle;
 }
