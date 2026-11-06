@@ -37,8 +37,9 @@ portfolio/
 
 - **Hero** — "Security experience. Technology in progress."
 - **Interactive timeline** — horizontal scroll-snap track, one 3D-tilt card per professional chapter from `data/timeline.json`. Hover tilts (pointer devices only, honors `prefers-reduced-motion`); click/keyboard centers the card. Progress bar underneath.
-- **Journey map** — Leaflet geographic map + SVG progression path. Markers appear only for chapters with verified professional coordinates (currently none — the map shows a deliberate fallback message). Clicking a node or marker jumps to its card.
+- **Journey map** — Leaflet geographic map (Esri dark tiles) + SVG progression path. City-level markers for all 8 professional chapters; clicking a node or marker jumps to its card.
 - **Experience** — full work history from the master resume and LinkedIn.
+- **Projects** — MOLEX, SparkyLube, True Shield Security — shipped client work with measured results.
 - **Skills & certifications** — from the master resume and skills tracker.
 - **Highlights & awards** — OSPA, Lifesaver Awards, CEO Award, WLKN, Cineplex.
 - **Hobbies** — Momospeare motovlog, track days, gaming, RC planes.

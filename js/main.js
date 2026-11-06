@@ -288,6 +288,7 @@
       );
       var revealTargets = document.querySelectorAll(
         '#experience .info-card, ' +
+        '#projects .info-card, ' +
         '#skills .info-card, ' +
         '#education .info-card, ' +
         '.map-card, .path-card'
