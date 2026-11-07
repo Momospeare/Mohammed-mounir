@@ -1,6 +1,6 @@
 # Mohammed Mounir — Professional Portfolio
 
-Live: **https://momospeare.github.io/Mohammed-mounir/**
+Live: **https://mohammedmounir.ca/**
 
 GitHub Pages-compatible **static** site. No build step, no framework — vanilla HTML/CSS/JS plus Leaflet (map) via CDN.
 
