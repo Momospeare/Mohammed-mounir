@@ -604,6 +604,22 @@ footer .wrap {
   white-space: nowrap;
 }
 
+/* ---------- Testimonials ---------- */
+.testimonial { margin: 0; }
+.testimonial p { font-size: 1.02rem; }
+.testimonial footer { margin-top: 14px; color: var(--muted); font-size: 0.9rem; }
+.testimonial footer strong { color: var(--ink); }
+
+/* ---------- Case study pages ---------- */
+.case { max-width: 720px; }
+.case h2 { margin-top: 36px; }
+.case .result {
+  border-left: 3px solid var(--cyan);
+  padding: 4px 0 4px 16px;
+  font-size: 1.1rem;
+}
+.case .back-link { margin-top: 40px; }
+
 /* ---------- Memo chatbot (scripted sidekick) ----------
    Client-side only: canned answers, nothing leaves the browser. */
 .memo-widget {
