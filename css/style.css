@@ -565,7 +565,7 @@ footer .wrap {
   }
   body { background: #fff; }
   .nav, .skip-link, .timeline-progress, #journey, .hero .cta-row,
-  .contact-card, footer, .memo-widget { display: none !important; }
+  .contact-card, footer, .memo-widget, .to-top { display: none !important; }
   section { padding: 18px 0; }
   /* Timeline becomes a 2-column grid so all 8 cards print */
   #timeline-track {
@@ -751,3 +751,49 @@ footer .wrap {
   font-size: 0.9rem;
   cursor: pointer;
 }
+
+/* ---------- About ---------- */
+#about { padding-bottom: 40px; }
+.about-copy { max-width: 720px; }
+.about-copy p { color: var(--muted); font-size: 1.05rem; }
+.about-copy p strong { color: var(--ink); }
+
+/* ---------- By the numbers ---------- */
+#numbers { padding-top: 40px; }
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+}
+.stat {
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+}
+.stat-num { font-size: 2rem; font-weight: 800; color: var(--cyan); margin: 0 0 4px; }
+.stat-label { color: var(--muted); font-size: 0.9rem; margin: 0; }
+
+/* ---------- Back to top ---------- */
+.to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 88px; /* clears the Memo toggle below it */
+  z-index: 190;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(46, 230, 255, 0.45);
+  background: var(--bg-3);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.to-top.is-visible { opacity: 1; pointer-events: auto; }
+.to-top:hover { border-color: var(--cyan); }

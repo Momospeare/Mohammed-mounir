@@ -23,6 +23,10 @@
       reply: 'I\'m Memo — mini-Momo. I answer from a script, not live AI. Think of me as the tour guide. The real Momo is on LinkedIn.'
     },
     {
+      keys: ['who is momo', 'tell me about momo', 'about momo', 'about him'],
+      reply: 'Momo\'s a security pro turned builder — asset protection at Loblaw, MOLEX co-founder, Seneca CPA student aiming at cyber security and auxiliary policing. The About section up top tells it properly.'
+    },
+    {
       keys: ['hello', 'hi', 'hey', 'yo', 'good morning', 'good afternoon', 'good evening'],
       reply: 'Hey. I\'m Memo. Ask me what Momo does, his experience, skills, or projects — or how to reach him.'
     },

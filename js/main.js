@@ -362,6 +362,17 @@
     // Footer year
     var y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();
+
+    // Back-to-top button
+    var toTop = document.getElementById('to-top');
+    if (toTop) {
+      window.addEventListener('scroll', function () {
+        toTop.classList.toggle('is-visible', window.scrollY > 600);
+      }, { passive: true });
+      toTop.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+    }
   });
 
   /* ---------- Tiny HTML escapers (timeline.json is local, but be safe) ---------- */
