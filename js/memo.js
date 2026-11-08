@@ -24,7 +24,7 @@
     },
     {
       keys: ['who is momo', 'tell me about momo', 'about momo', 'about him'],
-      reply: 'Momo\'s a security pro turned builder — asset protection at Loblaw, MOLEX co-founder, Seneca CPA student building digital solutions, and working toward policing — auxiliary and crime intelligence. The About section up top tells it properly.'
+      reply: 'Asset protection at Loblaw — investigations, evidence packages, organized retail crime. Co-founder of MOLEX, a digital solutions business. Seneca CPA student, working toward policing — auxiliary and crime intelligence. The About section has the details.'
     },
     {
       keys: ['hello', 'hi', 'hey', 'yo', 'good morning', 'good afternoon', 'good evening'],
@@ -32,7 +32,7 @@
     },
     {
       keys: ['what does momo do', 'what do you do', 'job', 'work', 'career', 'profession', 'occupation'],
-      reply: 'Asset Protection Rep at Loblaw, and co-founder of MOLEX — a digital-operations business. Security by trade, digital solutions through MOLEX.'
+      reply: 'Asset Protection Rep at Loblaw, and co-founder of MOLEX — a digital solutions business. Security by trade, digital solutions through MOLEX.'
     },
     {
       keys: ['experience', 'timeline', 'history', 'background', 'worked', 'jobs'],
@@ -40,7 +40,7 @@
     },
     {
       keys: ['skill', 'certification', 'cert', 'qualified', 'licence', 'license'],
-      reply: 'OSINT, GA4, MLEO (renewed Aug 2026), behavior detection, use of force, First Aid / CPR-C, Naloxone. Plus Python, Java, SQL, JavaScript. Full list under Skills &amp; certifications.'
+      reply: 'OSINT, GA4, MLEO (renewed Aug 2026), behavior detection, use of force, First Aid / CPR-C, Naloxone. CFI candidate in progress (Wicklander-Zulawski). Plus Python, Java, SQL, JavaScript. Full list under Skills &amp; certifications.'
     },
     {
       keys: ['project', 'molex', 'sparkylube', 'true shield', 'built', 'website'],
@@ -48,15 +48,15 @@
     },
     {
       keys: ['education', 'school', 'seneca', 'study', 'degree', 'diploma', 'college'],
-      reply: 'Computer Programming &amp; Analysis at Seneca, after Police Foundations with distinction. Direction: digital solutions and policing.'
+      reply: 'Computer Programming &amp; Analysis at Seneca (Jan 2024 – present), after Police Foundations with distinction. Direction: digital solutions and policing — crime intelligence. He was invited to complete Seneca\'s Honours Bachelor of Crime &amp; Intelligence Analysis.'
     },
     {
       keys: ['award', 'ospa', 'lifesaver', 'highlight', 'recognition', 'achievement'],
-      reply: 'OSPA Outstanding Young Security Professional 2025, Canadian Security Lifesaver Award twice — 2023 fire-truck rescue, 2022 TTC bus rescue. Full list under Highlights.'
+      reply: 'OSPA Outstanding Young Security Professional 2025, Canadian Security Lifesaver Award twice — August 2023 fire-truck rescue at Kipling &amp; Stevenson, October 2022 TTC bus rescue. Full list under Highlights.'
     },
     {
       keys: ['police', 'opp', 'cop', 'constable', 'auxiliary'],
-      reply: 'Police Foundations grad, OACP certificate done. Working toward auxiliary policing — OPP and South Simcoe.'
+      reply: 'Police Foundations grad, OACP certificate done. Working toward auxiliary policing — OPP and South Simcoe. Crime intelligence analyst is the long game: finish CPA first, then the degree path.'
     },
     {
       keys: ['contact', 'hire', 'email', 'reach', 'resume', 'cv', 'talk to momo'],
