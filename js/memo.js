@@ -63,12 +63,12 @@
       reply: 'LinkedIn\'s the way in — <a href="' + LINKEDIN + '" target="_blank" rel="noopener noreferrer">connect with Momo there</a>, or request the resume from the Contact section.'
     },
     {
-      keys: ['bike', 'motorcycle', 'motovlog', 'momospeare', 'ride', 'mt-07', 'ninja', 'alex'],
-      reply: 'Yamaha MT-07, duo motovlog with Alex on the Ninja 300. Destination rides, garage stuff, gaming. Channel\'s Momospeare.'
+      keys: ['bike', 'motorcycle', 'motovlog', 'momospeare', 'ride', 'mt-07', 'ninja', 'alex', 'youtube', 'stream', 'twitch', 'discord'],
+      reply: 'Yamaha MT-07, duo motovlog with Alex on the Ninja 300. Destination rides, garage stuff, gaming. There\'s a whole page for it: <a href="/momospeare.html">Momospeare</a> — streams are on <a href="https://www.twitch.tv/momospeare" target="_blank" rel="noopener noreferrer">Twitch</a> and <a href="https://www.youtube.com/@Momospeare" target="_blank" rel="noopener noreferrer">YouTube</a>.'
     },
     {
       keys: ['gta', 'gaming', 'cod', 'call of duty', 'fortnite', 'minecraft', 'game'],
-      reply: 'COD, GTA, Minecraft, Fortnite. Currently running a full GTA series marathon up to the GTA 6 launch.'
+      reply: 'COD, GTA, Minecraft, Fortnite. Currently running a full GTA series marathon up to the GTA 6 launch — schedule\'s on the <a href="/momospeare.html">Momospeare page</a>.'
     },
     {
       keys: ['thank', 'thanks', 'thx'],
