@@ -497,6 +497,27 @@ section[id] {
 .info-card p, .info-card li { color: var(--muted); font-size: 0.93rem; }
 .info-card ul { margin: 8px 0 0; padding-left: 18px; }
 
+/* ---------- Choose your path (four doors) ---------- */
+.door-card {
+  display: block;
+  text-decoration: none;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.door-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+}
+.door-card h3 { color: var(--ink); }
+.door-card .door-proof {
+  margin-top: 12px;
+  color: var(--cyan);
+  font-weight: 600;
+}
+@media (prefers-reduced-motion: reduce) {
+  .door-card { transition: none; }
+  .door-card:hover { transform: none; }
+}
+
 /* ---------- Contact ---------- */
 #education { padding-bottom: 56px; }
 #contact { text-align: left; padding-top: 40px; }
