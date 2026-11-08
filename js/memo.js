@@ -40,7 +40,7 @@
     },
     {
       keys: ['skill', 'certification', 'cert', 'qualified', 'licence', 'license'],
-      reply: 'OSINT, GA4, MLEO (renewed Aug 2026), behavior detection, use of force, First Aid / CPR-C, Naloxone. CFI candidate in progress (Wicklander-Zulawski). Plus Python, Java, SQL, JavaScript. Full list under Skills &amp; certifications.'
+      reply: 'OSINT, GA4, MLEO (renewed Aug 2026), behavior detection, use of force, First Aid / CPR-C, Naloxone. Plus Python, Java, SQL, JavaScript. Full list under Skills &amp; certifications.'
     },
     {
       keys: ['project', 'molex', 'sparkylube', 'true shield', 'built', 'website'],
