@@ -782,6 +782,10 @@ footer .wrap {
   z-index: 190;
   width: 48px;
   height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   border-radius: 50%;
   border: 1px solid rgba(46, 230, 255, 0.45);
   background: var(--bg-3);

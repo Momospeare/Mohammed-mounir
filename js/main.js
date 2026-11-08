@@ -369,7 +369,8 @@
       window.addEventListener('scroll', function () {
         toTop.classList.toggle('is-visible', window.scrollY > 600);
       }, { passive: true });
-      toTop.addEventListener('click', function () {
+      toTop.addEventListener('click', function (e) {
+        e.preventDefault();
         window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
       });
     }
