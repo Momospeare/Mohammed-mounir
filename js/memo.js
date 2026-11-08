@@ -24,7 +24,7 @@
     },
     {
       keys: ['who is momo', 'tell me about momo', 'about momo', 'about him'],
-      reply: 'Momo\'s a security pro turned builder — asset protection at Loblaw, MOLEX co-founder, Seneca CPA student aiming at cyber security and auxiliary policing. The About section up top tells it properly.'
+      reply: 'Momo\'s a security pro turned builder — asset protection at Loblaw, MOLEX co-founder, Seneca CPA student building digital solutions, and working toward policing — auxiliary and crime intelligence. The About section up top tells it properly.'
     },
     {
       keys: ['hello', 'hi', 'hey', 'yo', 'good morning', 'good afternoon', 'good evening'],
@@ -32,7 +32,7 @@
     },
     {
       keys: ['what does momo do', 'what do you do', 'job', 'work', 'career', 'profession', 'occupation'],
-      reply: 'Asset Protection Rep at Loblaw, and co-founder of MOLEX — a digital-operations business. Security by trade, software in progress.'
+      reply: 'Asset Protection Rep at Loblaw, and co-founder of MOLEX — a digital-operations business. Security by trade, digital solutions through MOLEX.'
     },
     {
       keys: ['experience', 'timeline', 'history', 'background', 'worked', 'jobs'],
@@ -48,7 +48,7 @@
     },
     {
       keys: ['education', 'school', 'seneca', 'study', 'degree', 'diploma', 'college'],
-      reply: 'Computer Programming &amp; Analysis at Seneca (Jan 2024 – May 2027), after Police Foundations with distinction. Goal: cyber security specialist.'
+      reply: 'Computer Programming &amp; Analysis at Seneca, after Police Foundations with distinction. Direction: digital solutions and policing.'
     },
     {
       keys: ['award', 'ospa', 'lifesaver', 'highlight', 'recognition', 'achievement'],
