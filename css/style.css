@@ -50,6 +50,13 @@ img { max-width: 100%; display: block; }
 
 a { color: var(--cyan); }
 
+/* Body links are underlined, not color alone (WCAG 1.4.1).
+   Nav, brand and buttons keep their own styling. */
+main a:not(.btn), footer a, .memo-msg a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* ---------- Layout helpers ---------- */
 .wrap {
   max-width: var(--max-w);

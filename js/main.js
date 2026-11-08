@@ -179,6 +179,11 @@
         })
       });
       if (cluster) cluster.addLayer(marker); else marker.addTo(map);
+      // Screen readers announce bare pin numbers without this.
+      marker.on('add', function () {
+        var el = marker.getElement();
+        if (el) el.setAttribute('aria-label', ch.title + ' — ' + (ch.mapLabel || ch.location));
+      });
       marker.bindPopup('<strong>' + escapeHtml(ch.title) + '</strong><br>' + escapeHtml(ch.mapLabel || ch.location));
       marker.on('click', function () {
         A.mapMarkerClick(ch.id, ch.mapLabel || ch.location);
