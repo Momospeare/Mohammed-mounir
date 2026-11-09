@@ -142,11 +142,30 @@
     map.on('focus', function () { map.scrollWheelZoom.enable(); });
     map.on('blur', function () { map.scrollWheelZoom.disable(); });
 
-    // Dark basemap to match the neon theme (Esri World Dark Gray — key-free).
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+    // Basemap follows the time-based theme: dark canvas at night, light
+    // canvas 7am–7pm Toronto time (js/theme.js flips data-theme and fires
+    // "themechange"; the listener below swaps tiles without rebuilding
+    // the map). Both are the same Esri Canvas service, key-free.
+    var TILE_URLS = {
+      dark: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}',
+      light: 'https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}'
+    };
+    function tileUrl() {
+      return document.documentElement.getAttribute('data-theme') === 'light'
+        ? TILE_URLS.light
+        : TILE_URLS.dark;
+    }
+    var tileLayer = L.tileLayer(tileUrl(), {
       attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors, and the GIS user community',
       maxZoom: 16
     }).addTo(map);
+    window.addEventListener('themechange', function () {
+      map.removeLayer(tileLayer);
+      tileLayer = L.tileLayer(tileUrl(), {
+        attribution: 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, OpenStreetMap contributors, and the GIS user community',
+        maxZoom: 16
+      }).addTo(map);
+    });
 
     var latlngs = [];
     // Cluster the markers: the GTA stops sit within ~50 km, so at the
@@ -371,9 +390,11 @@
     // Back-to-top button
     var toTop = document.getElementById('to-top');
     if (toTop) {
-      window.addEventListener('scroll', function () {
+      var updateToTop = function () {
         toTop.classList.toggle('is-visible', window.scrollY > 600);
-      }, { passive: true });
+      };
+      window.addEventListener('scroll', updateToTop, { passive: true });
+      updateToTop(); // page can load already scrolled (deep link / restored position)
       toTop.addEventListener('click', function (e) {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });

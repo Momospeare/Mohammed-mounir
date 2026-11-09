@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M9WRWPDF');</script>
+<!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mohammed Mounir — Links</title>
+  <meta
+    name="description"
+    content="All of Mohammed Mounir's links in one place: portfolio, live on Twitch as Momospeare, YouTube, and the MOLEX waitlist."
+  >
+  <meta name="author" content="Mohammed Mounir">
+  <!-- Gateway page: a router, not a page to rank — keep it out of search results. -->
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#0d0f1c">
+  <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+  <link rel="canonical" href="https://mohammedmounir.ca/links">
+  <!-- Open Graph (so link previews in iMessage/WhatsApp/Discord look right) -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:title" content="Mohammed Mounir — Links">
+  <meta
+    property="og:description"
+    content="Portfolio, live on Twitch, YouTube, and the MOLEX waitlist — all in one place."
+  >
+  <meta property="og:url" content="https://mohammedmounir.ca/links">
+  <meta property="og:image" content="https://mohammedmounir.ca/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://mohammedmounir.ca/assets/og-image.jpg">
+  <meta name="twitter:title" content="Mohammed Mounir — Links">
+  <meta
+    name="twitter:description"
+    content="Portfolio, live on Twitch, YouTube, and the MOLEX waitlist — all in one place."
+  >
+  <!-- Time-based theme (Toronto time): runs before the stylesheet
+       so the first paint is already the right theme. -->
+  <script src="../js/theme.js"></script>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Gateway-only layout. Theme tokens come from ../css/style.css. */
+    .links-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 32px;
+    }
+    .links-col { width: 100%; max-width: 560px; text-align: center; }
+    .links-avatar {
+      width: 96px; height: 96px; margin: 0 auto 16px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; font-weight: 800; color: #fff;
+      background: linear-gradient(135deg, var(--pink-btn), var(--purple));
+      box-shadow: 0 8px 32px rgba(255, 46, 136, 0.35);
+    }
+    img.links-avatar { object-fit: cover; }
+    .links-name { font-size: 1.5rem; margin: 0 0 6px; }
+    .links-bio { color: var(--muted); margin: 0 0 18px; font-size: 0.98rem; }
+    .links-share {
+      background: none; border: 1px solid var(--line); color: var(--muted);
+      border-radius: 999px; padding: 8px 16px; font-size: 0.85rem;
+      cursor: pointer; margin-bottom: 20px;
+    }
+    .links-share:hover { color: var(--ink); border-color: rgba(255,255,255,0.3); }
+    .links-socials { display: flex; gap: 10px; justify-content: center; margin-bottom: 24px; }
+    .links-socials a {
+      color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600;
+      border: 1px solid var(--line); border-radius: 999px; padding: 8px 18px;
+    }
+    .links-socials a:hover { color: var(--ink); border-color: rgba(255,255,255,0.3); }
+    .links-doors { display: flex; flex-direction: column; gap: 14px; text-align: left; }
+    .door {
+      display: block; text-decoration: none; color: var(--ink);
+      background: var(--bg-2); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 18px 20px; min-height: 48px;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .door:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.25); }
+    .door-label { display: block; font-weight: 700; font-size: 1.05rem; margin-bottom: 4px; }
+    .door-sub { display: block; color: var(--muted); font-size: 0.9rem; line-height: 1.45; }
+    .door-primary { background: var(--pink-btn); border-color: transparent; box-shadow: 0 6px 28px rgba(255, 46, 136, 0.45); }
+    .door-primary .door-sub { color: rgba(255, 255, 255, 0.85); }
+    .door-coming { opacity: 0.75; border-style: dashed; background: transparent; cursor: pointer; }
+    .pill {
+      display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em;
+      border: 1px solid currentColor; border-radius: 999px; padding: 2px 8px;
+      margin-left: 8px; vertical-align: middle; text-transform: uppercase;
+    }
+    .waitlist { display: none; margin-top: 14px; }
+    .waitlist.open { display: block; }
+    .waitlist form { display: flex; gap: 10px; flex-wrap: wrap; }
+    .waitlist input[type="email"] {
+      flex: 1; min-width: 200px; padding: 12px 16px; border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08);
+      color: var(--ink); font-size: 0.95rem; font-family: var(--font);
+    }
+    .waitlist input[type="email"]::placeholder { color: var(--muted); }
+    .waitlist button {
+      padding: 12px 22px; border-radius: 999px; border: none; cursor: pointer;
+      background: var(--pink-btn); color: #fff; font-weight: 700; font-size: 0.95rem;
+    }
+    .waitlist-note { color: var(--muted); font-size: 0.85rem; margin: 10px 0 0; }
+    .waitlist-note a { color: var(--ink); }
+    .waitlist-success { display: none; color: var(--ink); font-size: 0.95rem; margin: 10px 0 0; }
+    .waitlist-success a { color: var(--ink); }
+    .links-proof {
+      color: var(--muted); font-size: 0.88rem; margin: 28px 0 0; line-height: 1.6;
+    }
+    .links-footer { color: var(--muted); font-size: 0.85rem; margin: 28px 0 0; }
+    .links-footer a { color: var(--ink); }
+    /* NOTE (v2): no live-Twitch badge yet. A static GitHub Pages page cannot check
+       Twitch live status securely — that needs a small serverless proxy (Cloudflare
+       Worker / Netlify function) calling the Twitch Helix API. Until then the Live
+       door is static and shows no LIVE pill; never fake one. */
+  </style>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9WRWPDF"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <main class="links-page">
+    <div class="links-col">
+      <!-- Headshot: golf-day selfie, Jun 11, 2026, from Mohammed's Google Photos library.
+           Replaces the "MM" monogram placeholder. -->
+      <img class="links-avatar" src="../assets/photos/headshot-golf-selfie.jpg" alt="Mohammed Mounir smiling in a light blue polo, sitting in a golf cart" width="1600" height="900">
+      <h1 class="links-name">Mohammed Mounir</h1>
+      <p class="links-bio">Asset protection @ Loblaw &middot; Streamer Momospeare &middot; Co-founder MOLEX</p>
+
+      <button class="links-share" id="share-btn" type="button">Share this page</button>
+
+      <div class="links-socials">
+        <a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/Momospeare/Mohammed-mounir" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+
+      <div class="links-doors">
+        <a class="door door-primary" href="https://mohammedmounir.ca/">
+          <span class="door-label">Explore my portfolio</span>
+          <span class="door-sub">Asset protection, investigations &amp; MOLEX builds &mdash; 244 reports, zero rejections.</span>
+        </a>
+
+        <a class="door" href="https://www.twitch.tv/momospeare?utm_source=links&amp;utm_medium=bio&amp;utm_campaign=live" target="_blank" rel="noopener noreferrer">
+          <span class="door-label">Watch me live on Twitch</span>
+          <span class="door-sub">Momospeare &mdash; Call of Duty on PC, live on Twitch.</span>
+        </a>
+
+        <a class="door" href="https://www.youtube.com/@Momospeare?utm_source=links&amp;utm_medium=bio&amp;utm_campaign=content" target="_blank" rel="noopener noreferrer">
+          <span class="door-label">Watch on YouTube</span>
+          <span class="door-sub">Momospeare &mdash; gaming, motovlog &amp; the GTA series marathon.</span>
+        </a>
+
+        <a class="door door-coming" href="#molex-waitlist" id="molex-door" aria-expanded="false" aria-controls="molex-waitlist">
+          <span class="door-label">MOLEX &mdash; Join the waitlist<span class="pill">Coming soon</span></span>
+          <span class="door-sub">Digital solutions for small business &mdash; coming soon. Be first to know.</span>
+        </a>
+      </div>
+
+      <div class="waitlist" id="molex-waitlist">
+        <form action="mailto:business@mohammedmounir.ca?subject=MOLEX%20waitlist" method="post" enctype="text/plain" id="waitlist-form">
+          <label class="visually-hidden" for="waitlist-email">Email address</label>
+          <input type="email" id="waitlist-email" name="email" placeholder="Your email address" required autocomplete="email">
+          <button type="submit">Join the waitlist</button>
+        </form>
+        <p class="waitlist-note">No spam &mdash; I&rsquo;ll only email when MOLEX is ready. Submitting opens your email app with the message ready to send.</p>
+        <p class="waitlist-success" id="waitlist-success">Your email app should have opened &mdash; send the draft to join the list. Meanwhile, <a href="../projects/molex.html">see what MOLEX has built so far &rarr;</a></p>
+        <p class="waitlist-note"><a href="../projects/molex.html">See what MOLEX has built so far &rarr;</a></p>
+      </div>
+
+      <p class="links-proof">OSPA Outstanding Young Security Professional 2025 &middot; Canadian Security Lifesaver Award &times;2</p>
+
+      <p class="links-footer">&copy; 2026 Mohammed Mounir. Built chapter by chapter.<br><a href="https://mohammedmounir.ca/">mohammedmounir.ca</a></p>
+    </div>
+  </main>
+
+  <script>
+    // MOLEX waitlist: reveal the inline form on tap; never a dead button.
+    (function () {
+      var door = document.getElementById('molex-door');
+      var panel = document.getElementById('molex-waitlist');
+      var form = document.getElementById('waitlist-form');
+      var success = document.getElementById('waitlist-success');
+      door.addEventListener('click', function (e) {
+        e.preventDefault();
+        var open = panel.classList.toggle('open');
+        door.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) document.getElementById('waitlist-email').focus();
+      });
+      form.addEventListener('submit', function () {
+        // mailto: opens the visitor's email app; show the honest next step.
+        setTimeout(function () { success.style.display = 'block'; }, 600);
+      });
+    })();
+
+    // Share / copy-link button: Web Share API with clipboard fallback.
+    (function () {
+      var btn = document.getElementById('share-btn');
+      btn.addEventListener('click', function () {
+        var url = 'https://mohammedmounir.ca/links';
+        var done = function (msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Share this page'; }, 2000); };
+        if (navigator.share) {
+          navigator.share({ title: 'Mohammed Mounir — Links', url: url }).catch(function () {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(function () { done('Link copied'); }, function () { done('Copy: mohammedmounir.ca/links'); });
+        } else {
+          done('Copy: mohammedmounir.ca/links');
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

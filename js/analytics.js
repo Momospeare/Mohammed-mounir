@@ -1,15 +1,11 @@
 /* ============================================================
-   Analytics scaffold — dataLayer events (local only for now)
+   Analytics — dataLayer events (live)
    ------------------------------------------------------------
-   The GTM snippet was REMOVED from index.html (Nov 2026 audit):
-   it fired requests with a placeholder ID. Events below still
-   push to window.dataLayer harmlessly. To wire real analytics:
-     1. Create a new Google Tag Manager container at
-        https://tagmanager.google.com and copy its container ID.
-     2. Re-add the standard GTM <head> snippet and <body>
-        <noscript> iframe to index.html with the real ID.
-     3. In GTM, create a GA4 Configuration tag with your new
-        GA4 Measurement ID (G-XXXXXXXXXX) and publish the container.
+   GTM container GTM-M9WRWPDF is wired on all 11 pages (head
+   snippet + body noscript). GA4 Measurement ID G-P54NZXBDJ0
+   is configured as a GA4 Configuration tag in that container
+   (All Pages trigger, published). Events below push to
+   window.dataLayer; GTM forwards them to GA4.
    ============================================================ */
 
 (function () {

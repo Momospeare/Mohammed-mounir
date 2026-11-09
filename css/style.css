@@ -11,8 +11,17 @@
   --bg-2: #141731;
   --bg-3: #1b1f3d;
   --ink: #f4f6ff;
+  --ink-soft: #d6dbf5; /* secondary body text (timeline card text, path labels) */
   --muted: #a9b0d6;
   --line: rgba(255, 255, 255, 0.09);
+
+  /* Theme-swappable surfaces (dark values = current site) */
+  --nav-bg: rgba(13, 15, 28, 0.82);
+  --map-bg: #0a0c16;
+  --map-attrib-bg: rgba(10, 12, 22, 0.85);
+  --card-media-base: rgba(255, 255, 255, 0.03);
+  --card-media-line: rgba(255, 255, 255, 0.14);
+  --chip-line: rgba(255, 255, 255, 0.2);
 
   /* Neon accents (Vice City) */
   --pink: #ff2e88;
@@ -33,6 +42,32 @@
     "Helvetica Neue", Arial, sans-serif;
 }
 
+/* ---------- Light theme — Toronto time, 7am–7pm ET (Nov 8 loop, item 12) ----------
+   Applied by js/theme.js via <html data-theme="light">. The hero keeps its dark
+   sunset banner in both themes (white text on the gradient), so only page
+   surfaces and text colours flip here. Accent --cyan/--pink are darkened so
+   text set in them still passes WCAG AA on light surfaces (cyan #00707f:
+   5.79:1 on white, 4.91:1 on --bg-3; pink #d81e6b: 4.86:1 on white). */
+:root[data-theme="light"] {
+  --bg: #f7f8fc;
+  --bg-2: #ffffff;
+  --bg-3: #e9ecf5;
+  --ink: #141731;
+  --ink-soft: #39415f;
+  --muted: #4d5578;
+  --line: rgba(20, 23, 49, 0.14);
+
+  --nav-bg: rgba(255, 255, 255, 0.88);
+  --map-bg: #e8eef5;
+  --map-attrib-bg: rgba(255, 255, 255, 0.88);
+  --card-media-base: rgba(20, 23, 49, 0.04);
+  --card-media-line: rgba(20, 23, 49, 0.18);
+  --chip-line: rgba(20, 23, 49, 0.25);
+
+  --pink: #d81e6b;
+  --cyan: #00707f;
+}
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -44,6 +79,11 @@ body {
   color: var(--ink);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  /* 390px hardening (Nov 8 loop): no overflow-wrap existed anywhere, so a
+     single long token (e.g. a pasted URL as link text) could push a section
+     past 390px. Breaks long words only when they would otherwise overflow;
+     no visual change to current copy (no long tokens present). */
+  overflow-wrap: break-word;
 }
 
 img { max-width: 100%; display: block; }
@@ -93,7 +133,7 @@ section { padding: 88px 0; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(13, 15, 28, 0.82);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--line);
@@ -351,8 +391,8 @@ section[id] {
   background:
     radial-gradient(circle at 30% 20%, rgba(255, 46, 136, 0.16), transparent 60%),
     radial-gradient(circle at 75% 80%, rgba(46, 230, 255, 0.16), transparent 60%),
-    rgba(255, 255, 255, 0.03);
-  border: 1px dashed rgba(255, 255, 255, 0.14);
+    var(--card-media-base);
+  border: 1px dashed var(--card-media-line);
   overflow: hidden;
   transform: translateZ(40px); /* pop toward viewer */
 }
@@ -381,7 +421,7 @@ section[id] {
 .t-card p.t-text {
   margin: 0;
   font-size: 0.93rem;
-  color: #d6dbf5;
+  color: var(--ink-soft);
 }
 
 /* ---------- Journey map ---------- */
@@ -412,7 +452,7 @@ section[id] {
   height: 380px;
   border-radius: 12px;
   overflow: hidden;
-  background: #0a0c16;
+  background: var(--map-bg);
 }
 
 /* Leaflet dark-theme tweaks */
@@ -455,7 +495,7 @@ section[id] {
 
 /* Attribution readable on dark tiles */
 .leaflet-control-attribution {
-  background: rgba(10, 12, 22, 0.85) !important;
+  background: var(--map-attrib-bg) !important;
   color: var(--muted);
   padding: 2px 6px;
 }
@@ -469,7 +509,7 @@ section[id] {
 }
 .pp-node:hover circle, .pp-node:focus circle { fill: var(--cyan); }
 .pp-node text {
-  fill: #d5d9f0;
+  fill: var(--ink-soft);
   font-size: 18px;
   font-weight: 600;
   text-anchor: middle;
@@ -587,7 +627,7 @@ footer .wrap {
 
 /* ---------- Print: clean one-pager for interviews ---------- */
 @media print {
-  :root {
+  :root, :root[data-theme="light"] {
     --bg: #fff; --bg-2: #fff; --bg-3: #f2f2f2;
     --ink: #111; --muted: #444; --line: #bbb;
   }
@@ -754,7 +794,7 @@ footer .wrap {
 .memo-chip {
   padding: 7px 12px;
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--chip-line);
   background: transparent;
   color: var(--ink);
   font-family: var(--font);
@@ -775,7 +815,7 @@ footer .wrap {
   min-width: 0;
   padding: 10px 12px;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--chip-line);
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font);
@@ -845,3 +885,57 @@ footer .wrap {
 }
 .to-top.is-visible { opacity: 1; pointer-events: auto; }
 .to-top:hover { border-color: var(--cyan); }
+
+/* ---------- Brands ---------- */
+.brands-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+main a.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 132px;
+  padding: 18px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-2);
+  text-align: center;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.brand:hover, .brand:focus-visible { border-color: var(--cyan); transform: translateY(-2px); }
+.brand-logo {
+  height: 44px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+  filter: grayscale(1) opacity(0.7);
+  transition: filter 0.2s ease;
+}
+.brand:hover .brand-logo, .brand:focus-visible .brand-logo { filter: none; }
+.brand-name { font-weight: 600; font-size: 0.95rem; color: var(--ink); }
+.brand-wordmark { font-size: 1.15rem; font-weight: 700; letter-spacing: 0.02em; color: var(--muted); transition: color 0.2s ease; }
+.brand:hover .brand-wordmark, .brand:focus-visible .brand-wordmark { color: var(--ink); }
+.brand-cap { font-size: 0.8rem; color: var(--muted); }
+
+/* LinkedIn photo thumbnails (Nov 8, 2026) — small 160px thumbs; full-size originals pending */
+.photo-row { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; }
+.photo-thumb { margin: 0; width: 160px; }
+.photo-thumb img { display: block; width: 160px; height: auto; border-radius: 8px; }
+.photo-thumb figcaption { font-size: 0.8rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+/* Full-size originals from Google Photos (Nov 8, 2026) — displayed at 260px, natural aspect ratio */
+.photo-med { margin: 0; width: min(260px, 100%); }
+.photo-med img { display: block; width: 100%; height: auto; border-radius: 8px; }
+.photo-med figcaption { font-size: 0.8rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+.photo-credit { font-size: 0.8rem; color: var(--muted); margin-top: 16px; }
+.award-logo { margin: 16px 0 0; }
+.award-logo img { display: block; height: auto; }
+.award-logo--ospa a { display: inline-block; background: #fff; padding: 12px 16px; border-radius: 8px; }
+.award-logo--ospa img { width: 220px; }
+.award-logo--square img { width: 120px; }
+.award-logo figcaption { font-size: 0.8rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
