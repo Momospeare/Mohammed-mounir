@@ -1,7 +1,7 @@
 /* ============================================================
    Memo — scripted sidekick for mohammedmounir.ca
    ------------------------------------------------------------
-   Client-side only. Answers come from a fixed script below.
+   Scripted replies only. Answers come from a fixed script below.
    What the visitor types is sent (scrubbed of emails, phone
    numbers and links) to Momo's own Cloudflare Worker, so he
    can see what Memo couldn't answer and improve it. Only the
@@ -30,12 +30,7 @@
     {
       name: 'about_momo',
       keys: ['who is momo', 'tell me about momo', 'about momo', 'about him'],
-      reply: 'Asset protection at Loblaw — investigations, evidence packages, organized retail crime. Co-founder of MOLEX, a digital solutions business. Seneca CPA student, working toward crime intelligence — auxiliary applications in preparation. The About section has the details.'
-    },
-    {
-      name: 'greeting',
-      keys: ['hello', 'hi', 'hey', 'yo', 'good morning', 'good afternoon', 'good evening'],
-      reply: 'Hey. I\'m Memo. Ask me what Momo does, his experience, skills, or projects — or how to reach him.'
+      reply: 'Asset protection at Loblaw — investigations, evidence packages, organized retail crime. Co-founder of MOLEX, a digital solutions business. Seneca CPA (on hold), working toward crime intelligence — auxiliary applications in preparation. The About section has the details.'
     },
     {
       name: 'work',
@@ -60,7 +55,7 @@
     {
       name: 'education',
       keys: ['education', 'school', 'seneca', 'study', 'degree', 'diploma', 'college'],
-      reply: 'Computer Programming &amp; Analysis at Seneca (Jan 2024 – present), after Police Foundations with distinction. Direction: digital solutions and crime intelligence. He was invited to complete Seneca\'s Honours Bachelor of Crime &amp; Intelligence Analysis.'
+      reply: 'Computer Programming &amp; Analysis at Seneca (Jan 2024 – on hold), after Police Foundations with distinction. Direction: digital solutions and crime intelligence. He was invited to complete Seneca\'s Honours Bachelor of Crime &amp; Intelligence Analysis.'
     },
     {
       name: 'awards',
@@ -85,7 +80,14 @@
     {
       name: 'gaming',
       keys: ['gta', 'gaming', 'cod', 'call of duty', 'fortnite', 'minecraft', 'game'],
-      reply: 'COD, GTA, Minecraft, Fortnite. Currently running a full GTA series marathon up to the GTA 6 launch — schedule\'s on the <a href="/momospeare.html">Momospeare page</a>.'
+      reply: 'COD, GTA, Minecraft, Fortnite. Currently running Vice City chaos with Alex — the duo run, plus breakup and romance skits for clipping. Details are on the <a href="/momospeare.html">Momospeare page</a>.'
+    },
+    {
+      /* Greeting is checked after every substantive intent, so a
+         greeting word inside a real question never hijacks it. */
+      name: 'greeting',
+      keys: ['hello', 'hi', 'hey', 'yo', 'good morning', 'good afternoon', 'good evening'],
+      reply: 'Hey. I\'m Memo. Ask me what Momo does, his experience, skills, or projects — or how to reach him.'
     },
     {
       name: 'thanks',
@@ -117,7 +119,7 @@
   var chipsBox = document.getElementById('memo-chips');
   var form = document.getElementById('memo-form');
   var input = document.getElementById('memo-input');
-  if (!toggle || !panel || !messages || !form || !input) return;
+  if (!toggle || !panel || !messages || !form || !input || !closeBtn || !chipsBox) return;
 
   var greeted = false;
 
@@ -151,7 +153,8 @@
     return (text || '')
       .replace(/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g, '[email]')
       .replace(/https?:\/\/\S+/g, '[link]')
-      .replace(/\b\d{3}[-.\s]?\d{3}[-.\s]?\d{4}\b/g, '[phone]')
+      .replace(/\b(?:www\.)?[A-Za-z0-9-]+\.[A-Za-z]{2,}\b/g, '[link]')
+      .replace(/(?:\+?1[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}/g, '[phone]')
       .replace(/\b\d{7,}\b/g, '[number]');
   }
 
@@ -173,12 +176,22 @@
     } catch (e) { /* never break Memo */ }
   }
 
+  function escapeRegExp(s) {
+    return s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
   function matchIntent(text) {
     var q = text.toLowerCase();
     for (var i = 0; i < INTENTS.length; i++) {
       var keys = INTENTS[i].keys;
       for (var j = 0; j < keys.length; j++) {
-        if (q.indexOf(keys[j]) !== -1) return INTENTS[i];
+        // Word-boundary match only: 'hi' must be a whole word (not
+        // inside 'him' / 'this' / 'think'), 'yo' must not match
+        // 'you' / 'your'. Substring matching hijacked most questions.
+        // A trailing 's' is allowed so plurals ('skills', 'projects',
+        // 'awards') still match their singular keys.
+        var re = new RegExp('\\b' + escapeRegExp(keys[j]) + 's?\\b');
+        if (re.test(q)) return INTENTS[i];
       }
     }
     return null;
@@ -219,6 +232,22 @@
   closeBtn.addEventListener('click', closePanel);
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && !panel.hidden) closePanel();
+  });
+
+  // Focus trap: while the panel is open, Tab cycles within it.
+  panel.addEventListener('keydown', function (e) {
+    if (e.key !== 'Tab' || panel.hidden) return;
+    var focusables = panel.querySelectorAll('button, input, [href], [tabindex]:not([tabindex="-1"])');
+    if (!focusables.length) return;
+    var first = focusables[0];
+    var last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault();
+      last.focus();
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault();
+      first.focus();
+    }
   });
 
   CHIPS.forEach(function (label) {

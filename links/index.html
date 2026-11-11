@@ -20,7 +20,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#0d0f1c">
   <link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
-  <link rel="canonical" href="https://mohammedmounir.ca/links">
+  <link rel="canonical" href="https://mohammedmounir.ca/links/">
   <!-- Open Graph (so link previews in iMessage/WhatsApp/Discord look right) -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_CA">
@@ -29,7 +29,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     property="og:description"
     content="Portfolio, live on Twitch, YouTube, and the MOLEX waitlist — all in one place."
   >
-  <meta property="og:url" content="https://mohammedmounir.ca/links">
+  <meta property="og:url" content="https://mohammedmounir.ca/links/">
   <meta property="og:image" content="https://mohammedmounir.ca/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -68,16 +68,16 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .links-bio { color: var(--muted); margin: 0 0 18px; font-size: 0.98rem; }
     .links-share {
       background: none; border: 1px solid var(--line); color: var(--muted);
-      border-radius: 999px; padding: 8px 16px; font-size: 0.85rem;
+      border-radius: 999px; padding: 11px 18px; font-size: 0.85rem;
       cursor: pointer; margin-bottom: 20px;
     }
-    .links-share:hover { color: var(--ink); border-color: rgba(255,255,255,0.3); }
+    .links-share:hover { color: var(--ink); border-color: var(--cyan); }
     .links-socials { display: flex; gap: 10px; justify-content: center; margin-bottom: 24px; }
     .links-socials a {
       color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600;
-      border: 1px solid var(--line); border-radius: 999px; padding: 8px 18px;
+      border: 1px solid var(--line); border-radius: 999px; padding: 11px 18px;
     }
-    .links-socials a:hover { color: var(--ink); border-color: rgba(255,255,255,0.3); }
+    .links-socials a:hover { color: var(--ink); border-color: var(--cyan); }
     .links-doors { display: flex; flex-direction: column; gap: 14px; text-align: left; }
     .door {
       display: block; text-decoration: none; color: var(--ink);
@@ -85,12 +85,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-radius: var(--radius); padding: 18px 20px; min-height: 48px;
       transition: transform 0.15s ease, border-color 0.15s ease;
     }
-    .door:hover { transform: translateY(-2px); border-color: rgba(255,255,255,0.25); }
+    .door:hover { transform: translateY(-2px); border-color: var(--cyan); }
+    /* The MOLEX waitlist door is a <button>, not a link — reset button defaults so it matches the link doors. */
+    button.door { font-family: var(--font); font-size: 1rem; text-align: left; width: 100%; }
     .door-label { display: block; font-weight: 700; font-size: 1.05rem; margin-bottom: 4px; }
     .door-sub { display: block; color: var(--muted); font-size: 0.9rem; line-height: 1.45; }
-    .door-primary { background: var(--pink-btn); border-color: transparent; box-shadow: 0 6px 28px rgba(255, 46, 136, 0.45); }
-    .door-primary .door-sub { color: rgba(255, 255, 255, 0.85); }
-    .door-coming { opacity: 0.75; border-style: dashed; background: transparent; cursor: pointer; }
+    .door-primary { background: var(--pink-btn); border-color: transparent; box-shadow: 0 6px 28px rgba(255, 46, 136, 0.45); color: #fff; }
+    .door-primary .door-sub { color: #fff; }
+    .door-coming { border-style: dashed; background: transparent; cursor: pointer; }
     .pill {
       display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em;
       border: 1px solid currentColor; border-radius: 999px; padding: 2px 8px;
@@ -101,7 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .waitlist form { display: flex; gap: 10px; flex-wrap: wrap; }
     .waitlist input[type="email"] {
       flex: 1; min-width: 200px; padding: 12px 16px; border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08);
+      border: 1px solid var(--chip-line); background: var(--bg);
       color: var(--ink); font-size: 0.95rem; font-family: var(--font);
     }
     .waitlist input[type="email"]::placeholder { color: var(--muted); }
@@ -125,19 +127,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9WRWPDF"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <main class="links-page">
+  <main class="links-page" id="main" tabindex="-1">
     <div class="links-col">
       <!-- Headshot: golf-day selfie, Jun 11, 2026, from Mohammed's Google Photos library.
            Replaces the "MM" monogram placeholder. -->
-      <img class="links-avatar" src="../assets/photos/headshot-golf-selfie.jpg" alt="Mohammed Mounir smiling in a light blue polo, sitting in a golf cart" width="1600" height="900">
+      <img class="links-avatar" src="../assets/photos/headshot-golf-selfie-192.jpg" alt="Mohammed Mounir smiling in a light blue polo, sitting in a golf cart" width="192" height="192" fetchpriority="high">
       <h1 class="links-name">Mohammed Mounir</h1>
       <p class="links-bio">Asset protection @ Loblaw &middot; Streamer Momospeare &middot; Co-founder MOLEX</p>
 
-      <button class="links-share" id="share-btn" type="button">Share this page</button>
+      <button class="links-share" id="share-btn" type="button" aria-live="polite">Share this page</button>
 
       <div class="links-socials">
         <a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -157,13 +160,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         <a class="door" href="https://www.youtube.com/@Momospeare?utm_source=links&amp;utm_medium=bio&amp;utm_campaign=content" target="_blank" rel="noopener noreferrer">
           <span class="door-label">Watch on YouTube</span>
-          <span class="door-sub">Momospeare &mdash; gaming, motovlog &amp; the GTA series marathon.</span>
+          <span class="door-sub">Momospeare &mdash; gaming, motovlog &amp; Vice City chaos.</span>
         </a>
 
-        <a class="door door-coming" href="#molex-waitlist" id="molex-door" aria-expanded="false" aria-controls="molex-waitlist">
+        <button type="button" class="door door-coming" id="molex-door" aria-expanded="false" aria-controls="molex-waitlist">
           <span class="door-label">MOLEX &mdash; Join the waitlist<span class="pill">Coming soon</span></span>
           <span class="door-sub">Digital solutions for small business &mdash; coming soon. Be first to know.</span>
-        </a>
+        </button>
       </div>
 
       <div class="waitlist" id="molex-waitlist">
@@ -173,7 +176,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <button type="submit">Join the waitlist</button>
         </form>
         <p class="waitlist-note">No spam &mdash; I&rsquo;ll only email when MOLEX is ready. Submitting opens your email app with the message ready to send.</p>
-        <p class="waitlist-success" id="waitlist-success">Your email app should have opened &mdash; send the draft to join the list. Meanwhile, <a href="../projects/molex.html">see what MOLEX has built so far &rarr;</a></p>
+        <p class="waitlist-success" id="waitlist-success" aria-live="polite">Your email app should have opened &mdash; send the draft to join the list. Meanwhile, <a href="../projects/molex.html">see what MOLEX has built so far &rarr;</a></p>
         <p class="waitlist-note"><a href="../projects/molex.html">See what MOLEX has built so far &rarr;</a></p>
       </div>
 

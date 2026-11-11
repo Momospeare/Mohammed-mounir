@@ -10,21 +10,29 @@
 (function () {
   'use strict';
 
-  var A = window.PortfolioAnalytics;
+  // Analytics is optional: if analytics.js fails to load, every
+  // tracking call below becomes a harmless no-op instead of throwing.
+  var A = window.PortfolioAnalytics || {
+    timelineCardClick: function () {},
+    mapMarkerClick: function () {},
+    progressionNodeClick: function () {},
+    sectionView: function () {},
+    heroCtaClick: function () {}
+  };
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- Inline SVG icon set (placeholders) ----------
      Swap any of these for real illustrations later; the renderer
      references them by the chapter's "icon" field. */
   var ICONS = {
-    pin: '<svg viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>',
-    home: '<svg viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>',
-    star: '<svg viewBox="0 0 24 24" fill="none" stroke="#ff2e88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>',
-    plane: '<svg viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l20-7-6 7 6 7z"/><path d="M12 12v7"/></svg>',
-    bike: '<svg viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-8h5l3 8M10 9L8 4h2.5"/></svg>',
-    flag: '<svg viewBox="0 0 24 24" fill="none" stroke="#ff2e88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h13l-3 4 3 4H5"/></svg>',
-    briefcase: '<svg viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>',
-    doc: '<svg viewBox="0 0 24 24" fill="none" stroke="#ff2e88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h7M9 17h7"/></svg>'
+    pin: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>',
+    home: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>',
+    star: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#ff2e88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>',
+    plane: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l20-7-6 7 6 7z"/><path d="M12 12v7"/></svg>',
+    bike: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-8h5l3 8M10 9L8 4h2.5"/></svg>',
+    flag: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#ff2e88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h13l-3 4 3 4H5"/></svg>',
+    briefcase: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>',
+    doc: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#ff2e88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h7M9 17h7"/></svg>'
   };
 
   function iconFor(name) {
@@ -46,7 +54,15 @@
       console.error(err);
       var track = document.getElementById('timeline-track');
       if (track) {
-        track.innerHTML = '<p style="color:#a9b0d6">Timeline failed to load. Run via a local server (see README) — file:// blocks JSON fetches.</p>';
+        track.innerHTML = '<p style="color:var(--muted)">Timeline failed to load. Run via a local server (see README) — file:// blocks JSON fetches.</p>';
+      }
+      var mapEl = document.getElementById('journey-map');
+      if (mapEl) {
+        mapEl.innerHTML = '<p style="color:var(--muted); padding: 20px;">Journey map unavailable — the timeline data failed to load.</p>';
+      }
+      var pathEl = document.getElementById('progress-path');
+      if (pathEl) {
+        pathEl.setAttribute('aria-label', 'Progression path unavailable — the timeline data failed to load.');
       }
     });
 
@@ -63,9 +79,6 @@
       var card = document.createElement('article');
       card.className = 't-card' + (ch.placeholder ? ' is-placeholder' : '');
       card.id = 'chapter-' + ch.id;
-      card.setAttribute('tabindex', '0');
-      card.setAttribute('role', 'button');
-      card.setAttribute('aria-label', ch.title + ' — ' + ch.era);
 
       // Media slot: real photo if "photo" is set, placeholder icon otherwise.
       // PHOTO SWAP (later): set "photo" in timeline.json — zero code changes.
@@ -87,9 +100,6 @@
         card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
       }
       card.addEventListener('click', onActivate);
-      card.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onActivate(); }
-      });
 
       scene.appendChild(card);
       track.appendChild(scene);
@@ -131,7 +141,7 @@
     var stops = chapters.filter(function (ch) { return ch.coords && ch.coords.length === 2; });
     if (!stops.length) {
       el.innerHTML =
-        '<p style="color:#a9b0d6;padding:20px">' +
+        '<p style="color:var(--muted);padding:20px">' +
         'Professional location markers will appear here ' +
         'as verified locations are added.' +
         '</p>';
@@ -219,7 +229,7 @@
       marker.bindTooltip(ch.mapLabel || ch.location, { direction: 'top', offset: [0, -18], className: 'stop-tip' });
     });
 
-    // Journey polyline — pink-to-cyan gradient feel via two-tone dash
+    // Journey polyline — pink dotted line connecting the stops
     L.polyline(latlngs, { color: '#ff2e88', weight: 3, opacity: 0.85, dashArray: '1 8', lineCap: 'round' }).addTo(map);
     map.fitBounds(L.latLngBounds(latlngs).pad(0.35));
   }
@@ -229,11 +239,11 @@
     var svg = document.getElementById('progress-path');
     if (!svg) return;
 
-    var W = 1000, H = 280, pad = 40;
+    var W = 1000, H = 340, pad = 40;
     var n = chapters.length;
     var stepX = (W - pad * 2) / Math.max(n - 1, 1);
     // Gentle wave so the path feels like a journey, not a ruler
-    function yAt(i) { return H / 2 + Math.sin(i * 0.9) * 80; }
+    function yAt(i) { return H / 2 + Math.sin(i * 0.9) * 100; }
 
     var NS = 'http://www.w3.org/2000/svg';
     svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
@@ -266,13 +276,13 @@
       g.setAttribute('aria-label', 'Go to chapter: ' + ch.title);
 
       var c = document.createElementNS(NS, 'circle');
-      c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', 14);
+      c.setAttribute('cx', x); c.setAttribute('cy', y); c.setAttribute('r', 16);
       g.appendChild(c);
 
       // Invisible hit area: the visible dot is small on phones, so the
       // tappable target is much larger than what you see.
       var hit = document.createElementNS(NS, 'circle');
-      hit.setAttribute('cx', x); hit.setAttribute('cy', y); hit.setAttribute('r', 30);
+      hit.setAttribute('cx', x); hit.setAttribute('cy', y); hit.setAttribute('r', 36);
       hit.setAttribute('fill', '#000'); hit.setAttribute('fill-opacity', '0');
       g.insertBefore(hit, c);
 
@@ -301,10 +311,13 @@
     // Drop the nav's scroll-fade cue once the visitor reaches its end
     var navLinks = document.querySelector('.nav-links');
     if (navLinks) {
-      navLinks.addEventListener('scroll', function () {
+      var updateNavFade = function () {
         var atEnd = navLinks.scrollLeft + navLinks.clientWidth >= navLinks.scrollWidth - 4;
         navLinks.classList.toggle('at-end', atEnd);
-      }, { passive: true });
+      };
+      navLinks.addEventListener('scroll', updateNavFade, { passive: true });
+      window.addEventListener('resize', updateNavFade);
+      updateNavFade();
     }
 
     // Hero CTA tracking (elements carry data-track-cta attributes)
@@ -315,18 +328,20 @@
     });
 
     // Fire "section_view" once per section when it first enters the viewport
-    var seen = {};
-    var observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting && !seen[entry.target.id]) {
-          seen[entry.target.id] = true;
-          var title = entry.target.querySelector('.section-title');
-          A.sectionView(entry.target.id, title ? title.textContent.trim() : entry.target.id);
-        }
-      });
-    }, { threshold: 0.35 });
+    if ('IntersectionObserver' in window) {
+      var seen = {};
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !seen[entry.target.id]) {
+            seen[entry.target.id] = true;
+            var title = entry.target.querySelector('.section-title');
+            A.sectionView(entry.target.id, title ? title.textContent.trim() : entry.target.id);
+          }
+        });
+      }, { threshold: 0.35 });
 
-    document.querySelectorAll('section[id]').forEach(function (s) { observer.observe(s); });
+      document.querySelectorAll('section[id]').forEach(function (s) { observer.observe(s); });
+    }
 
     // Scroll-triggered editorial reveals
     if (!reduceMotion && 'IntersectionObserver' in window) {

@@ -80,7 +80,7 @@
       "photoCaption": null,
       "text": "Co-founded a digital solutions business focused on web development, digital platforms and SaaS products.",
       "title": "MOLEX Digital Solutions",
-      "pathLabel": "2025–"
+      "pathLabel": "2025–Now"
     },
     {
       "coords": [
@@ -112,23 +112,23 @@
       "photoCaption": null,
       "text": "Asset Protection Representative at Loblaw Companies Ltd. Focused on investigations, loss prevention, evidence development and operational risk.",
       "title": "Asset Protection",
-      "pathLabel": "2026–"
+      "pathLabel": "2026–Now"
     },
     {
       "coords": [
         43.79545,
         -79.34991
       ],
-      "era": "Current Studies",
+      "era": "2024 – on hold",
       "icon": "doc",
       "id": "seneca",
       "location": "Seneca",
       "mapLabel": "Toronto, ON — Seneca Polytechnic, Newnham Campus",
       "photo": null,
       "photoCaption": null,
-      "text": "Developing software development and programming skills through post-secondary studies.",
+      "text": "Post-secondary studies in software development and programming.",
       "title": "Computer Programming & Analysis",
-      "pathLabel": "Now"
+      "pathLabel": "2024"
     }
   ]
 }

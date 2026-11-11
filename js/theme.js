@@ -62,7 +62,31 @@
     }
   }
 
+  /* Delay to the next Toronto hour (not the visitor's local hour), so a
+     long-open tab flips at the Toronto 7am/7pm boundary. Falls back to
+     the local clock if Intl is unavailable. */
+  var torontoPartsFmt = null;
+  try {
+    torontoPartsFmt = new Intl.DateTimeFormat('en-US', {
+      timeZone: TIME_ZONE,
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      hour12: false
+    });
+  } catch (e) {
+    torontoPartsFmt = null;
+  }
+
   function msUntilNextHour(date) {
+    if (torontoPartsFmt) {
+      var min = 0, sec = 0;
+      torontoPartsFmt.formatToParts(date).forEach(function (p) {
+        if (p.type === 'minute') min = parseInt(p.value, 10);
+        if (p.type === 'second') sec = parseInt(p.value, 10);
+      });
+      return (60 - min) * 60000 - sec * 1000 - date.getMilliseconds();
+    }
     return (60 - date.getMinutes()) * 60000
       - date.getSeconds() * 1000
       - date.getMilliseconds();
