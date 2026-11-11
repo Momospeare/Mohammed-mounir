@@ -459,6 +459,14 @@ section[id] {
 
 @media (max-width: 900px) {
   .map-grid { grid-template-columns: 1fr; }
+}
+/* Two-column doors/highlights ONLY in the 721–900px band. The ≤720px
+   single-column rules live in the earlier nav block — and because this
+   block came later in the file, its 2-column rules won at equal
+   specificity on phones too, so the doors rendered 2 cramped columns
+   (~161px each at 390px) that spilled right instead of stacking. The
+   band keeps the two from ever overlapping, so order stops mattering. */
+@media (min-width: 721px) and (max-width: 900px) {
   #paths .info-grid { grid-template-columns: repeat(2, 1fr); }
   #highlights .info-grid { grid-template-columns: repeat(2, 1fr); }
 }
