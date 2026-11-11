@@ -51,6 +51,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       color: #0a0c16; line-height: 1; padding: 4px 8px;
     }
     body { padding-top: 44px; }
+    /* Mobile: the bar text wraps to two lines (~64px tall), so the 44px
+       body offset let it overlap the demo hero. Smaller text + a 56px
+       offset clears it either way. */
+    @media (max-width: 720px) {
+      .molex-bar { font-size: 0.82rem; padding: 8px 44px 8px 12px; }
+      body { padding-top: 56px; }
+    }
     .demo-note {
       background: var(--bg-2); border: 1px solid var(--line);
       border-radius: var(--radius); padding: 16px 20px;

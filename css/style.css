@@ -997,10 +997,16 @@ main a.brand {
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
 .brand:hover, .brand:focus-visible { border-color: var(--cyan); transform: translateY(-2px); }
+/* Logos fit their tile: max-width is a percentage of the tile, not a fixed
+   pixel box. The old 160px/200px caps overflowed the tile (tile content is
+   ~143px desktop, ~140px at 390px): Zehrs/Rogers boxes were 200px wide,
+   VELD/Vaughan chips 202px — the marks poked out of their tiles and over
+   the neighbouring tile. object-fit: contain letterboxes the mark, so
+   nothing distorts; wide marks just render a touch smaller. */
 .brand-logo {
   height: 52px;
   width: auto;
-  max-width: 160px;
+  max-width: 100%;
   object-fit: contain;
 }
 /* Square/icon marks read small at the base height — give them more presence */
@@ -1008,10 +1014,11 @@ main a.brand {
 /* The widest wordmarks (Zehrs, Rogers) get more width so they don't render as a thin strip */
 /* Logo chips: fixed dark/light plates so white-only marks (VELD, ASP) and
    dark-only marks (Festa, Vaughan, WLKN) stay legible in both themes. */
-.brand-chip { display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; padding: 10px 14px; }
+.brand-chip { display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; padding: 10px 14px; max-width: 100%; }
+.brand-chip img { max-width: 100%; }
 .brand-chip--dark { background: #0d0f1c; }
 .brand-chip--light { background: #fff; }
-.brand-logo--wide { max-width: 200px; }
+.brand-logo--wide { max-width: 100%; }
 .brand-name { font-weight: 600; font-size: 0.95rem; color: var(--ink); }
 .brand-wordmark { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.02em; color: var(--ink); }
 .brand-cap { font-size: 0.8rem; color: var(--muted); }

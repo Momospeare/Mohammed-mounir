@@ -148,9 +148,14 @@
       return;
     }
 
-    var map = L.map('journey-map', { scrollWheelZoom: false }).setView(stops[0].coords, 2);
+    // Touch: one-finger drag pans the map and traps the page scroll over
+    // the 380px map. Start with dragging off on touch devices; the first
+    // tap on the map enables it (clicks and marker popups still work).
+    var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    var map = L.map('journey-map', { scrollWheelZoom: false, dragging: !isTouch }).setView(stops[0].coords, 2);
     map.on('focus', function () { map.scrollWheelZoom.enable(); });
     map.on('blur', function () { map.scrollWheelZoom.disable(); });
+    if (isTouch) { map.on('click', function () { map.dragging.enable(); }); }
 
     // Basemap follows the time-based theme: dark canvas at night, light
     // canvas 7am–7pm Toronto time (js/theme.js flips data-theme and fires
