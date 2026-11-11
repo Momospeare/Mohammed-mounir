@@ -70,12 +70,12 @@
     {
       name: 'contact',
       keys: ['contact', 'hire', 'email', 'reach', 'resume', 'cv', 'talk to momo'],
-      reply: 'LinkedIn\'s the way in — <a href="' + LINKEDIN + '" target="_blank" rel="noopener noreferrer">connect with Momo there</a>, or request the resume from the Contact section.'
+      reply: 'LinkedIn\'s the way in — <a href="' + LINKEDIN + '" target="_blank" rel="noopener noreferrer">connect with Momo there<span class="visually-hidden"> (opens in new tab)</span></a>, or request the resume from the Contact section.'
     },
     {
       name: 'motovlog',
       keys: ['bike', 'motorcycle', 'motovlog', 'momospeare', 'ride', 'mt-07', 'ninja', 'alex', 'youtube', 'stream', 'twitch', 'discord'],
-      reply: 'Yamaha MT-07, duo motovlog with Alex on the Ninja 300. Destination rides, garage stuff, gaming. There\'s a whole page for it: <a href="/momospeare.html">Momospeare</a> — streams are on <a href="https://www.twitch.tv/momospeare" target="_blank" rel="noopener noreferrer">Twitch</a> and <a href="https://www.youtube.com/@Momospeare" target="_blank" rel="noopener noreferrer">YouTube</a>.'
+      reply: 'Yamaha MT-07, duo motovlog with Alex on the Ninja 300. Destination rides, garage stuff, gaming. There\'s a whole page for it: <a href="/momospeare.html">Momospeare</a> — streams are on <a href="https://www.twitch.tv/momospeare" target="_blank" rel="noopener noreferrer">Twitch<span class="visually-hidden"> (opens in new tab)</span></a> and <a href="https://www.youtube.com/@Momospeare" target="_blank" rel="noopener noreferrer">YouTube<span class="visually-hidden"> (opens in new tab)</span></a>.'
     },
     {
       name: 'gaming',
@@ -102,7 +102,7 @@
   ];
 
   var FALLBACK = 'Don\'t have that one in my script. Best move: ask Momo directly on ' +
-    '<a href="' + LINKEDIN + '" target="_blank" rel="noopener noreferrer">LinkedIn</a> — the link\'s in the Contact section.';
+    '<a href="' + LINKEDIN + '" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in new tab)</span></a> — the link\'s in the Contact section.';
 
   var CHIPS = [
     'What does Momo do?',
@@ -212,6 +212,7 @@
   function openPanel() {
     trackMemo('memo_open', {});
     panel.hidden = false;
+    document.body.classList.add('memo-open');
     toggle.setAttribute('aria-expanded', 'true');
     if (!greeted) {
       greeted = true;
@@ -222,6 +223,7 @@
 
   function closePanel() {
     panel.hidden = true;
+    document.body.classList.remove('memo-open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.focus();
   }

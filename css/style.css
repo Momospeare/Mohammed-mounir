@@ -110,7 +110,7 @@ main a:not(.btn), footer a, .memo-msg a {
 
 section { padding: 88px 0; }
 /* Anchor jumps clear the 64px sticky nav */
-section[id], footer[id] { scroll-margin-top: 80px; }
+section[id], footer[id], h2[id] { scroll-margin-top: 80px; }
 /* Focused cards shouldn't hide under the sticky nav either. */
 .info-card, .t-card, .brand { scroll-margin-top: 90px; }
 
@@ -224,7 +224,7 @@ section[id], footer[id] { scroll-margin-top: 80px; }
   .hero { padding: 72px 0 64px; }
   section { padding: 56px 0; }
   /* The stacked nav is ~105px tall at 390px, so anchors need more room. */
-  section[id], footer[id] { scroll-margin-top: 112px; }
+  section[id], footer[id], h2[id] { scroll-margin-top: 112px; }
   .contact-card { padding: 24px 20px; }
 }
 
@@ -751,7 +751,10 @@ footer .wrap {
   padding: 4px 0 4px 16px;
   font-size: 1.1rem;
 }
-.case .back-link { margin-top: 40px; }
+.case .pager { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; justify-content: space-between; margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--line); }
+.case .pager a { color: var(--muted); text-decoration: none; font-weight: 600; }
+.case .pager a:hover { color: var(--ink); }
+@media (max-width: 720px) { .case .pager { flex-direction: column; gap: 6px; } }
 
 /* ---------- Memo chatbot (scripted sidekick) ----------
    Client-side only: canned answers, nothing leaves the browser. */
@@ -967,6 +970,9 @@ footer .wrap {
 /* A keyboard user tabbing onto the button must see it, even before JS marks it visible. */
 .to-top:focus-visible { opacity: 1; pointer-events: auto; visibility: visible; }
 .to-top:hover { border-color: var(--cyan); }
+/* While Memo is open it covers the back-to-top button; hide the button
+   (and drop it from the tab order) until the panel closes. */
+body.memo-open .to-top { display: none !important; }
 
 /* ---------- Brands ---------- */
 .brands-grid {
@@ -1000,6 +1006,11 @@ main a.brand {
 /* Square/icon marks read small at the base height — give them more presence */
 .brand-logo--mark { height: 64px; max-width: 96px; }
 /* The widest wordmarks (Zehrs, Rogers) get more width so they don't render as a thin strip */
+/* Logo chips: fixed dark/light plates so white-only marks (VELD, ASP) and
+   dark-only marks (Festa, Vaughan, WLKN) stay legible in both themes. */
+.brand-chip { display: inline-flex; align-items: center; justify-content: center; border-radius: 10px; padding: 10px 14px; }
+.brand-chip--dark { background: #0d0f1c; }
+.brand-chip--light { background: #fff; }
 .brand-logo--wide { max-width: 200px; }
 .brand-name { font-weight: 600; font-size: 0.95rem; color: var(--ink); }
 .brand-wordmark { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.02em; color: var(--ink); }
