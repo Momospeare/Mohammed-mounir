@@ -65,6 +65,377 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     .stat-num { font-size: 2rem; font-weight: 800; color: var(--cyan); }
   </style>
+  <style>
+    /* Original SparkyLube stylesheet (Apr–May 2025, alexstirpe/sparkylube),
+       namespaced under .sl-site so it styles only the replica below. */
+.sl-site { background: #fff; color: #222; font-family: 'Roboto', sans-serif, Arial, Helvetica, sans-serif; overflow-x: hidden; }
+/*
+  ============================================================
+  Project Name: "The Internship" — Sparky Lube Website Project
+  Description: A fully original website created using basic HTML, CSS,
+               and JavaScript elements for a locally owned and operated 
+               Canadian oil shop — Sparky Lube. Designed and built as a
+               collaborative internship project.
+
+  Created By:
+    • Alexandria S.
+    • Mohammed M.
+
+  Date: April 2025
+  Location: Ontario, Canada
+
+  Ownership: This site was developed in partnership with Sparky Lube,
+             with full approval and contribution from the business.
+             All content and design elements are original and tailored
+             to represent the brand's local presence and mission.
+
+  Copyright © 2025 Sparky Lube & Molex | All Rights Reserved.
+
+  ✨ Built with pride. Fueled by community. Powered by vision. ✨
+  ============================================================
+*/
+
+.sl-site{
+  overflow-x: hidden;
+}
+
+.sl-site{
+  margin: 0;
+  font-family: 'Roboto', sans-serif, Arial, Helvetica, sans-serif;  background: #fff;
+  color: #222;
+}
+
+.sl-site header{
+  background-color: #3c5a8e;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.sl-site .logo-container{
+  width: 100%;
+  background-color: #3c5a8e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.sl-site .logo-img{
+  width: 70vw;
+  max-width: 800px;
+  min-width: 380px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Call to Action Section */
+.sl-site .call-section{
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #f9f9f9;
+}
+
+.sl-site .call-section .description{
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.sl-site .address, .sl-site .phone{
+  margin: 0.25rem 0;
+  font-weight: bold;
+}
+
+.sl-site .call-btn{
+  background-color: #ffcc00;
+  color: #004aad;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  transition: background 0.3s ease;
+  max-width: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.sl-site .call-btn:hover{
+  background-color: #e6b800;
+}
+
+/* Promo Section */
+.sl-site .promo{
+  background: #e0f0ff;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* Updated Promo Items Layout */
+.sl-site .promo-items{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.sl-site .promo-box{
+  background: #fff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 300px;
+  flex: 1 1 280px;
+  position: relative;
+}
+
+.sl-site .promo-img{
+  width: 100%;
+  height: auto;
+  border-radius: 44px;
+  margin-bottom: 0.5rem;
+}
+
+.sl-site .print-btn{
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #004aad;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.sl-site .print-btn:hover{
+  background-color: #00337f;
+}
+
+/* Countdown Elements */
+.sl-site .countdown{
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #004aad; /* Blue for main text */
+  margin-top: 0.75rem;
+}
+
+.sl-site .countdown-title{
+  margin-bottom: 2px;
+}
+
+.sl-site .countdown-timer{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.sl-site .countdown-unit{
+  position: relative;
+  font-size: 2rem;
+  color: rgb(209, 41, 41); /* Red for the numbers */
+  font-weight: bold;
+  padding: 10px 14px;
+  background: transparent;
+  border-radius: 8px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Data label styling with pseudo-elements */
+.sl-site .countdown-unit::after{
+  content: attr(data-label);
+  display: block;
+  font-size: 0.8rem;
+  color: #004aad; /* Blue for the label text */
+  font-weight: normal;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* Business Description */
+.sl-site .business-desc{
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Map Section */
+.sl-site .map-wrapper{
+  background-color: #004aad;
+  color: white;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.sl-site .map-instructions{
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  position: relative;
+  padding-bottom: 18px; /* spacing between text and underline */
+}
+
+.sl-site .map-instructions::after{
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 20px; /* thickness of dots */
+  width: 99%;
+  background-image: radial-gradient(#ffcc00 20%, transparent 20%);
+  background-size: 26px 7px; /* size and spacing of dots */
+  background-repeat: repeat-x;
+}
+
+
+.sl-site .map-buttons{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+}
+
+.sl-site .map-button{
+  background-color: white;
+  border-radius: 12px;
+  padding: 0.5rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sl-site .map-button:hover{
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.sl-site .map-button img{
+  width: 97px;
+  height: 97px;
+  border-radius: 12px;
+  object-fit: contain;
+}
+
+.sl-site .map-embed{
+  margin-top: 1.5rem;
+}
+
+.sl-site footer{
+  background-color: #002f6c;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.sl-site footer a{
+  color: #ffcc00;
+  text-decoration: none;
+}
+
+@media print {
+  /* General Reset for printing */
+  .sl-site{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif, Arial, Helvetica, sans-serif;  }
+
+  /* Hide unnecessary sections for printing */
+  .sl-site #countdown, .sl-site .map-wrapper, .sl-site .business-desc, .sl-site .print-btn{
+    display: none !important;
+  }
+
+  /* Ensure header is at the top */
+  .sl-site header{
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Call Section Adjustment */
+  .sl-site .call-section{
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Adjust Promo section layout */
+  .sl-site .promo-items{
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+    justify-content: space-between; /* Space between items */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Promo boxes layout */
+  .sl-site .promo-box{
+    flex: 0 1 30%; /* Ensure each promo item takes up ~30% of the width */
+    margin-bottom: 1px; /* Space between boxes */
+    page-break-inside: avoid; /* Prevent page breaks inside promo boxes */
+    display: inline-block; /* Ensure they align side by side */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure the promo images stay within the container */
+  .sl-site .promo-img{
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
+
+  /* Footer Styling */
+  .sl-site footer{
+    display: block;
+    margin-top: 20px;
+  }
+
+  /* Remove page breaks from sections */
+  .sl-site .promo-box, .sl-site .call-section, .sl-site footer{
+    page-break-after: avoid; /* Prevent forced breaks after each section */
+  }
+
+  /* Reset some extra padding/margins */
+  .sl-site header, .sl-site .call-section, .sl-site .promo-items, .sl-site footer{
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure no extra breaks between the sections */
+  .sl-site{
+    overflow: visible !important;
+  }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 428px) {
+  .sl-site .promo-img{
+    width: 90%;
+  }
+
+  .sl-site .call-btn{
+    width: 90%;
+  }
+
+  .sl-site .map-buttons{
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .sl-site .logo-img{
+    max-width: 80%;
+  }
+}
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,7 +456,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <nav class="nav" aria-label="Primary">
     <div class="wrap nav-inner">
-      <a class="brand" href="/">MOHAMMED MOUNIR<svg class="maple-leaf" viewBox="0 0 3720 4030" aria-hidden="true" focusable="false"><g transform="translate(-2940 -400)"><path d="M4890 4430-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z"/></g></svg></a>
+      <a class="brand" href="/">MOHAMMED MOUNIR<svg class="maple-leaf" width="0.8em" height="0.87em" viewBox="0 0 3720 4030" aria-hidden="true" focusable="false"><g transform="translate(-2940 -400)"><path d="M4890 4430-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z"/></g></svg></a>
       <ul class="nav-links">
         <li><a href="/#about">About</a></li>
         <li><a href="/#experience">Experience</a></li>
@@ -108,9 +479,95 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h1 class="section-title" id="demo-title">SparkyLube</h1>
         <p class="section-sub">Company website for a Brantford, ON automotive / oil-change business. Designed, built, and maintained Mar – Jul 2025.</p>
         <div class="demo-note">
-          Demo reconstruction — the live client site is currently offline, so this page shows what MOLEX built and what it delivered, not a copy of the live site.
+          The original SparkyLube site, rebuilt from the source — the live client site is currently offline. Build notes and results below are from MOLEX’s archived campaign data.
         </div>
       </div>
+    </section>
+
+
+    <section id="demo-site" aria-label="SparkyLube original site">
+      <div class="sl-site">
+  <!-- Header / Logo -->
+  <header>
+    <div class="logo-container">
+      <img src="assets/sparkylube/logo.png" alt="Sparky Lube Logo" class="logo-img" />
+    </div>
+  </header>
+
+  <!-- Call To Action -->
+  <section class="call-section">
+    <div class="description">
+      <strong>We Change Your Oil, Not Your Schedule</strong><br>
+      We offer a quality oil change that is warranty approved and backed by over 25 years of automotive experience!
+    </div>
+    <a href="tel:5197700777" class="call-btn">📞 Call Us: (519) 770-0777</a>
+    <p class="address">275 King George Rd, Brantford, ON N3L 5L1</p>
+  </section>
+
+<!-- Promo Section -->
+<section class="promo">
+  <div class="promo-items">
+    <!-- Promo 1 -->
+    <div class="promo-box">
+      <img src="assets/sparkylube/SL_Promo_April2025.png" alt="Promo Coupon, 10 Dollars OFF" class="promo-img">
+      <button class="print-btn" onclick="printPage()" aria-label="Print this coupon">🖨️ Print/Save</button>
+    </div>
+
+    <!-- Promo 2 -->
+    <div class="promo-box">
+      <img src="assets/sparkylube/TireSwap.png" alt="Tire Swap Service" class="promo-img">
+    </div>
+
+    <!-- Promo 3 -->
+    <div class="promo-box">
+      <img src="assets/sparkylube/B1G1Wiper.png" alt="B1G1 Wiper Blades Promo" class="promo-img">
+    </div>
+  </div>
+
+  <div id="countdown" class="countdown"></div>
+</section>
+
+  <!-- Business Description -->
+  <section class="business-desc">
+    <p>
+      <strong>SPARKY LUBE</strong> was established to offer unparalleled convenience and top-notch service in the fast-paced oil change industry. With over six decades of combined automotive experience, our team is dedicated to providing trustworthy, quick, and effective service. We take pride in delivering a customer-centric experience defined by honesty, urgency, and efficiency.    </p>
+  </section>
+
+  <!-- Map & Directions Section -->
+  <section class="map-wrapper">
+    <div class="map-instructions">
+      🏠 Click your preferred app for instant 🚗 directions to Sparky Lube! 📍
+    </div>
+
+    <div class="map-buttons">
+      <a href="https://www.google.com/maps/dir/?api=1&destination=275+King+George+Rd+Brantford" target="_blank" class="map-button google">
+        <img src="assets/sparkylube/google-maps-logo.png" alt="Google Maps">
+      </a>
+      <a href="https://waze.com/ul?ll=43.1783813,-80.2803968&navigate=yes" target="_blank" class="map-button waze">
+        <img src="assets/sparkylube/waze-logo.png" alt="Waze">
+      </a>
+      <a href="http://maps.apple.com/?daddr=275+King+George+Rd,+Brantford" target="_blank" class="map-button apple">
+        <img src="assets/sparkylube/Apple-maps-logo.png" alt="Apple Maps">
+      </a>
+    </div>
+
+    <div class="map-embed">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d363.6864460091495!2d-80.28050873697664!3d43.17819548620472!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c6fe30a93a857%3A0x745a2248c435417f!2sSparky%20Lube!5e0!3m2!1sen!2sus!4v1744590333780!5m2!1sen!2sus"
+
+        width="100%" height="350" frameborder="0" style="border:0" allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>We're <strong>FASTER</strong>... And we're <strong>BETTER</strong>...</p>
+    <p>275 King George, Brantford — <a href="tel:5197700777">519-770-0777</a></p>
+    <p>  Copyright © 2025 Sparky Lube | All Rights Reserved.    </p>
+  </footer>
+
+        </div>
     </section>
 
     <section id="demo-built" aria-labelledby="demo-built-title">
@@ -180,5 +637,46 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </footer>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+
+  <!-- Original SparkyLube countdown (promo period ended July 15, 2025 — the
+       site's own copy shows the ended message) + print helper, verbatim. -->
+  <script>
+    const countdownDate = new Date("July 15, 2025 23:59:59").getTime();
+    const countdownElement = document.getElementById("countdown");
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      if (distance < 0) {
+        countdownElement.innerHTML = "Promotion period ended. Be on the look out for more coupons coming soon! Thank you for choosing your locally owned and operated Sparky Lube.";
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownElement.innerHTML = `
+      <div class="countdown-title">\uD83D\uDCCC Coupon Expires In: \u23F3</div>
+       <div class="countdown-timer">
+         <span class="countdown-unit days" data-label="Days">${days}</span>
+        <span class="countdown-unit hours" data-label="Hours">${hours}</span>
+        <span class="countdown-unit minutes" data-label="Minutes">${minutes}</span>
+        <span class="countdown-unit seconds" data-label="Seconds">${seconds}</span> 
+      </div>
+    `;
+
+    }
+
+    setInterval(updateCountdown, 1000);
+
+    function printPage() {
+  // Open a print dialog
+  window.print();
+}
+
+  </script>
 </body>
 </html>
