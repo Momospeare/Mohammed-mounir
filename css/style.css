@@ -108,11 +108,11 @@ main a:not(.btn), footer a, .memo-msg a {
   padding: 0 24px;
 }
 
-section { padding: 88px 0; }
+section { padding: 64px 0; }
 /* Anchor jumps clear the 64px sticky nav */
 section[id], footer[id], h2[id] { scroll-margin-top: 80px; }
 /* Focused cards shouldn't hide under the sticky nav either. */
-.info-card, .t-card, .brand { scroll-margin-top: 90px; }
+.info-card, .j-card, .brand { scroll-margin-top: 90px; }
 
 .section-kicker {
   text-transform: uppercase;
@@ -284,20 +284,25 @@ section[id] {
 /* Ghost buttons live on the dark hero — they need light text, not --ink */
 .hero .btn-ghost { color: #f0eefc; border-color: rgba(255, 255, 255, 0.45); }
 
-/* ---------- Timeline ---------- */
-#timeline { background: var(--bg); }
+/* ---------- Journey app ---------- */
+/* One linked app: map + progression path + flip cards. Cards are static
+   HTML (indexable); the flip is pure CSS 3D. Experience lives on the
+   card backs now — there is no separate #experience section. */
+#journey-app { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 
-.timeline-viewport { position: relative; }
+.j-navigator { margin-bottom: 28px; }
 
-.timeline-track {
+.j-viewport { position: relative; }
+
+.j-track {
   display: flex;
   gap: 22px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   padding: 12px 4px 28px;
-  /* Reserve the card height so the section doesn't jump (CLS) when
-     the JS fetch injects the cards. */
-  min-height: 380px;
+  /* Fixed card height so the section doesn't jump (CLS) and the 3D
+     flip has a stable frame; backs scroll internally when long. */
+  min-height: 460px;
   /* Faint connector line behind cards */
   background-image: linear-gradient(90deg, var(--line) 0 0);
   background-size: 100% 2px;
@@ -305,12 +310,12 @@ section[id] {
   background-position: 0 76px;
 }
 
-.timeline-track::-webkit-scrollbar { height: 10px; }
-.timeline-track::-webkit-scrollbar-thumb {
+.j-track::-webkit-scrollbar { height: 10px; }
+.j-track::-webkit-scrollbar-thumb {
   background: var(--bg-3);
   border-radius: 8px;
 }
-.timeline-track::-webkit-scrollbar-track { background: transparent; }
+.j-track::-webkit-scrollbar-track { background: transparent; }
 
 .timeline-hint {
   color: var(--muted);
@@ -318,35 +323,94 @@ section[id] {
   margin: 0 0 8px;
 }
 
-/* 3D card — the "museum card" per chapter.
-   Real photos slot into .card-media later via the "photo" field in timeline.json. */
-.t-scene {
-  flex: 0 0 300px;
+/* Flip scene: perspective on the scene, 3D on the flip wrapper. */
+.j-scene {
+  flex: 0 0 320px;
   scroll-snap-align: start;
-  perspective: 1100px;
+  perspective: 1200px;
 }
 
-.t-card {
+.j-card {
   position: relative;
-  background: linear-gradient(160deg, var(--bg-2), var(--bg-3));
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 22px;
-  min-height: 340px;
-  transform-style: preserve-3d;
-  transition:
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
+  height: 440px;
   cursor: pointer;
+  outline: none;
 }
+.j-card:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; border-radius: var(--radius); }
 
-.t-card:hover {
+.j-flip {
+  position: relative;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.2, 0.7, 0.25, 1.12);
+}
+.j-card.is-flipped .j-flip { transform: rotateY(180deg); }
+
+.j-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: linear-gradient(160deg, var(--bg-2), var(--bg-3));
+}
+.j-card:hover .j-face {
   border-color: rgba(46, 230, 255, 0.45);
   box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(46, 230, 255, 0.15);
 }
+.j-card.is-selected .j-face {
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 1px var(--cyan), 0 18px 50px rgba(0, 0, 0, 0.5);
+}
 
-.t-card.is-placeholder { border-style: dashed; }
+.j-back {
+  transform: rotateY(180deg);
+  background: linear-gradient(160deg, rgba(255, 46, 136, 0.14), var(--bg-3) 55%);
+  overflow-y: auto;
+}
+.j-back ul { margin: 8px 0 0; padding-left: 18px; }
+.j-back li { color: var(--ink-soft); font-size: 0.9rem; margin-bottom: 8px; }
+.j-back p { color: var(--muted); font-size: 0.93rem; }
+.j-back p a { color: var(--cyan); }
 
+.j-back-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pink);
+  margin-bottom: 10px;
+}
+
+.j-flip-hint {
+  margin-top: auto;
+  padding-top: 12px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--pink);
+}
+.j-flip-btn {
+  margin-top: auto;
+  align-self: flex-start;
+  background: none;
+  border: 1px solid var(--line);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.j-flip-btn:hover { border-color: var(--cyan); }
+
+/* Front-face pieces (same vocabulary as the old timeline cards). */
 .t-era {
   display: inline-block;
   font-size: 0.72rem;
@@ -356,8 +420,6 @@ section[id] {
   color: var(--cyan);
   margin-bottom: 14px;
 }
-
-.t-card.is-placeholder .t-era { color: var(--pink); }
 
 .card-media {
   height: 120px;
@@ -383,7 +445,7 @@ section[id] {
   object-fit: cover;
 }
 
-.t-card h3 {
+.j-front h3 {
   margin: 0 0 6px;
   font-size: 1.15rem;
   letter-spacing: -0.01em;
@@ -396,15 +458,13 @@ section[id] {
   color: var(--muted);
 }
 
-.t-card p.t-text {
+.j-front p.t-text {
   margin: 0;
   font-size: 0.93rem;
   color: var(--ink-soft);
 }
 
 /* ---------- Journey map ---------- */
-#journey { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-
 .map-grid {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
@@ -459,43 +519,6 @@ section[id] {
 .path-card { display: flex; flex-direction: column; }
 #progress-path { width: 100%; height: auto; display: block; margin: auto 0; }
 
-/* ---------- Floating logos (under the journey map) ---------- */
-.float-logos {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 28px 36px;
-  margin-top: 36px;
-  padding: 18px 8px;
-  overflow: hidden;
-  pointer-events: none;
-  /* Soft edge fade so the row dissolves at both ends */
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
-}
-.float-logo {
-  height: 40px;
-  width: auto;
-  max-width: 140px;
-  object-fit: contain;
-  opacity: 0.65;
-  animation: float-bob 7s ease-in-out infinite;
-}
-/* Awards sit a touch larger */
-.float-logo--award { height: 48px; max-width: 150px; }
-/* Staggered drift so the logos don't move in lockstep */
-.float-logo:nth-child(3n) { animation-delay: -2.3s; }
-.float-logo:nth-child(3n+1) { animation-delay: -4.7s; }
-.float-logo:nth-child(4n) { animation-duration: 8.5s; }
-@keyframes float-bob {
-  0%, 100% { transform: translateY(0); opacity: 0.55; }
-  50% { transform: translateY(-7px); opacity: 0.85; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .float-logo { animation: none; opacity: 0.7; }
-}
-
 /* Numbered map pins (number baked into the marker, no tooltip clutter) */
 .stop-marker { background: none; border: none; }
 .stop-marker span {
@@ -505,6 +528,10 @@ section[id] {
   color: #0a0c16; font-weight: 700; font-size: 14px;
   border: 2px solid #0a0c16;
   box-shadow: 0 0 0 2px rgba(46, 230, 255, 0.35);
+}
+
+.stop-marker.is-active span {
+  box-shadow: 0 0 0 3px rgba(255, 46, 136, 0.65), 0 0 0 6px rgba(46, 230, 255, 0.35);
 }
 
 /* Cluster badge: same theme treatment, shows the stop count */
@@ -533,6 +560,8 @@ section[id] {
   transition: fill 0.15s ease;
 }
 .pp-node:hover circle, .pp-node:focus circle { fill: var(--cyan); }
+.pp-node.is-active circle { fill: var(--pink); stroke: var(--pink); }
+.pp-node.is-active text { fill: var(--ink); font-weight: 700; }
 .pp-node text {
   fill: var(--ink-soft);
   font-size: 20px;
@@ -640,6 +669,41 @@ footer .wrap {
   transition: width 0.15s linear;
 }
 
+/* ---------- Folds: collapsed sections stay in the DOM (SEO-safe) ----------
+   <details> keeps every word indexable while the page reads short.
+   The summary is the one-line promise of what's inside. */
+.fold { border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-2); padding: 0 18px; }
+.fold > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 16px 4px;
+  font-weight: 700;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.fold > summary::-webkit-details-marker { display: none; }
+.fold > summary::before {
+  content: "+";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  color: var(--pink);
+  font-size: 1.1rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+}
+.fold[open] > summary::before { content: "\2013"; }
+.fold > .brands-grid, .fold > .info-grid, .fold > .photo-row { padding: 4px 0 20px; }
+.fold--grid { grid-column: 1 / -1; }
+.fold--grid > .info-grid { padding-top: 4px; }
+
 /* ---------- Scroll-triggered reveals ---------- */
 .reveal {
   opacity: 0;
@@ -667,16 +731,20 @@ footer .wrap {
     --ink: #111; --muted: #444; --line: #bbb;
   }
   body { background: #fff; }
-  .nav, .skip-link, .timeline-progress, #journey, .hero .cta-row,
+  .nav, .skip-link, .timeline-progress, #journey-app .j-navigator, .hero .cta-row,
   .contact-card, footer, .memo-widget, .to-top { display: none !important; }
   section { padding: 18px 0; }
-  /* Timeline becomes a 2-column grid so all 8 cards print */
-  #timeline-track {
+  /* Journey app becomes a 2-column grid so all 8 cards print, fronts
+     and backs stacked (both faces visible on paper). */
+  #journey-track {
     display: grid; grid-template-columns: 1fr 1fr;
     overflow: visible; gap: 12px;
   }
-  .t-scene { min-width: 0; }
-  .t-card { transform: none !important; }
+  .j-scene { min-width: 0; }
+  .j-card { height: auto; }
+  .j-flip { transform: none !important; }
+  .j-face { position: static; backface-visibility: visible; -webkit-backface-visibility: visible; }
+  .j-back { transform: none; }
   /* Reveals must not hide content on paper */
   .reveal { opacity: 1 !important; transform: none !important; }
   a { color: #111; }
@@ -685,7 +753,7 @@ footer .wrap {
 /* ---------- Motion preferences ---------- */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .t-card { transition: none; }
+  .j-flip { transition: none; }
   .btn { transition: none; }
 }
 
@@ -1072,8 +1140,12 @@ main a.brand {
   #paths .info-grid { grid-template-columns: 1fr; }
   #highlights .info-grid { grid-template-columns: 1fr; }
   .hero { padding: 72px 0 64px; }
-  section { padding: 56px 0; }
+  section { padding: 44px 0; }
   /* The stacked nav is ~105px tall at 390px, so anchors need more room. */
   section[id], footer[id], h2[id] { scroll-margin-top: 112px; }
   .contact-card { padding: 24px 20px; }
+  /* Journey app on phones: near-full-width flip cards, taller frame */
+  .j-scene { flex: 0 0 86vw; }
+  .j-card { height: 470px; }
+  .fold { padding: 0 14px; }
 }

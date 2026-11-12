@@ -1,7 +1,6 @@
 /* ============================================================
    Portfolio v1 — main.js (vanilla JS, no framework)
-   - Renders timeline cards from data/timeline.json
-   - 3D tilt on cards (disabled for reduced-motion / touch)
+   - Wires the static journey-app flip cards (map + path + cards linked)
    - Leaflet journey map with markers + journey polyline
    - SVG progression path with clickable nodes
    - Section-view tracking via IntersectionObserver
@@ -21,24 +20,6 @@
   };
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- Inline SVG icon set (placeholders) ----------
-     Swap any of these for real illustrations later; the renderer
-     references them by the chapter's "icon" field. */
-  var ICONS = {
-    pin: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>',
-    home: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h5v-6h4v6h5V10"/></svg>',
-    star: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#ff2e88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.9 6.3 6.9.8-5.1 4.7 1.4 6.8L12 17.2 5.9 20.6l1.4-6.8L2.2 9.1l6.9-.8z"/></svg>',
-    plane: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12l20-7-6 7 6 7z"/><path d="M12 12v7"/></svg>',
-    bike: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="3.5"/><circle cx="18" cy="17" r="3.5"/><path d="M6 17l4-8h5l3 8M10 9L8 4h2.5"/></svg>',
-    flag: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#ff2e88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4h13l-3 4 3 4H5"/></svg>',
-    briefcase: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>',
-    doc: '<svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#ff2e88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h7M9 17h7"/></svg>'
-  };
-
-  function iconFor(name) {
-    return ICONS[name] || ICONS.pin;
-  }
-
   /* ---------- Load timeline data ---------- */
   fetch('data/timeline.json')
     .then(function (res) {
@@ -46,16 +27,11 @@
       return res.json();
     })
     .then(function (data) {
-      renderTimeline(data.chapters || []);
       renderProgressionPath(data.chapters || []);
       initJourneyMap(data.chapters || []);
     })
     .catch(function (err) {
       console.error(err);
-      var track = document.getElementById('timeline-track');
-      if (track) {
-        track.innerHTML = '<p style="color:var(--muted)">Timeline failed to load. Run via a local server (see README) — file:// blocks JSON fetches.</p>';
-      }
       var mapEl = document.getElementById('journey-map');
       if (mapEl) {
         mapEl.innerHTML = '<p style="color:var(--muted); padding: 20px;">Journey map unavailable — the timeline data failed to load.</p>';
@@ -66,72 +42,71 @@
       }
     });
 
-  /* ---------- Timeline cards ---------- */
-  function renderTimeline(chapters) {
-    var track = document.getElementById('timeline-track');
-    if (!track) return;
-    track.innerHTML = '';
+  /* ---------- Journey app: flip cards, linked to map + path ----------
+     Cards are static HTML (indexable). One card open at a time: selecting
+     a chapter (card, map marker, or path node) flips it to its back,
+     marks it selected, and lights up its marker + node. Clicking the
+     open card again flips it back. Links/buttons inside a card act
+     normally and never trigger a flip. */
+  var chapterMarkers = {};
+  var chapterNodes = {};
 
-    chapters.forEach(function (ch) {
-      var scene = document.createElement('div');
-      scene.className = 't-scene';
-
-      var card = document.createElement('article');
-      card.className = 't-card' + (ch.placeholder ? ' is-placeholder' : '');
-      card.id = 'chapter-' + ch.id;
-
-      // Media slot: real photo if "photo" is set, placeholder icon otherwise.
-      // PHOTO SWAP (later): set "photo" in timeline.json — zero code changes.
-      var media = ch.photo
-        ? '<img src="' + escapeAttr(ch.photo) +
-          '" alt="' + escapeAttr(ch.photoCaption || ch.title) +
-          '" loading="lazy" decoding="async">'
-        : iconFor(ch.icon);
-
-      card.innerHTML =
-        '<span class="t-era">' + escapeHtml(ch.era) + '</span>' +
-        '<div class="card-media">' + media + '</div>' +
-        '<h3>' + escapeHtml(ch.title) + '</h3>' +
-        '<p class="t-location">' + escapeHtml(ch.location) + '</p>' +
-        '<p class="t-text">' + escapeHtml(ch.text) + '</p>';
-
-      function onActivate() {
-        A.timelineCardClick(ch.id, ch.title);
-        card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
-      }
-      card.addEventListener('click', onActivate);
-
-      scene.appendChild(card);
-      track.appendChild(scene);
-
-      enableTilt(card);
+  function clearSelection() {
+    document.querySelectorAll('.j-card.is-selected, .j-card.is-flipped').forEach(function (c) {
+      c.classList.remove('is-selected', 'is-flipped');
+    });
+    Object.keys(chapterNodes).forEach(function (id) { chapterNodes[id].classList.remove('is-active'); });
+    Object.keys(chapterMarkers).forEach(function (id) {
+      var m = chapterMarkers[id];
+      if (m && m.getElement) { var el = m.getElement(); if (el) el.classList.remove('is-active'); }
     });
   }
 
-  /* 3D tilt — pointer-driven rotateX/rotateY inside a perspective scene. */
-  function enableTilt(card) {
-    if (reduceMotion) return;
-    if (window.matchMedia('(hover: none)').matches) return; // touch devices
+  function selectChapter(id, opts) {
+    var card = document.getElementById('chapter-' + id);
+    if (!card) return;
+    var flip = !opts || opts.flip !== false;
+    if (flip && opts && opts.toggle && card.classList.contains('is-flipped')) {
+      clearSelection();
+      return;
+    }
+    clearSelection();
+    card.classList.add('is-selected');
+    if (flip) card.classList.add('is-flipped');
+    if (chapterNodes[id]) chapterNodes[id].classList.add('is-active');
+    var m = chapterMarkers[id];
+    if (m && m.getElement) { var el = m.getElement(); if (el) el.classList.add('is-active'); }
+    card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+  }
 
-    var raf = null;
-    card.addEventListener('pointermove', function (e) {
-      if (e.pointerType !== 'mouse') return;
-      var r = card.getBoundingClientRect();
-      var px = (e.clientX - r.left) / r.width - 0.5;
-      var py = (e.clientY - r.top) / r.height - 0.5;
-      if (raf) cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(function () {
-        card.style.transform =
-          'rotateY(' + (px * 7).toFixed(2) +
-          'deg) rotateX(' + (-py * 7).toFixed(2) +
-          'deg) translateZ(5px)';
+  function wireJourneyCards() {
+    document.querySelectorAll('.j-card').forEach(function (card) {
+      var id = card.id.replace('chapter-', '');
+      var titleEl = card.querySelector('h3');
+      var title = titleEl ? titleEl.textContent.trim() : id;
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('a, button')) return; // links/buttons handle themselves
+        A.timelineCardClick(id, title);
+        selectChapter(id, { flip: true, toggle: true });
+      });
+      card.addEventListener('keydown', function (e) {
+        if (e.target !== card) return;
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          A.timelineCardClick(id, title);
+          selectChapter(id, { flip: true, toggle: true });
+        }
+      });
+      card.querySelectorAll('.j-flip-btn').forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          clearSelection();
+        });
       });
     });
-    card.addEventListener('pointerleave', function () {
-      if (raf) cancelAnimationFrame(raf);
-      card.style.transform = '';
-    });
   }
+
+  wireJourneyCards();
 
   /* ---------- Journey map (Leaflet) ---------- */
   function initJourneyMap(chapters) {
@@ -219,16 +194,10 @@
         if (el) el.setAttribute('aria-label', ch.title + ' — ' + (ch.mapLabel || ch.location));
       });
       marker.bindPopup('<strong>' + escapeHtml(ch.title) + '</strong><br>' + escapeHtml(ch.mapLabel || ch.location));
+      chapterMarkers[ch.id] = marker;
       marker.on('click', function () {
         A.mapMarkerClick(ch.id, ch.mapLabel || ch.location);
-        var card = document.getElementById('chapter-' + ch.id);
-        if (card) {
-          card.scrollIntoView({
-            behavior: reduceMotion ? 'auto' : 'smooth',
-            inline: 'center',
-            block: 'nearest'
-          });
-        }
+        selectChapter(ch.id, { flip: true });
       });
       // Number the stops in journey order via a tooltip
       marker.bindTooltip(ch.mapLabel || ch.location, { direction: 'top', offset: [0, -18], className: 'stop-tip' });
@@ -297,10 +266,10 @@
       t.textContent = ch.pathLabel || (ch.era.length > 14 ? ch.era.slice(0, 13) + '…' : ch.era);
       g.appendChild(t);
 
+      chapterNodes[ch.id] = g;
       function go() {
         A.progressionNodeClick(ch.id);
-        var card = document.getElementById('chapter-' + ch.id);
-        if (card) card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+        selectChapter(ch.id, { flip: true });
       }
       g.addEventListener('click', go);
       g.addEventListener('keydown', function (e) {
@@ -365,7 +334,7 @@
         }
       );
       var revealTargets = document.querySelectorAll(
-        '#experience .info-card, ' +
+        '#journey-app .j-scene, ' +
         '#projects .info-card, ' +
         '#skills .info-card, ' +
         '#education .info-card, ' +
@@ -378,7 +347,7 @@
     }
 
     // Timeline progress indicator
-    var timeline = document.getElementById('timeline-track');
+    var timeline = document.getElementById('journey-track');
     var progress = document.getElementById('timeline-progress-fill');
     var progressBar = document.querySelector('.timeline-progress');
     if (timeline && progress && progressBar) {

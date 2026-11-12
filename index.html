@@ -114,10 +114,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <nav class="nav" aria-label="Primary">
     <div class="wrap nav-inner">
-      <a class="brand" href="#top">MOHAMMED MOUNIR<svg class="maple-leaf" width="0.8em" height="0.87em" viewBox="0 0 3720 4030" aria-hidden="true" focusable="false"><g transform="translate(-2940 -400)"><path fill="#ff2e88" d="M4890 4430l-45-863a95 95 0 0 1 111-98l859 151-116-320a65 65 0 0 1 20-73l941-762-212-99a65 65 0 0 1-34-79l186-572-542 115a65 65 0 0 1-73-38l-105-247-423 454a65 65 0 0 1-111-57l204-1052-327 189a65 65 0 0 1-91-27l-332-652-332 652a65 65 0 0 1-91 27l-327-189 204 1052a65 65 0 0 1-111 57l-423-454-105 247a65 65 0 0 1-73 38l-542-115 186 572a65 65 0 0 1-34 79l-212 99 941 762a65 65 0 0 1 20 73l-116 320 859-151a95 95 0 0 1 111 98l-45 863z"/></g></svg></a>
+      <a class="brand" href="#top">MOHAMMED MOUNIR<img class="maple-leaf" src="assets/maple-leaf.png" width="14" height="15" alt="" aria-hidden="true"></a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
+        <li><a href="#journey-app">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="projects/community.html">Community</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -151,7 +151,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2 class="section-title" id="paths-title">Who are you here for?</h2>
         <p class="section-sub">Four doors, one story — pick yours.</p>
         <div class="info-grid">
-          <a class="info-card door-card" href="#experience">
+          <a class="info-card door-card" href="#journey-app">
             <h3>You&rsquo;re hiring</h3>
             <p>Security, investigations, or tech — six years of proof, not adjectives.</p>
             <p class="door-proof">244 incident reports filed, zero rejections.</p>
@@ -246,136 +246,262 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
-    <!-- ================= TIMELINE ================= -->
-    <section id="timeline" aria-labelledby="timeline-title">
+    <!-- ================= JOURNEY APP ================= -->
+    <!-- One linked app: the map, the progression path, and the timeline
+         cards are three views of the same eight chapters. Tap a marker,
+         a node, or a card and they move together. Tap a card to flip it:
+         the front is the chapter, the back is the work (the old
+         Experience section, now living on the cards). All content is
+         static HTML, so it stays indexable. -->
+    <section id="journey-app" aria-labelledby="journey-app-title">
       <div class="wrap">
-        <p class="section-kicker">The spine</p>
-        <h2 class="section-title" id="timeline-title">Interactive timeline</h2>
-        <p class="section-sub">One 3D card per chapter — scroll sideways, click a card to center it.</p>
-        <p class="timeline-hint">← scroll →</p>
-        <div class="timeline-viewport">
-          <div class="timeline-track" id="timeline-track">
-            <!-- Cards render here from data/timeline.json -->
-            <p style="color:var(--muted)">Loading timeline…</p>
+        <p class="section-kicker">The journey</p>
+        <h2 class="section-title" id="journey-app-title">One road, eight chapters.</h2>
+        <p class="section-sub">Six years across asset protection, field security leadership, retail management, and web development. The map, the path, and the cards are the same story — tap a marker, a node, or a card and they move together. Tap a card to flip it and see the work behind the chapter.</p>
+
+        <div class="j-navigator">
+          <div class="map-grid">
+            <div class="map-card">
+              <h3>Geographic map</h3>
+              <div id="journey-map" role="region" aria-label="Geographic journey map"></div>
+            </div>
+            <div class="path-card" tabindex="0" role="region" aria-label="Progression path — scroll sideways on small screens">
+              <h3>Progression path</h3>
+              <svg id="progress-path" role="group" aria-label="Progression path through timeline chapters" viewBox="0 0 1000 340"></svg>
+            </div>
+          </div>
+        </div>
+
+        <p class="timeline-hint">&larr; scroll &rarr;</p>
+        <div class="j-viewport">
+          <div class="j-track" id="journey-track">
+
+            <div class="j-scene">
+              <article class="j-card" id="chapter-first-job" tabindex="0" aria-label="Chapter: First Job, 2015. Activate to flip the card.">
+                <div class="j-flip">
+                  <div class="j-face j-front">
+                    <span class="t-era">2015</span>
+                    <div class="card-media"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
+                    <h3>First Job</h3>
+                    <p class="t-location">Vaughan, ON</p>
+                    <p class="t-text">Seasonal games sales associate at Canada&rsquo;s Wonderland &mdash; first job, bussed both ways all summer.</p>
+                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
+                  </div>
+                  <div class="j-face j-back">
+                    <p class="j-back-kicker">The work</p>
+                    <h3>First Job</h3>
+                    <ul>
+                      <li>Canada&rsquo;s Wonderland &mdash; seasonal games sales associate; first job, bussed both ways all summer.</li>
+                    </ul>
+                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="j-scene">
+              <article class="j-card" id="chapter-early-roles" tabindex="0" aria-label="Chapter: Early Retail and Service, 2017 to 2020. Activate to flip the card.">
+                <div class="j-flip">
+                  <div class="j-face j-front">
+                    <span class="t-era">2017&ndash;2020</span>
+                    <div class="card-media"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
+                    <h3>Early Retail &amp; Service</h3>
+                    <p class="t-location">GTA, ON</p>
+                    <p class="t-text">Cook and delivery driver, Cineplex cast member, Staples technology sales, and Under Armour sales.</p>
+                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
+                  </div>
+                  <div class="j-face j-back">
+                    <p class="j-back-kicker">The work</p>
+                    <h3>Early Retail &amp; Service</h3>
+                    <ul>
+                      <li>Magna International &mdash; co-op, Industrial Programming / Electrical Engineering (600+ hours); presented work to a Magna VP and HR. Magna Closures &mdash; quality control / manufacturing (2016&ndash;2018).</li>
+                      <li>Staples, Newmarket &mdash; Technology Sales Associate (Jan&ndash;Sep 2019); led tech sales including warranties &amp; peripherals.</li>
+                      <li>Under Armour, Innisfil &mdash; Sales Associate (Sep 2019&ndash;Jun 2020); won two consecutive monthly sales challenges.</li>
+                      <li>Cineplex, Newmarket &mdash; Cast Member (Jan&ndash;Sep 2018); Employee of the Month, May 2018.</li>
+                      <li>Pizza Hut &mdash; cook and delivery driver.</li>
+                      <li>Gino&rsquo;s Pizza Inc., Newmarket &mdash; Cook &amp; Delivery Driver (Sep 2017&ndash;Dec 2018).</li>
+                    </ul>
+                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="j-scene">
+              <article class="j-card" id="chapter-asp" tabindex="0" aria-label="Chapter: Field Security Leadership, 2020 to 2025. Activate to flip the card.">
+                <div class="j-flip">
+                  <div class="j-face j-front">
+                    <span class="t-era">2020&ndash;2025</span>
+                    <div class="card-media"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
+                    <h3>Field Security Leadership</h3>
+                    <p class="t-location">Toronto, ON</p>
+                    <p class="t-text">Field Security Manager at ASP Incorporated. Oversaw security contracts, event operations and teams of 50+ frontline personnel.</p>
+                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
+                  </div>
+                  <div class="j-face j-back">
+                    <p class="j-back-kicker">The work</p>
+                    <h3>Field Security Manager &mdash; ASP Incorporated</h3>
+                    <p class="role-meta">Toronto, ON &middot; Jan 2022 &ndash; Dec 2025</p>
+                    <ul>
+                      <li>Oversaw major contracts including Toronto respite sites, Warner Brothers, Snapchat, and Rogers Stadium.</li>
+                      <li>Event Commander &mdash; Festa D&rsquo;Italia 2025 (14-guard day shift), Vaughan Canada Day 2025, VELD 2024 &amp; 2025: zero critical incidents, direct client commendations, and contract invitations for 2026.</li>
+                      <li>Event scale (as event manager): VELD 35,000+ daily, Vaughan Canada Day 20,000+, Festa D&rsquo;Italia 15,000+, UJA Walk with Israel 55,000+.</li>
+                      <li>Unified Command Communications Supervisor &mdash; Oasis at Rogers Stadium, Aug 24, 2025 (Live Nation): ran event comms on two radios.</li>
+                      <li>Invited by Sarah Miller (Director &ndash; Operations and Training) and Humberto Pimentel to apply for Service Delivery Manager &ndash; GTA; mentored by Sarah Miller.</li>
+                      <li>Led 50+ frontline personnel; coordinated with police, EMS, and municipal officials.</li>
+                      <li>Earlier at ASP: corporate security for Snapchat, crossing-guard mobile supervision, Shelter Movers protection for domestic-abuse relocations, COVID rapid-response across Toronto respites.</li>
+                      <li>Previously Security Specialist / Mobile Patrol Supervisor (Nov 2020 &ndash; Jan 2022): audited 350+ crosswalks for the City of Toronto School Crossing Guard program.</li>
+                    </ul>
+                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="j-scene">
+              <article class="j-card" id="chapter-wlkn" tabindex="0" aria-label="Chapter: Retail Operations Leadership, 2023 to 2024. Activate to flip the card.">
+                <div class="j-flip">
+                  <div class="j-face j-front">
+                    <span class="t-era">2023&ndash;2024</span>
+                    <div class="card-media"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
+                    <h3>Retail Operations Leadership</h3>
+                    <p class="t-location">Barrie / GTA</p>
+                    <p class="t-text">Store Manager and Interim District Manager at WLKN. Led store operations, hiring, training and multi-store coverage.</p>
+                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
+                  </div>
+                  <div class="j-face j-back">
+                    <p class="j-back-kicker">The work</p>
+                    <h3>Store Manager &rarr; Interim District Manager &mdash; WLKN</h3>
+                    <p class="role-meta">Barrie / GTA &middot; Oct 2023 &ndash; Dec 2024</p>
+                    <ul>
+                      <li>Launched the Barrie (Georgian Mall) location end-to-end: merchandising, hiring and training, scheduling, POS/CCTV setup, community marketing.</li>
+                      <li>Covered as Interim District Manager across GTA stores (10-week multi-store coverage).</li>
+                      <li>June 2024: $26,245.63 in sales on 2,897 traffic &mdash; 10.87% conversion, $83.32 sales per transaction.</li>
+                      <li>WLKN Owner&rsquo;s Award &amp; Employee of the Year, 2024.</li>
+                    </ul>
+                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="j-scene">
+              <article class="j-card" id="chapter-molex" tabindex="0" aria-label="Chapter: MOLEX Digital Solutions, 2025 to present. Activate to flip the card.">
+                <div class="j-flip">
+                  <div class="j-face j-front">
+                    <span class="t-era">2025&ndash;Present</span>
+                    <div class="card-media"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#ff2e88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h7M9 17h7"/></svg></div>
+                    <h3>MOLEX Digital Solutions</h3>
+                    <p class="t-location">Bradford, ON (Remote)</p>
+                    <p class="t-text">Co-founded a digital solutions business focused on web development, digital platforms and SaaS products.</p>
+                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
+                  </div>
+                  <div class="j-face j-back">
+                    <p class="j-back-kicker">The work</p>
+                    <h3>Co-Founder &mdash; MOLEX Web Development &amp; Digital Solutions</h3>
+                    <p class="role-meta">Bradford, ON (Remote) &middot; Feb 2025 &ndash; Present</p>
+                    <ul>
+                      <li>Design and build digital platforms and SaaS products &mdash; lead generation, web design, automated billing, directories.</li>
+                      <li>2026: launched True Shield Security&rsquo;s official site, landing foundational client contracts.</li>
+                      <li>2025: SparkyLube campaign &mdash; 4,300+ unique visitors, 344 confirmed clients upsold.</li>
+                      <li>SEO, Google Business Platform, and GA4 data tracking.</li>
+                    </ul>
+                    <p><a href="projects/molex.html">Read the MOLEX case study &rarr;</a></p>
+                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="j-scene">
+              <article class="j-card" id="chapter-sparky" tabindex="0" aria-label="Chapter: SparkyLube Client Internship, 2025. Activate to flip the card.">
+                <div class="j-flip">
+                  <div class="j-face j-front">
+                    <span class="t-era">2025</span>
+                    <div class="card-media"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#ff2e88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h7M9 17h7"/></svg></div>
+                    <h3>SparkyLube Client Internship</h3>
+                    <p class="t-location">Brantford, ON (Remote)</p>
+                    <p class="t-text">Designed and maintained a business website, including print-friendly service menus and online booking.</p>
+                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
+                  </div>
+                  <div class="j-face j-back">
+                    <p class="j-back-kicker">The work</p>
+                    <h3>Client Internship &mdash; SparkyLube</h3>
+                    <p class="role-meta">Brantford, ON (Remote) &middot; Contract &middot; Mar 2025 &ndash; Jul 2025</p>
+                    <ul>
+                      <li>Designed, built, and maintained the company website for a local automotive/oil-change business.</li>
+                      <li>Print-friendly service menus, integrated online booking, and improved business marketing.</li>
+                    </ul>
+                    <p><a href="projects/sparkylube-case-study.html">Read the case study &rarr;</a> &middot; <a href="sparkylube.html">View the demo &rarr;</a></p>
+                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="j-scene">
+              <article class="j-card" id="chapter-loblaw" tabindex="0" aria-label="Chapter: Asset Protection, 2026 to present. Activate to flip the card.">
+                <div class="j-flip">
+                  <div class="j-face j-front">
+                    <span class="t-era">2026&ndash;Present</span>
+                    <div class="card-media"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#2ee6ff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg></div>
+                    <h3>Asset Protection</h3>
+                    <p class="t-location">New Tecumseth, ON</p>
+                    <p class="t-text">Asset Protection Representative at Loblaw Companies Ltd. Focused on investigations, loss prevention, evidence development and operational risk.</p>
+                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
+                  </div>
+                  <div class="j-face j-back">
+                    <p class="j-back-kicker">The work</p>
+                    <h3>Asset Protection Representative &mdash; Loblaw Companies Ltd.</h3>
+                    <p class="role-meta">New Tecumseth, ON &middot; Jan 2026 &ndash; Present</p>
+                    <ul>
+                      <li>Deter theft, fraud, and organized retail crime through surveillance, investigations, and risk-based loss prevention.</li>
+                      <li>Run internal and external investigations, build evidence packages, and liaise with law enforcement.</li>
+                      <li>244 incident reports filed with zero case rejections (Criminal Code ss. 494, 322/334, 380; Trespass to Property Act).</li>
+                      <li>Audit shrink, analyze trends, and coach store leadership on AP policy and emergency procedures.</li>
+                    </ul>
+                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="j-scene">
+              <article class="j-card" id="chapter-seneca" tabindex="0" aria-label="Chapter: Computer Programming and Analysis, 2024 to present. Activate to flip the card.">
+                <div class="j-flip">
+                  <div class="j-face j-front">
+                    <span class="t-era">2024 &ndash; present</span>
+                    <div class="card-media"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="#ff2e88" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h9l5 5v15H6z"/><path d="M14 2v6h6M9 13h7M9 17h7"/></svg></div>
+                    <h3>Computer Programming &amp; Analysis</h3>
+                    <p class="t-location">Seneca</p>
+                    <p class="t-text">Post-secondary studies in software development and programming.</p>
+                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
+                  </div>
+                  <div class="j-face j-back">
+                    <p class="j-back-kicker">The work</p>
+                    <h3>Computer Programming &amp; Analysis</h3>
+                    <p class="role-meta">Seneca Polytechnic &middot; Jan 2024 &ndash; present</p>
+                    <ul>
+                      <li>Diploma focused on software engineering, relational databases, data structures, and enterprise mainframe analysis.</li>
+                      <li>Direction: digital solutions and policing &mdash; crime intelligence.</li>
+                      <li>Also: Police Foundations, Seneca College, Sep 2019 &ndash; Apr 2022 &mdash; Ontario College Diploma, graduated with distinction (GPA 3.8&ndash;3.9).</li>
+                    </ul>
+                    <p><a href="#education">Full education &rarr;</a></p>
+                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
+                  </div>
+                </div>
+              </article>
+            </div>
+
           </div>
         </div>
         <div class="timeline-progress"
              role="progressbar"
-             aria-label="Timeline reading progress"
+             aria-label="Journey reading progress"
              aria-valuemin="0"
              aria-valuemax="100"
              aria-valuenow="0">
           <span id="timeline-progress-fill"></span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= JOURNEY MAP ================= -->
-    <section id="journey" aria-labelledby="journey-title">
-      <div class="wrap">
-        <p class="section-kicker">Where it happened</p>
-        <h2 class="section-title" id="journey-title">Journey map</h2>
-        <p class="section-sub">Two views of the same road — click a node to jump to its card.</p>
-        <div class="map-grid">
-          <div class="map-card">
-            <h3>Geographic map</h3>
-            <div id="journey-map" role="region" aria-label="Geographic journey map"></div>
-          </div>
-          <div class="path-card" tabindex="0" role="region" aria-label="Progression path — scroll sideways on small screens">
-            <h3>Progression path</h3>
-            <svg id="progress-path" role="group" aria-label="Progression path through timeline chapters" viewBox="0 0 1000 340"></svg>
-          </div>
-        </div>
-        <!-- Floating logos: awards + brands, decorative only (aria-hidden) -->
-        <div class="float-logos" aria-hidden="true">
-          <img src="assets/brands/ospa.png" alt="" class="float-logo float-logo--award">
-          <img src="assets/brands/csla-240.webp" alt="" class="float-logo float-logo--award">
-          <img src="assets/brands/loblaw.svg" alt="" class="float-logo">
-          <img src="assets/brands/zehrs.png" alt="" class="float-logo">
-          <img src="assets/brands/warner-bros.svg" alt="" class="float-logo">
-          <img src="assets/brands/snapchat.svg" alt="" class="float-logo">
-          <img src="assets/brands/rogers.svg" alt="" class="float-logo">
-          <img src="assets/brands/magna.svg" alt="" class="float-logo">
-          <img src="assets/brands/cineplex.svg" alt="" class="float-logo">
-          <img src="assets/brands/staples.svg" alt="" class="float-logo">
-          <img src="assets/brands/seneca.svg" alt="" class="float-logo">
-          <img src="assets/brands/under-armour.svg" alt="" class="float-logo">
-          <img src="assets/brands/canadas-wonderland.svg" alt="" class="float-logo">
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= EXPERIENCE ================= -->
-    <section id="experience" aria-labelledby="experience-title">
-      <div class="wrap">
-        <p class="section-kicker">Work</p>
-        <h2 class="section-title" id="experience-title">Experience</h2>
-        <p class="section-sub">Six years across asset protection, field security leadership, retail management, and web development.</p>
-        <div class="info-grid">
-          <div class="info-card">
-            <h3>Asset Protection Representative — Loblaw Companies Ltd.</h3>
-            <p class="role-meta">New Tecumseth, ON · Jan 2026 – Present</p>
-            <ul>
-              <li>Deter theft, fraud, and organized retail crime through surveillance, investigations, and risk-based loss prevention.</li>
-              <li>Run internal and external investigations, build evidence packages, and liaise with law enforcement.</li>
-              <li>244 incident reports filed with zero case rejections (Criminal Code ss. 494, 322/334, 380; Trespass to Property Act).</li>
-              <li>Audit shrink, analyze trends, and coach store leadership on AP policy and emergency procedures.</li>
-            </ul>
-          </div>
-          <div class="info-card">
-            <h3>Co-Founder — MOLEX Web Development &amp; Digital Solutions</h3>
-            <p class="role-meta">Bradford, ON (Remote) · Feb 2025 – Present</p>
-            <ul>
-              <li>Design and build digital platforms and SaaS products — lead generation, web design, automated billing, directories.</li>
-              <li>2026: launched True Shield Security's official site, landing foundational client contracts.</li>
-              <li>2025: SparkyLube campaign — 4,300+ unique visitors, 344 confirmed clients upsold.</li>
-              <li>SEO, Google Business Platform, and GA4 data tracking.</li>
-            </ul>
-          </div>
-          <div class="info-card">
-            <h3>Client Internship — SparkyLube</h3>
-            <p class="role-meta">Brantford, ON (Remote) · Contract · Mar 2025 – Jul 2025</p>
-            <ul>
-              <li>Designed, built, and maintained the company website for a local automotive/oil-change business.</li>
-              <li>Print-friendly service menus, integrated online booking, and improved business marketing.</li>
-            </ul>
-          </div>
-          <div class="info-card">
-            <h3>Field Security Manager — ASP Incorporated</h3>
-            <p class="role-meta">Toronto, ON · Jan 2022 – Dec 2025</p>
-            <ul>
-              <li>Oversaw major contracts including Toronto respite sites, Warner Brothers, Snapchat, and Rogers Stadium.</li>
-              <li>Event Commander — Festa D'Italia 2025 (14-guard day shift), Vaughan Canada Day 2025, VELD 2024 &amp; 2025: zero critical incidents, direct client commendations, and contract invitations for 2026.</li>
-              <li>Event scale (as event manager): VELD 35,000+ daily, Vaughan Canada Day 20,000+, Festa D'Italia 15,000+, UJA Walk with Israel 55,000+.</li>
-              <li>Unified Command Communications Supervisor — Oasis at Rogers Stadium, Aug 24, 2025 (Live Nation): ran event comms on two radios.</li>
-              <li>Invited by Sarah Miller (Director – Operations and Training) and Humberto Pimentel to apply for Service Delivery Manager – GTA; mentored by Sarah Miller.</li>
-              <li>Led 50+ frontline personnel; coordinated with police, EMS, and municipal officials.</li>
-              <li>Earlier at ASP: corporate security for Snapchat, crossing-guard mobile supervision, Shelter Movers protection for domestic-abuse relocations, COVID rapid-response across Toronto respites.</li>
-              <li>Previously Security Specialist / Mobile Patrol Supervisor (Nov 2020 – Jan 2022): audited 350+ crosswalks for the City of Toronto School Crossing Guard program.</li>
-            </ul>
-          </div>
-          <div class="info-card">
-            <h3>Store Manager → Interim District Manager — WLKN</h3>
-            <p class="role-meta">Barrie / GTA · Oct 2023 – Dec 2024</p>
-            <ul>
-              <li>Launched the Barrie (Georgian Mall) location end-to-end: merchandising, hiring and training, scheduling, POS/CCTV setup, community marketing.</li>
-              <li>Covered as Interim District Manager across GTA stores (10-week multi-store coverage).</li>
-              <li>June 2024: $26,245.63 in sales on 2,897 traffic — 10.87% conversion, $83.32 sales per transaction.</li>
-              <li>WLKN Owner's Award &amp; Employee of the Year, 2024.</li>
-            </ul>
-          </div>
-          <div class="info-card">
-            <h3>Early chapters</h3>
-            <ul>
-              <li>Canada's Wonderland — seasonal games sales associate; first job, bussed both ways all summer.</li>
-              <li>Magna International — co-op, Industrial Programming / Electrical Engineering (600+ hours); presented work to a Magna VP and HR. Magna Closures — quality control / manufacturing (2016–2018).</li>
-              <li>Staples, Newmarket — Technology Sales Associate (Jan–Sep 2019); led tech sales including warranties &amp; peripherals.</li>
-              <li>Under Armour, Innisfil — Sales Associate (Sep 2019–Jun 2020); won two consecutive monthly sales challenges.</li>
-              <li>Cineplex, Newmarket — Cast Member (Jan–Sep 2018); Employee of the Month, May 2018.</li>
-              <li>Pizza Hut — cook and delivery driver.</li>
-              <li>Gino's Pizza Inc., Newmarket — Cook &amp; Delivery Driver (Sep 2017–Dec 2018).</li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>
@@ -386,62 +512,64 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="section-kicker">Brands</p>
         <h2 class="section-title" id="brands-title">Brands I&rsquo;ve worked with</h2>
         <p class="section-sub">Each brand is shown with the capacity I worked with it in &mdash; employer, contractor, event lead, client, or volunteer partner.</p>
-        <div class="brands-grid">
-          <a class="brand" href="#experience">
+        <details class="fold">
+          <summary>See all 23 brands</summary>
+          <div class="brands-grid">
+          <a class="brand" href="#journey-app">
             <img class="brand-logo" src="assets/brands/loblaw.svg" alt="" loading="lazy">
             <span class="brand-name">Loblaw</span>
             <span class="brand-cap">Employer &middot; Jan 2026 &ndash; present</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <img class="brand-logo brand-logo--wide" src="assets/brands/zehrs.png" alt="" loading="lazy">
             <span class="brand-name">Zehrs</span>
             <span class="brand-cap">Employer &middot; Loblaw banner</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <img class="brand-logo brand-logo--mark" src="assets/brands/warner-bros.svg" alt="" loading="lazy">
             <span class="brand-name">Warner Bros.</span>
             <span class="brand-cap">Contractor via ASP</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <img class="brand-logo brand-logo--mark" src="assets/brands/snapchat.svg" alt="" loading="lazy">
             <span class="brand-name">Snapchat</span>
             <span class="brand-cap">Contractor via ASP</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <img class="brand-logo brand-logo--wide" src="assets/brands/rogers.svg" alt="" loading="lazy">
             <span class="brand-name">Rogers Stadium</span>
             <span class="brand-cap">Contractor via ASP</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/asp.png" alt="" loading="lazy"></span>
             <span class="brand-name">ASP</span>
             <span class="brand-cap">Employer &middot; Field security 2020&ndash;25</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/veld.png" alt="" loading="lazy"></span>
             <span class="brand-name">VELD</span>
             <span class="brand-cap">Event Commander via ASP</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/festa-ditalia.png" alt="" loading="lazy"></span>
             <span class="brand-name">Festa D&rsquo;Italia</span>
             <span class="brand-cap">Event Commander via ASP</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/vaughan.svg" alt="" loading="lazy"></span>
             <span class="brand-name">Vaughan Canada Day</span>
             <span class="brand-cap">Event Commander via ASP</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <span class="brand-name brand-wordmark">UJA Walk with Israel</span>
             <span class="brand-cap">Event Commander via ASP</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <img class="brand-logo brand-logo--mark" src="assets/police/tps-seal.svg" alt="" loading="lazy">
             <span class="brand-name">Toronto Police</span>
             <span class="brand-cap">Community partner via ASP</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/wlkn.png" alt="" loading="lazy"></span>
             <span class="brand-name">WLKN</span>
             <span class="brand-cap">Employer &middot; Store Manager &rarr; Interim DM</span>
@@ -455,32 +583,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="brand-name brand-wordmark">SparkyLube</span>
             <span class="brand-cap">MOLEX client</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <img class="brand-logo" src="assets/brands/magna.svg" alt="" loading="lazy">
             <span class="brand-name">Magna</span>
             <span class="brand-cap">Co-op &middot; Magna Dortec</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <img class="brand-logo" src="assets/brands/cineplex.svg" alt="" loading="lazy">
             <span class="brand-name">Cineplex</span>
             <span class="brand-cap">Employer &middot; 2018</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <img class="brand-logo" src="assets/brands/staples.svg" alt="" loading="lazy">
             <span class="brand-name">Staples</span>
             <span class="brand-cap">Employer &middot; 2019</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <img class="brand-logo brand-logo--mark" src="assets/brands/under-armour.svg" alt="" loading="lazy">
             <span class="brand-name">Under Armour</span>
             <span class="brand-cap">Employer &middot; 2019&ndash;2020</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <img class="brand-logo" src="assets/brands/canadas-wonderland.svg" alt="" loading="lazy">
             <span class="brand-name">Canada&rsquo;s Wonderland</span>
             <span class="brand-cap">Employer &middot; first job</span>
           </a>
-          <a class="brand" href="#experience">
+          <a class="brand" href="#journey-app">
             <span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--mark" src="assets/brands/pizza-hut.svg" alt="" loading="lazy"></span>
             <span class="brand-name">Pizza Hut</span>
             <span class="brand-cap">Employer &middot; early role</span>
@@ -500,6 +628,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <span class="brand-cap">Volunteer partner &middot; food drives</span>
           </a>
         </div>
+        </details>
       </div>
     </section>
 
@@ -571,7 +700,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="section-kicker">Proof</p>
         <h2 class="section-title" id="skills-title">Skills &amp; certifications</h2>
         <p class="section-sub">Verified from the master resume.</p>
-        <div class="info-grid">
+        <details class="fold">
+          <summary>Certifications, skills &amp; languages — see the full list</summary>
+          <div class="info-grid">
           <div class="info-card">
             <h3>Certifications &amp; licences</h3>
             <ul>
@@ -607,6 +738,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </ul>
           </div>
         </div>
+        </details>
       </div>
     </section>
 
@@ -650,6 +782,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <p class="photo-credit">Photos: Mohammed Mounir&rsquo;s LinkedIn profile, shown as thumbnails.</p>
           </div>
+          <details class="fold fold--grid">
+            <summary>More recognition — 3 awards</summary>
+            <div class="info-grid">
           <div class="info-card">
             <h3>CEO Award of Excellence (2023)</h3>
             <p class="role-meta">ASP Incorporated</p>
@@ -665,6 +800,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="role-meta">Cineplex</p>
             <p>Recognized for guest satisfaction during peak traffic.</p>
           </div>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -675,7 +812,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="section-kicker">Off the clock</p>
         <h2 class="section-title" id="hobbies-title">Hobbies</h2>
         <p class="section-sub">What keeps the engine running outside work.</p>
-        <div class="info-grid">
+        <details class="fold">
+          <summary>Off the clock — motovlog, drag strip, gaming, RC planes</summary>
+          <div class="info-grid">
           <div class="info-card">
             <h3>Momospeare motovlog</h3>
             <p>Duo motovlog with partner Alex — destination rides on the Yamaha MT-07 and Kawasaki Ninja 300, with garage-education content. <a href="https://www.youtube.com/@Momospeare" target="_blank" rel="noopener noreferrer">Watch on YouTube &rarr;<span class="visually-hidden"> (opens in new tab)</span></a> · <a href="momospeare.html">More on the Momospeare page &rarr;</a></p>
@@ -693,6 +832,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>Flying RC model aircraft.</p>
           </div>
         </div>
+        </details>
       </div>
     </section>
 
