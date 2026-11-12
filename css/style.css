@@ -162,7 +162,7 @@ section[id], footer[id], h2[id] { scroll-margin-top: 80px; }
   letter-spacing: 0.01em;
 }
 
-.brand .dot { color: var(--pink); }
+.brand .maple-leaf { width: 0.8em; height: 0.87em; margin-left: 0.06em; vertical-align: -0.1em; fill: var(--pink); }
 
 .nav-links {
   display: flex;
