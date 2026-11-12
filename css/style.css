@@ -182,52 +182,6 @@ section[id], footer[id], h2[id] { scroll-margin-top: 80px; }
 
 .nav-links a:hover { color: var(--ink); }
 
-@media (max-width: 720px) {
-  .nav-inner {
-    height: auto;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-    padding-top: 12px;
-  }
-  .nav-links {
-    display: flex;
-    width: 100%;
-    gap: 18px;
-    overflow-x: auto;
-    padding: 0 0 12px;
-    scrollbar-width: thin;
-    /* Right-edge fade: signals the nav scrolls. Removed by JS once the
-       visitor reaches the end (see .at-end below). */
-    -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent 100%);
-    mask-image: linear-gradient(90deg, #000 88%, transparent 100%);
-  }
-  .nav-links.at-end {
-    -webkit-mask-image: none;
-    mask-image: none;
-  }
-  .nav-links li {
-    flex: 0 0 auto;
-  }
-  .nav-links a {
-    white-space: nowrap;
-    font-size: 0.85rem;
-    padding: 12px 2px;
-  }
-  /* Progression path keeps a readable minimum width and scrolls sideways
-     instead of shrinking the dots and labels below tap/read size. */
-  .path-card { overflow-x: auto; }
-  #progress-path { min-width: 620px; }
-  /* Mobile: doors stack, hero and sections breathe less */
-  #paths .info-grid { grid-template-columns: 1fr; }
-  #highlights .info-grid { grid-template-columns: 1fr; }
-  .hero { padding: 72px 0 64px; }
-  section { padding: 56px 0; }
-  /* The stacked nav is ~105px tall at 390px, so anchors need more room. */
-  section[id], footer[id], h2[id] { scroll-margin-top: 112px; }
-  .contact-card { padding: 24px 20px; }
-}
-
 /* ---------- Accessibility ---------- */
 .skip-link {
   position: absolute;
@@ -1070,3 +1024,55 @@ main a.brand {
 .award-logo--ospa img { width: 240px; }
 .award-logo--square img { width: 120px; }
 .award-logo figcaption { font-size: 0.8rem; color: var(--muted); margin-top: 6px; line-height: 1.4; }
+
+/* ---------- Mobile (max-width: 720px) ----------
+   This block MUST stay after all base rules in this file. Equal
+   specificity means the last matching rule wins: when it sat up in the
+   nav section, later base rules overrode it on phones — the doors got
+   the 4-column base instead of stacking (Highlights got 3), and the
+   hero/contact-card kept desktop padding. Base first, queries last. */
+@media (max-width: 720px) {
+  .nav-inner {
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-top: 12px;
+  }
+  .nav-links {
+    display: flex;
+    width: 100%;
+    gap: 18px;
+    overflow-x: auto;
+    padding: 0 0 12px;
+    scrollbar-width: thin;
+    /* Right-edge fade: signals the nav scrolls. Removed by JS once the
+       visitor reaches the end (see .at-end below). */
+    -webkit-mask-image: linear-gradient(90deg, #000 88%, transparent 100%);
+    mask-image: linear-gradient(90deg, #000 88%, transparent 100%);
+  }
+  .nav-links.at-end {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .nav-links li {
+    flex: 0 0 auto;
+  }
+  .nav-links a {
+    white-space: nowrap;
+    font-size: 0.85rem;
+    padding: 12px 2px;
+  }
+  /* Progression path keeps a readable minimum width and scrolls sideways
+     instead of shrinking the dots and labels below tap/read size. */
+  .path-card { overflow-x: auto; }
+  #progress-path { min-width: 620px; }
+  /* Mobile: doors stack, hero and sections breathe less */
+  #paths .info-grid { grid-template-columns: 1fr; }
+  #highlights .info-grid { grid-template-columns: 1fr; }
+  .hero { padding: 72px 0 64px; }
+  section { padding: 56px 0; }
+  /* The stacked nav is ~105px tall at 390px, so anchors need more room. */
+  section[id], footer[id], h2[id] { scroll-margin-top: 112px; }
+  .contact-card { padding: 24px 20px; }
+}
