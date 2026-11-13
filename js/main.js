@@ -409,35 +409,43 @@
 
     // Path scrubber: the progression path IS the scroll control. Dragging
     // along it scrubs the card track (path position maps to track scroll);
-    // a plain tap on the path jumps the track to that spot. Drags that
-    // start on a date node belong to the node — its own click handler
-    // owns those. While dragging, snap is off so the track follows the
+    // a plain tap on the path jumps the track to that spot. A drag may
+    // start anywhere on the path — including on a date node, whose
+    // invisible hit area (r=36) covers most of the line, so a node-start
+    // drag must NOT be ignored. A plain tap on a node still fires the
+    // node's own click handler, because no pointer capture is set for
+    // node starts. The move/up listeners live on the window while a drag
+    // runs, so the drag survives a failed capture or the pointer leaving
+    // the strip. While dragging, snap is off so the track follows the
     // pointer instead of stepping between cards.
     var scrubber = document.getElementById('journey-scrubber');
     if (scrubber && timeline && !reduceMotion) {
       var dragStartX = 0, dragStartScroll = 0, dragging = false, moved = false;
-      scrubber.addEventListener('pointerdown', function (e) {
-        if (e.target.closest && e.target.closest('.pp-node')) return;
-        dragging = true; moved = false;
-        dragStartX = e.clientX;
-        dragStartScroll = timeline.scrollLeft;
-        timeline.style.scrollSnapType = 'none';
-        scrubber.classList.add('is-dragging');
-        scrubber.setPointerCapture(e.pointerId);
-      });
-      scrubber.addEventListener('pointermove', function (e) {
+      var onScrubMove = function (e) {
         if (!dragging) return;
         var dx = e.clientX - dragStartX;
         if (Math.abs(dx) > 4) moved = true;
         var range = timeline.scrollWidth - timeline.clientWidth;
         var ratio = range > 0 ? range / scrubber.clientWidth : 0;
         timeline.scrollLeft = dragStartScroll - dx * ratio;
-      });
+      };
+      var stopScrubListeners = function () {
+        window.removeEventListener('pointermove', onScrubMove);
+        window.removeEventListener('pointerup', endScrub);
+        window.removeEventListener('pointercancel', cancelScrub);
+      };
+      var cancelScrub = function () {
+        dragging = false;
+        timeline.style.scrollSnapType = '';
+        scrubber.classList.remove('is-dragging');
+        stopScrubListeners();
+      };
       var endScrub = function (e) {
         if (!dragging) return;
         dragging = false;
         timeline.style.scrollSnapType = '';
         scrubber.classList.remove('is-dragging');
+        stopScrubListeners();
         if (!moved && e.target.closest && !e.target.closest('.pp-node')) {
           var rect = scrubber.getBoundingClientRect();
           var frac = (e.clientX - rect.left) / rect.width;
@@ -445,11 +453,18 @@
           timeline.scrollLeft = frac * (timeline.scrollWidth - timeline.clientWidth);
         }
       };
-      scrubber.addEventListener('pointerup', endScrub);
-      scrubber.addEventListener('pointercancel', function () {
-        dragging = false;
-        timeline.style.scrollSnapType = '';
-        scrubber.classList.remove('is-dragging');
+      scrubber.addEventListener('pointerdown', function (e) {
+        dragging = true; moved = false;
+        dragStartX = e.clientX;
+        dragStartScroll = timeline.scrollLeft;
+        timeline.style.scrollSnapType = 'none';
+        scrubber.classList.add('is-dragging');
+        if (!e.target.closest || !e.target.closest('.pp-node')) {
+          try { scrubber.setPointerCapture(e.pointerId); } catch (err) { /* capture is a nicety; the window listeners carry the drag */ }
+        }
+        window.addEventListener('pointermove', onScrubMove);
+        window.addEventListener('pointerup', endScrub);
+        window.addEventListener('pointercancel', cancelScrub);
       });
     }
 
