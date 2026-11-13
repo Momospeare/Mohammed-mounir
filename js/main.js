@@ -366,8 +366,7 @@
       var revealTargets = document.querySelectorAll(
         '#journey-app .j-scene, ' +
         '#projects .info-card, ' +
-        '#skills .info-card, ' +
-        '#education .info-card, ' +
+        '#recognition .info-card, ' +
         '.map-card, .path-card'
       );
       revealTargets.forEach(function (element) {

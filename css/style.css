@@ -980,6 +980,17 @@ footer .wrap {
 .about-copy p { color: var(--muted); font-size: 1.05rem; }
 .about-copy p strong { color: var(--ink); }
 
+/* Slim "latest writing" strip at the bottom of About. */
+.about-strip {
+  border-top: 1px solid var(--line);
+  margin-top: 28px;
+  padding-top: 20px;
+}
+.about-strip p { color: var(--muted); margin: 0; }
+
+/* "What people say" row inside Projects. */
+.project-quotes-title { margin: 32px 0 4px; font-size: 1.15rem; }
+
 /* ---------- Back to top ---------- */
 .to-top {
   position: fixed;
