@@ -409,22 +409,31 @@
 
     // Path scrubber: the progression path IS the scroll control. Dragging
     // along it scrubs the card track (path position maps to track scroll);
-    // a plain tap on the path jumps the track to that spot. A drag may
-    // start anywhere on the path — including on a date node, whose
-    // invisible hit area (r=36) covers most of the line, so a node-start
-    // drag must NOT be ignored. A plain tap on a node still fires the
-    // node's own click handler, because no pointer capture is set for
-    // node starts. The move/up listeners live on the window while a drag
-    // runs, so the drag survives a failed capture or the pointer leaving
-    // the strip. While dragging, snap is off so the track follows the
-    // pointer instead of stepping between cards.
+    // a plain tap on the path jumps the track to that spot. The drag
+    // starts from a document-level pointerdown so a press on a date
+    // node, the wave, or the label all start it uniformly — the nodes'
+    // large invisible hit areas cover most of the line, so the start
+    // must not depend on which element the press lands on. Pointer
+    // capture is set lazily, only once the pointer has actually moved:
+    // a tap never captures, so a tap on a node still fires the node's
+    // own click handler, while a real drag gets capture and is
+    // delivered even if the pointer leaves the strip. The move/up
+    // listeners live on the window while a drag runs. While dragging,
+    // snap is off so the track follows the pointer instead of stepping
+    // between cards.
     var scrubber = document.getElementById('journey-scrubber');
     if (scrubber && timeline && !reduceMotion) {
-      var dragStartX = 0, dragStartScroll = 0, dragging = false, moved = false;
+      var dragStartX = 0, dragStartScroll = 0, dragging = false, moved = false, captured = false;
       var onScrubMove = function (e) {
         if (!dragging) return;
         var dx = e.clientX - dragStartX;
-        if (Math.abs(dx) > 4) moved = true;
+        if (Math.abs(dx) > 4) {
+          moved = true;
+          if (!captured) {
+            captured = true;
+            try { scrubber.setPointerCapture(e.pointerId); } catch (err) { /* capture is a nicety; the window listeners carry the drag */ }
+          }
+        }
         var range = timeline.scrollWidth - timeline.clientWidth;
         var ratio = range > 0 ? range / scrubber.clientWidth : 0;
         timeline.scrollLeft = dragStartScroll - dx * ratio;
@@ -435,14 +444,14 @@
         window.removeEventListener('pointercancel', cancelScrub);
       };
       var cancelScrub = function () {
-        dragging = false;
+        dragging = false; captured = false;
         timeline.style.scrollSnapType = '';
         scrubber.classList.remove('is-dragging');
         stopScrubListeners();
       };
       var endScrub = function (e) {
         if (!dragging) return;
-        dragging = false;
+        dragging = false; captured = false;
         timeline.style.scrollSnapType = '';
         scrubber.classList.remove('is-dragging');
         stopScrubListeners();
@@ -453,15 +462,14 @@
           timeline.scrollLeft = frac * (timeline.scrollWidth - timeline.clientWidth);
         }
       };
-      scrubber.addEventListener('pointerdown', function (e) {
-        dragging = true; moved = false;
+      document.addEventListener('pointerdown', function (e) {
+        if (dragging) return;
+        if (!e.target.closest || !e.target.closest('#journey-scrubber')) return;
+        dragging = true; moved = false; captured = false;
         dragStartX = e.clientX;
         dragStartScroll = timeline.scrollLeft;
         timeline.style.scrollSnapType = 'none';
         scrubber.classList.add('is-dragging');
-        if (!e.target.closest || !e.target.closest('.pp-node')) {
-          try { scrubber.setPointerCapture(e.pointerId); } catch (err) { /* capture is a nicety; the window listeners carry the drag */ }
-        }
         window.addEventListener('pointermove', onScrubMove);
         window.addEventListener('pointerup', endScrub);
         window.addEventListener('pointercancel', cancelScrub);
