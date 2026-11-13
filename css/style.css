@@ -317,7 +317,17 @@ section[id] {
 }
 .j-track::-webkit-scrollbar-track { background: transparent; }
 
-.timeline-hint {
+/* The progression path IS the scroll control: it sits above the cards,
+   spans the full width, and dragging along it scrubs the track. */
+.j-scrubber {
+  margin: 0 0 12px;
+  cursor: grab;
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+}
+.j-scrubber.is-dragging { cursor: grabbing; }
+.j-scrubber-label {
   color: var(--muted);
   font-size: 0.85rem;
   margin: 0 0 8px;
@@ -492,13 +502,9 @@ section[id] {
 /* ---------- Journey map ---------- */
 .map-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1fr;
   gap: 28px;
   align-items: stretch;
-}
-
-@media (max-width: 900px) {
-  .map-grid { grid-template-columns: 1fr; }
 }
 /* Two-column doors/highlights ONLY in the 721–900px band. The ≤720px
    single-column rules live in the earlier nav block — and because this
@@ -508,18 +514,18 @@ section[id] {
    band keeps the two from ever overlapping, so order stops mattering. */
 @media (min-width: 721px) and (max-width: 900px) {
   #paths .info-grid { grid-template-columns: repeat(2, 1fr); }
-  #highlights .info-grid { grid-template-columns: repeat(2, 1fr); }
+  #recognition .info-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-.map-card, .path-card {
+.map-card {
   background: var(--bg);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 20px;
 }
 
-.map-card h3, .path-card h3 { margin: 0 0 6px; font-size: 1.05rem; }
-.map-card p, .path-card p { margin: 0 0 14px; color: var(--muted); font-size: 0.9rem; }
+.map-card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.map-card p { margin: 0 0 14px; color: var(--muted); font-size: 0.9rem; }
 
 #journey-map {
   height: 380px;
@@ -540,9 +546,8 @@ section[id] {
 .leaflet-control-attribution { font-size: 0.65rem; }
 .leaflet-control-attribution a { color: var(--muted); }
 
-/* Progression path (SVG) */
-.path-card { display: flex; flex-direction: column; }
-#progress-path { width: 100%; height: auto; display: block; margin: auto 0; }
+/* Progression path (SVG) — lives in the scrubber above the cards. */
+#progress-path { width: 100%; height: auto; display: block; }
 
 /* Numbered map pins (number baked into the marker, no tooltip clutter) */
 .stop-marker { background: none; border: none; }
@@ -605,10 +610,10 @@ section[id] {
 }
 
 /* Highlights: 5 cards read better 3+2 than 4+1 */
-#highlights .info-grid { grid-template-columns: repeat(3, 1fr); }
+#recognition .info-grid { grid-template-columns: repeat(3, 1fr); }
 /* Smaller lifesaver thumbs in Highlights so the CSLA card doesn't tower over the text-only cards */
-#highlights .photo-thumb { width: 120px; }
-#highlights .photo-thumb img { width: 120px; }
+#recognition .photo-thumb { width: 120px; }
+#recognition .photo-thumb img { width: 120px; }
 
 .info-card {
   background: var(--bg-2);
@@ -648,7 +653,7 @@ main a.door-card {
 }
 
 /* ---------- Contact ---------- */
-#education { padding-bottom: 56px; }
+#recognition { padding-bottom: 56px; }
 #contact { text-align: left; padding-top: 40px; }
 
 .contact-card {
@@ -674,25 +679,6 @@ footer .wrap {
   flex-wrap: wrap;
 }
 
-/* ---------- Timeline progress ---------- */
-.timeline-progress {
-  height: 3px;
-  margin-top: 8px;
-  background: var(--bg-3);
-  border-radius: 99px;
-  overflow: hidden;
-}
-#timeline-progress-fill {
-  display: block;
-  width: 0;
-  height: 100%;
-  background: linear-gradient(
-    90deg,
-    var(--pink),
-    var(--cyan)
-  );
-  transition: width 0.15s linear;
-}
 
 /* ---------- Folds: collapsed sections stay in the DOM (SEO-safe) ----------
    <details> keeps every word indexable while the page reads short.
@@ -756,7 +742,7 @@ footer .wrap {
     --ink: #111; --muted: #444; --line: #bbb;
   }
   body { background: #fff; }
-  .nav, .skip-link, .timeline-progress, #journey-app .j-navigator, .hero .cta-row,
+  .nav, .skip-link, #journey-app .j-navigator, #journey-app .j-scrubber, .hero .cta-row,
   .contact-card, footer, .memo-widget, .to-top { display: none !important; }
   section { padding: 18px 0; }
   /* Journey app becomes a 2-column grid so all 8 cards print, fronts
@@ -1152,13 +1138,9 @@ main a.brand {
     font-size: 0.85rem;
     padding: 12px 2px;
   }
-  /* Progression path keeps a readable minimum width and scrolls sideways
-     instead of shrinking the dots and labels below tap/read size. */
-  .path-card { overflow-x: auto; }
-  #progress-path { min-width: 620px; }
   /* Mobile: doors stack, hero and sections breathe less */
   #paths .info-grid { grid-template-columns: 1fr; }
-  #highlights .info-grid { grid-template-columns: 1fr; }
+  #recognition .info-grid { grid-template-columns: 1fr; }
   .hero { padding: 72px 0 64px; }
   section { padding: 44px 0; }
   /* The stacked nav is ~105px tall at 390px, so anchors need more room. */

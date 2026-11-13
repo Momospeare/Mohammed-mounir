@@ -102,7 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Time-based theme (Toronto time): runs before the stylesheet
        so the first paint is already the right theme. -->
   <script src="js/theme.js"></script>
-  <link rel="stylesheet" href="css/style.css?v=6cdcbc1">
+  <link rel="stylesheet" href="css/style.css?v=fe270b6">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -223,7 +223,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="wrap">
         <p class="section-kicker">The journey</p>
         <h2 class="section-title" id="journey-app-title">One road, eight chapters.</h2>
-        <p class="section-sub">Six years across asset protection, field security leadership, retail management, and web development. The map, the path, and the cards are the same story — tap a marker, a node, or a card and they move together. Tap a card to flip it and see the work behind the chapter.</p>
+        <p class="section-sub">Six years across asset protection, field security leadership, retail management, and web development. The map, the path, and the cards are the same story — drag the path, or tap a marker, a date, or a card, and they move together. Tap a card to flip it and see the work behind the chapter.</p>
 
         <div class="j-stats" role="list" aria-label="By the numbers">
           <p class="j-stats-label">By the numbers</p>
@@ -267,14 +267,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
               <h3>Geographic map</h3>
               <div id="journey-map" role="region" aria-label="Geographic journey map"></div>
             </div>
-            <div class="path-card" tabindex="0" role="region" aria-label="Progression path — scroll sideways on small screens">
-              <h3>Progression path</h3>
-              <svg id="progress-path" role="group" aria-label="Progression path through timeline chapters" viewBox="0 0 1000 340"></svg>
-            </div>
           </div>
         </div>
 
-        <p class="timeline-hint">&larr; scroll &rarr;</p>
+        <div class="j-scrubber" id="journey-scrubber" role="group" aria-label="Progression path — drag to travel through the chapters, or tap a date to jump to it">
+          <p class="j-scrubber-label">Drag the path to travel — or tap a date to jump to it.</p>
+          <svg id="progress-path" role="group" aria-label="Progression path through timeline chapters" viewBox="0 0 1000 160"></svg>
+        </div>
         <div class="j-viewport">
           <div class="j-track" id="journey-track">
 
@@ -496,14 +495,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
           </div>
-        </div>
-        <div class="timeline-progress"
-             role="progressbar"
-             aria-label="Journey reading progress"
-             aria-valuemin="0"
-             aria-valuemax="100"
-             aria-valuenow="0">
-          <span id="timeline-progress-fill"></span>
         </div>
       </div>
     </section>
@@ -859,7 +850,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
           integrity="sha256-Hk4dIpcqOSb0hZjgyvFOP+cEmDXUKKNE/tT542ZbNQg=" crossorigin=""></script>
   <script src="js/analytics.js"></script>
-  <script src="js/main.js?v=6cdcbc1"></script>
+  <script src="js/main.js?v=fe270b6"></script>
   <script src="js/memo.js"></script>
 </body>
 </html>

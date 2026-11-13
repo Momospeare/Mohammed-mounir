@@ -243,11 +243,11 @@
     var svg = document.getElementById('progress-path');
     if (!svg) return;
 
-    var W = 1000, H = 340, pad = 40;
+    var W = 1000, H = 160, pad = 40;
     var n = chapters.length;
     var stepX = (W - pad * 2) / Math.max(n - 1, 1);
     // Gentle wave so the path feels like a journey, not a ruler
-    function yAt(i) { return H / 2 + Math.sin(i * 0.9) * 100; }
+    function yAt(i) { return H / 2 + Math.sin(i * 0.9) * 36; }
 
     var NS = 'http://www.w3.org/2000/svg';
     svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
@@ -367,7 +367,7 @@
         '#journey-app .j-scene, ' +
         '#projects .info-card, ' +
         '#recognition .info-card, ' +
-        '.map-card, .path-card'
+        '.map-card, .j-scrubber'
       );
       revealTargets.forEach(function (element) {
         element.classList.add('reveal');
@@ -375,31 +375,8 @@
       });
     }
 
-    // Timeline progress indicator
+    // The card track (the scroll-sync below needs this handle).
     var timeline = document.getElementById('journey-track');
-    var progress = document.getElementById('timeline-progress-fill');
-    var progressBar = document.querySelector('.timeline-progress');
-    if (timeline && progress && progressBar) {
-      function updateTimelineProgress() {
-        var maxScroll =
-          timeline.scrollWidth - timeline.clientWidth;
-        var percentage = maxScroll > 0
-          ? (timeline.scrollLeft / maxScroll) * 100
-          : 100;
-        progress.style.width = percentage + '%';
-        progressBar.setAttribute(
-          'aria-valuenow',
-          String(Math.round(percentage))
-        );
-      }
-      timeline.addEventListener(
-        'scroll',
-        updateTimelineProgress,
-        { passive: true }
-      );
-      window.addEventListener('resize', updateTimelineProgress);
-      updateTimelineProgress();
-    }
 
     // Scroll-sync: the card in the centre of the track auto-selects, so
     // the map follows the dates as you scroll. It selects (highlight +
@@ -428,6 +405,52 @@
         syncTicking = true;
         requestAnimationFrame(function () { syncTicking = false; syncToCenter(); });
       }, { passive: true });
+    }
+
+    // Path scrubber: the progression path IS the scroll control. Dragging
+    // along it scrubs the card track (path position maps to track scroll);
+    // a plain tap on the path jumps the track to that spot. Drags that
+    // start on a date node belong to the node — its own click handler
+    // owns those. While dragging, snap is off so the track follows the
+    // pointer instead of stepping between cards.
+    var scrubber = document.getElementById('journey-scrubber');
+    if (scrubber && timeline && !reduceMotion) {
+      var dragStartX = 0, dragStartScroll = 0, dragging = false, moved = false;
+      scrubber.addEventListener('pointerdown', function (e) {
+        if (e.target.closest && e.target.closest('.pp-node')) return;
+        dragging = true; moved = false;
+        dragStartX = e.clientX;
+        dragStartScroll = timeline.scrollLeft;
+        timeline.style.scrollSnapType = 'none';
+        scrubber.classList.add('is-dragging');
+        scrubber.setPointerCapture(e.pointerId);
+      });
+      scrubber.addEventListener('pointermove', function (e) {
+        if (!dragging) return;
+        var dx = e.clientX - dragStartX;
+        if (Math.abs(dx) > 4) moved = true;
+        var range = timeline.scrollWidth - timeline.clientWidth;
+        var ratio = range > 0 ? range / scrubber.clientWidth : 0;
+        timeline.scrollLeft = dragStartScroll - dx * ratio;
+      });
+      var endScrub = function (e) {
+        if (!dragging) return;
+        dragging = false;
+        timeline.style.scrollSnapType = '';
+        scrubber.classList.remove('is-dragging');
+        if (!moved && e.target.closest && !e.target.closest('.pp-node')) {
+          var rect = scrubber.getBoundingClientRect();
+          var frac = (e.clientX - rect.left) / rect.width;
+          frac = Math.max(0, Math.min(1, frac));
+          timeline.scrollLeft = frac * (timeline.scrollWidth - timeline.clientWidth);
+        }
+      };
+      scrubber.addEventListener('pointerup', endScrub);
+      scrubber.addEventListener('pointercancel', function () {
+        dragging = false;
+        timeline.style.scrollSnapType = '';
+        scrubber.classList.remove('is-dragging');
+      });
     }
 
     // Footer year
