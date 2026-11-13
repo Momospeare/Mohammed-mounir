@@ -16,7 +16,8 @@
     mapMarkerClick: function () {},
     progressionNodeClick: function () {},
     sectionView: function () {},
-    heroCtaClick: function () {}
+    heroCtaClick: function () {},
+    siteClick: function () {}
   };
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -227,6 +228,7 @@
       chapterMarkers[ch.id] = marker;
       marker.on('click', function () {
         A.mapMarkerClick(ch.id, ch.mapLabel || ch.location);
+        A.siteClick('map_marker', ch.id, 'journey');
         selectChapter(ch.id, { flip: true });
       });
       // Number the stops in journey order via a tooltip
@@ -299,6 +301,7 @@
       chapterNodes[ch.id] = g;
       function go() {
         A.progressionNodeClick(ch.id);
+        A.siteClick('path_node', ch.id, 'journey');
         selectChapter(ch.id, { flip: true });
       }
       g.addEventListener('click', go);
@@ -329,6 +332,33 @@
       el.addEventListener('click', function () {
         A.heroCtaClick(el.getAttribute('data-track-cta'), el.getAttribute('href') || '');
       });
+    });
+
+    // Generic click tracking: one delegated listener reads data-track
+    // ("element|label|section") on any clicked element. Toggle elements
+    // (chapter cards, folds) also report open/close as `action`.
+    // The card's own click handler runs first (bubble order), so by the
+    // time this runs the flip class already reflects the new state.
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest ? e.target.closest('[data-track]') : null;
+      if (!el) return;
+      var parts = (el.getAttribute('data-track') || '').split('|');
+      if (parts.length !== 3) return;
+      var action;
+      if (el.classList.contains('j-card')) {
+        if (e.target.closest('.j-flip-btn')) {
+          action = 'close';
+        } else if (e.target.closest('a')) {
+          return; // a link inside the card: not a flip (it has its own tag)
+        } else {
+          action = el.classList.contains('is-flipped') ? 'open' : 'close';
+        }
+      } else if (el.tagName === 'DETAILS') {
+        // <details> toggles on the click's default action (after this
+        // handler runs), so the current open state is the old one.
+        action = el.open ? 'close' : 'open';
+      }
+      A.siteClick(parts[0], parts[1], parts[2], action);
     });
 
     // Fire "section_view" once per section when it first enters the viewport

@@ -48,6 +48,12 @@
 
     heroCtaClick: function (ctaLabel, ctaTarget) {
       track('hero_cta_click', { cta_label: ctaLabel, cta_target: ctaTarget });
+    },
+
+    siteClick: function (element, label, section, action) {
+      var params = { element: element, label: label, section: section };
+      if (action) params.action = action;
+      track('site_click', params);
     }
   };
 })();

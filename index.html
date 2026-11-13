@@ -102,7 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Time-based theme (Toronto time): runs before the stylesheet
        so the first paint is already the right theme. -->
   <script src="js/theme.js"></script>
-  <link rel="stylesheet" href="css/style.css?v=25ef9bb">
+  <link rel="stylesheet" href="css/style.css?v=06eb23a">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -114,13 +114,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <nav class="nav" aria-label="Primary">
     <div class="wrap nav-inner">
-      <a class="brand" href="#top">MOHAMMED MOUNIR<img class="maple-leaf" src="assets/maple-leaf.png" width="14" height="15" alt="" aria-hidden="true"></a>
+      <a class="brand" href="#top" data-track="nav|Home|header">MOHAMMED MOUNIR<img class="maple-leaf" src="assets/maple-leaf.png" width="14" height="15" alt="" aria-hidden="true"></a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#journey-app">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="projects/community.html">Community</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about" data-track="nav|About|header">About</a></li>
+        <li><a href="#journey-app" data-track="nav|Experience|header">Experience</a></li>
+        <li><a href="#projects" data-track="nav|Projects|header">Projects</a></li>
+        <li><a href="projects/community.html" data-track="nav|Community|header">Community</a></li>
+        <li><a href="#contact" data-track="nav|Contact|header">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -136,9 +136,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         Asset protection and investigations at Loblaw — organized retail crime, evidence packages, and the digital solutions I build through MOLEX. 244 incident reports filed, zero rejections.
       </p>
       <div class="cta-row">
-        <a class="btn btn-primary" href="#journey-app" data-track-cta="explore_timeline">Explore the timeline</a>
-        <a class="btn btn-ghost" href="#journey-app" data-track-cta="view_journey_map">View the journey map</a>
-        <a class="btn btn-ghost" href="links/">All my links</a>
+        <a class="btn btn-primary" href="#journey-app" data-track-cta="explore_timeline" data-track="hero_cta|Explore the timeline|hero">Explore the timeline</a>
+        <a class="btn btn-ghost" href="#journey-app" data-track-cta="view_journey_map" data-track="hero_cta|View the journey map|hero">View the journey map</a>
+        <a class="btn btn-ghost" href="links/" data-track="hero_cta|All my links|hero">All my links</a>
       </div>
     </div>
   </header>
@@ -151,22 +151,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h2 class="section-title" id="paths-title">Who are you here for?</h2>
         <p class="section-sub">Four doors, one story — pick yours.</p>
         <div class="info-grid">
-          <a class="info-card door-card" href="#journey-app">
+          <a class="info-card door-card" href="#journey-app" data-track="door|You're hiring|paths">
             <h3>You&rsquo;re hiring</h3>
             <p>Security, investigations, or tech — six years of proof, not adjectives.</p>
             <p class="door-proof">244 incident reports filed, zero rejections.</p>
           </a>
-          <a class="info-card door-card" href="projects/molex.html">
+          <a class="info-card door-card" href="projects/molex.html" data-track="door|You need a website|paths">
             <h3>You need a website</h3>
             <p>Fast, honest websites for small businesses, built through MOLEX.</p>
             <p class="door-proof">SparkyLube: 4,300+ visitors, 344 clients.</p>
           </a>
-          <a class="info-card door-card" href="projects/community.html">
+          <a class="info-card door-card" href="projects/community.html" data-track="door|Police &amp; community|paths">
             <h3>Police &amp; community</h3>
             <p>Police Foundations, OACP certificate — the record behind them.</p>
             <p class="door-proof">14 Division CPLC liaison, 2022&ndash;2024.</p>
           </a>
-          <a class="info-card door-card" href="projects/community.html#volunteering">
+          <a class="info-card door-card" href="projects/community.html#volunteering" data-track="door|Volunteering|paths">
             <h3>Volunteering</h3>
             <p>Food drives, Legion, and community initiatives — with the receipts.</p>
             <p class="door-proof">Thanksgiving 2026: 553 lb + $910.90.</p>
@@ -185,7 +185,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <p>On the other side, I build. I co-founded MOLEX, a digital solutions business, and started Computer Programming &amp; Analysis at Seneca (present). The long game is crime intelligence analysis — the same instinct, applied differently: protect people, then build the systems that protect them. The current step is the OPP civilian path: Civilian Data Entry and Technology Disclosure.</p>
           <p class="about-now"><strong>Currently:</strong> Asset Protection at Loblaw · MOLEX builds · Seneca CPA (present) · Working toward crime intelligence.</p>
         </div>
-        <details class="fold">
+        <details class="fold" data-track="fold|Off the clock|about">
           <summary>Off the clock — motovlog, drag strip, gaming, RC planes</summary>
           <div class="info-grid">
           <div class="info-card">
@@ -207,7 +207,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         </details>
         <div class="about-strip">
-          <p><strong>Latest writing:</strong> <a href="blog.html">November 2026: The Month the Portfolio Went Live</a> — one short post a month, the work as it happens.</p>
+          <p><strong>Latest writing:</strong> <a href="blog.html" data-track="blog|November 2026|about">November 2026: The Month the Portfolio Went Live</a> — one short post a month, the work as it happens.</p>
         </div>
       </div>
     </section>
@@ -278,7 +278,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="j-track" id="journey-track">
 
             <div class="j-scene">
-              <article class="j-card" id="chapter-first-job" tabindex="0" aria-label="Chapter: First Job, 2015. Activate to flip the card.">
+              <article class="j-card" id="chapter-first-job" tabindex="0" aria-label="Chapter: First Job, 2015. Activate to flip the card." data-track="chapter_card|first-job|journey">
                 <div class="j-flip">
                   <div class="j-face j-front">
                     <span class="t-era">2015</span>
@@ -301,7 +301,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="j-scene">
-              <article class="j-card" id="chapter-early-roles" tabindex="0" aria-label="Chapter: Early Retail and Service, 2017 to 2020. Activate to flip the card.">
+              <article class="j-card" id="chapter-early-roles" tabindex="0" aria-label="Chapter: Early Retail and Service, 2017 to 2020. Activate to flip the card." data-track="chapter_card|early-roles|journey">
                 <div class="j-flip">
                   <div class="j-face j-front">
                     <span class="t-era">2017&ndash;2020</span>
@@ -329,7 +329,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="j-scene">
-              <article class="j-card" id="chapter-asp" tabindex="0" aria-label="Chapter: Field Security Leadership, 2020 to 2025. Activate to flip the card.">
+              <article class="j-card" id="chapter-asp" tabindex="0" aria-label="Chapter: Field Security Leadership, 2020 to 2025. Activate to flip the card." data-track="chapter_card|asp|journey">
                 <div class="j-flip">
                   <div class="j-face j-front">
                     <span class="t-era">2020&ndash;2025</span>
@@ -360,7 +360,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="j-scene">
-              <article class="j-card" id="chapter-wlkn" tabindex="0" aria-label="Chapter: Retail Operations Leadership, 2023 to 2024. Activate to flip the card.">
+              <article class="j-card" id="chapter-wlkn" tabindex="0" aria-label="Chapter: Retail Operations Leadership, 2023 to 2024. Activate to flip the card." data-track="chapter_card|wlkn|journey">
                 <div class="j-flip">
                   <div class="j-face j-front">
                     <span class="t-era">2023&ndash;2024</span>
@@ -387,7 +387,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="j-scene">
-              <article class="j-card" id="chapter-molex" tabindex="0" aria-label="Chapter: MOLEX Digital Solutions, 2025 to present. Activate to flip the card.">
+              <article class="j-card" id="chapter-molex" tabindex="0" aria-label="Chapter: MOLEX Digital Solutions, 2025 to present. Activate to flip the card." data-track="chapter_card|molex|journey">
                 <div class="j-flip">
                   <div class="j-face j-front">
                     <span class="t-era">2025&ndash;Present</span>
@@ -407,7 +407,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <li>2025: SparkyLube campaign &mdash; 4,300+ unique visitors, 344 confirmed clients upsold.</li>
                       <li>Local search, lead capture, and tracking that shows what's working.</li>
                     </ul>
-                    <p><a href="projects/molex.html">Read the MOLEX case study &rarr;</a></p>
+                    <p><a href="projects/molex.html" data-track="project|MOLEX|projects">Read the MOLEX case study &rarr;</a></p>
                     <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
                   </div>
                 </div>
@@ -415,7 +415,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="j-scene">
-              <article class="j-card" id="chapter-sparky" tabindex="0" aria-label="Chapter: SparkyLube Client Internship, 2025. Activate to flip the card.">
+              <article class="j-card" id="chapter-sparky" tabindex="0" aria-label="Chapter: SparkyLube Client Internship, 2025. Activate to flip the card." data-track="chapter_card|sparky|journey">
                 <div class="j-flip">
                   <div class="j-face j-front">
                     <span class="t-era">2025</span>
@@ -433,7 +433,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                       <li>Designed, built, and maintained the company website for a local automotive/oil-change business.</li>
                       <li>Print-friendly service menus, integrated online booking, and improved business marketing.</li>
                     </ul>
-                    <p><a href="projects/sparkylube-case-study.html">Read the case study &rarr;</a> &middot; <a href="sparkylube.html">View the demo &rarr;</a></p>
+                    <p><a href="projects/sparkylube-case-study.html" data-track="project|SparkyLube case study|projects">Read the case study &rarr;</a> &middot; <a href="sparkylube.html" data-track="project|SparkyLube demo|projects">View the demo &rarr;</a></p>
                     <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
                   </div>
                 </div>
@@ -441,7 +441,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="j-scene">
-              <article class="j-card" id="chapter-loblaw" tabindex="0" aria-label="Chapter: Asset Protection, 2026 to present. Activate to flip the card.">
+              <article class="j-card" id="chapter-loblaw" tabindex="0" aria-label="Chapter: Asset Protection, 2026 to present. Activate to flip the card." data-track="chapter_card|loblaw|journey">
                 <div class="j-flip">
                   <div class="j-face j-front">
                     <span class="t-era">2026&ndash;Present</span>
@@ -468,7 +468,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="j-scene">
-              <article class="j-card" id="chapter-seneca" tabindex="0" aria-label="Chapter: Computer Programming and Analysis, 2024 to present. Activate to flip the card.">
+              <article class="j-card" id="chapter-seneca" tabindex="0" aria-label="Chapter: Computer Programming and Analysis, 2024 to present. Activate to flip the card." data-track="chapter_card|seneca|journey">
                 <div class="j-flip">
                   <div class="j-face j-front">
                     <span class="t-era">2024 &ndash; present</span>
@@ -507,143 +507,143 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="section-sub">Tap a logo to see the capacity I worked with it in &mdash; employer, contractor, event lead, client, or volunteer partner.</p>
         <div class="brands-marquee" id="brands-marquee">
           <div class="brands-marquee-track" id="brands-marquee-track">
-            <button class="brand-float" type="button" data-brand="Loblaw" data-role="Employer · Jan 2026 – present" data-link="#journey-app" aria-label="Loblaw — Employer, January 2026 to present. Activate for details."><img class="brand-logo" src="assets/brands/loblaw.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Zehrs" data-role="Employer · Loblaw banner" data-link="#journey-app" aria-label="Zehrs — Employer, Loblaw banner. Activate for details."><img class="brand-logo brand-logo--wide" src="assets/brands/zehrs.png" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Warner Bros." data-role="Contractor via ASP" data-link="#journey-app" aria-label="Warner Bros. — Contractor via ASP. Activate for details."><img class="brand-logo brand-logo--mark" src="assets/brands/warner-bros.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Snapchat" data-role="Contractor via ASP" data-link="#journey-app" aria-label="Snapchat — Contractor via ASP. Activate for details."><img class="brand-logo brand-logo--mark" src="assets/brands/snapchat.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Rogers Stadium" data-role="Contractor via ASP" data-link="#journey-app" aria-label="Rogers Stadium — Contractor via ASP. Activate for details."><img class="brand-logo brand-logo--wide" src="assets/brands/rogers.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="ASP" data-role="Employer · Field security 2020–25" data-link="#journey-app" aria-label="ASP — Employer, field security 2020 to 2025. Activate for details."><span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/asp.png" alt="" loading="lazy"></span></button>
-            <button class="brand-float" type="button" data-brand="VELD" data-role="Event Commander via ASP" data-link="#journey-app" aria-label="VELD — Event Commander via ASP. Activate for details."><span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/veld.png" alt="" loading="lazy"></span></button>
-            <button class="brand-float" type="button" data-brand="Festa D'Italia" data-role="Event Commander via ASP" data-link="#journey-app" aria-label="Festa D'Italia — Event Commander via ASP. Activate for details."><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/festa-ditalia.png" alt="" loading="lazy"></span></button>
-            <button class="brand-float" type="button" data-brand="Vaughan Canada Day" data-role="Event Commander via ASP" data-link="#journey-app" aria-label="Vaughan Canada Day — Event Commander via ASP. Activate for details."><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/vaughan.svg" alt="" loading="lazy"></span></button>
-            <button class="brand-float" type="button" data-brand="UJA Walk with Israel" data-role="Behaviour Detection Guard via ASP" data-link="#journey-app" aria-label="UJA Walk with Israel — Behaviour Detection Guard via ASP. Activate for details."><span class="brand-name brand-wordmark">UJA Walk with Israel</span></button>
-            <button class="brand-float" type="button" data-brand="Toronto Police" data-role="Community partner via ASP" data-link="#journey-app" aria-label="Toronto Police — Community partner via ASP. Activate for details."><img class="brand-logo brand-logo--mark" src="assets/police/tps-seal.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="WLKN" data-role="Employer · Store Manager → Interim DM" data-link="#journey-app" aria-label="WLKN — Employer, Store Manager to Interim District Manager. Activate for details."><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/wlkn.png" alt="" loading="lazy"></span></button>
-            <button class="brand-float" type="button" data-brand="True Shield Security" data-role="MOLEX client" data-link="projects/true-shield.html" aria-label="True Shield Security — MOLEX client. Activate for details."><img class="brand-logo brand-logo--mark" src="assets/brands/true-shield.png" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="SparkyLube" data-role="MOLEX client" data-link="projects/sparkylube.html" aria-label="SparkyLube — MOLEX client. Activate for details."><span class="brand-name brand-wordmark">SparkyLube</span></button>
-            <button class="brand-float" type="button" data-brand="Magna" data-role="Co-op · Magna Dortec" data-link="#journey-app" aria-label="Magna — Co-op, Magna Dortec. Activate for details."><img class="brand-logo" src="assets/brands/magna.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Cineplex" data-role="Employer · 2018" data-link="#journey-app" aria-label="Cineplex — Employer, 2018. Activate for details."><img class="brand-logo" src="assets/brands/cineplex.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Staples" data-role="Employer · 2019" data-link="#journey-app" aria-label="Staples — Employer, 2019. Activate for details."><img class="brand-logo" src="assets/brands/staples.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Under Armour" data-role="Employer · 2019–2020" data-link="#journey-app" aria-label="Under Armour — Employer, 2019 to 2020. Activate for details."><img class="brand-logo brand-logo--mark" src="assets/brands/under-armour.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Canada's Wonderland" data-role="Employer · first job" data-link="#journey-app" aria-label="Canada's Wonderland — Employer, first job. Activate for details."><img class="brand-logo" src="assets/brands/canadas-wonderland.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Pizza Hut" data-role="Employer · early role" data-link="#journey-app" aria-label="Pizza Hut — Employer, early role. Activate for details."><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--mark" src="assets/brands/pizza-hut.svg" alt="" loading="lazy"></span></button>
-            <button class="brand-float" type="button" data-brand="Seneca" data-role="Computer Programming · present" data-link="#recognition" aria-label="Seneca — Computer Programming, present. Activate for details."><img class="brand-logo" src="assets/brands/seneca.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="OPP Auxiliary" data-role="Community partner · food drives" data-link="projects/community.html" aria-label="OPP Auxiliary — Community partner, food drives. Activate for details."><img class="brand-logo brand-logo--mark" src="assets/police/opp-patch.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Alliston Food Bank" data-role="Volunteer partner · food drives" data-link="projects/community.html" aria-label="Alliston Food Bank — Volunteer partner, food drives. Activate for details."><span class="brand-name brand-wordmark">Alliston Food Bank</span></button>
+            <button class="brand-float" type="button" data-brand="Loblaw" data-role="Employer · Jan 2026 – present" data-link="#journey-app" aria-label="Loblaw — Employer, January 2026 to present. Activate for details." data-track="brand_float|Loblaw|brands"><img class="brand-logo" src="assets/brands/loblaw.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Zehrs" data-role="Employer · Loblaw banner" data-link="#journey-app" aria-label="Zehrs — Employer, Loblaw banner. Activate for details." data-track="brand_float|Zehrs|brands"><img class="brand-logo brand-logo--wide" src="assets/brands/zehrs.png" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Warner Bros." data-role="Contractor via ASP" data-link="#journey-app" aria-label="Warner Bros. — Contractor via ASP. Activate for details." data-track="brand_float|Warner Bros.|brands"><img class="brand-logo brand-logo--mark" src="assets/brands/warner-bros.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Snapchat" data-role="Contractor via ASP" data-link="#journey-app" aria-label="Snapchat — Contractor via ASP. Activate for details." data-track="brand_float|Snapchat|brands"><img class="brand-logo brand-logo--mark" src="assets/brands/snapchat.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Rogers Stadium" data-role="Contractor via ASP" data-link="#journey-app" aria-label="Rogers Stadium — Contractor via ASP. Activate for details." data-track="brand_float|Rogers Stadium|brands"><img class="brand-logo brand-logo--wide" src="assets/brands/rogers.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="ASP" data-role="Employer · Field security 2020–25" data-link="#journey-app" aria-label="ASP — Employer, field security 2020 to 2025. Activate for details." data-track="brand_float|ASP|brands"><span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/asp.png" alt="" loading="lazy"></span></button>
+            <button class="brand-float" type="button" data-brand="VELD" data-role="Event Commander via ASP" data-link="#journey-app" aria-label="VELD — Event Commander via ASP. Activate for details." data-track="brand_float|VELD|brands"><span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/veld.png" alt="" loading="lazy"></span></button>
+            <button class="brand-float" type="button" data-brand="Festa D'Italia" data-role="Event Commander via ASP" data-link="#journey-app" aria-label="Festa D'Italia — Event Commander via ASP. Activate for details." data-track="brand_float|Festa D'Italia|brands"><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/festa-ditalia.png" alt="" loading="lazy"></span></button>
+            <button class="brand-float" type="button" data-brand="Vaughan Canada Day" data-role="Event Commander via ASP" data-link="#journey-app" aria-label="Vaughan Canada Day — Event Commander via ASP. Activate for details." data-track="brand_float|Vaughan Canada Day|brands"><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/vaughan.svg" alt="" loading="lazy"></span></button>
+            <button class="brand-float" type="button" data-brand="UJA Walk with Israel" data-role="Behaviour Detection Guard via ASP" data-link="#journey-app" aria-label="UJA Walk with Israel — Behaviour Detection Guard via ASP. Activate for details." data-track="brand_float|UJA Walk with Israel|brands"><span class="brand-name brand-wordmark">UJA Walk with Israel</span></button>
+            <button class="brand-float" type="button" data-brand="Toronto Police" data-role="Community partner via ASP" data-link="#journey-app" aria-label="Toronto Police — Community partner via ASP. Activate for details." data-track="brand_float|Toronto Police|brands"><img class="brand-logo brand-logo--mark" src="assets/police/tps-seal.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="WLKN" data-role="Employer · Store Manager → Interim DM" data-link="#journey-app" aria-label="WLKN — Employer, Store Manager to Interim District Manager. Activate for details." data-track="brand_float|WLKN|brands"><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/wlkn.png" alt="" loading="lazy"></span></button>
+            <button class="brand-float" type="button" data-brand="True Shield Security" data-role="MOLEX client" data-link="projects/true-shield.html" aria-label="True Shield Security — MOLEX client. Activate for details." data-track="brand_float|True Shield Security|brands"><img class="brand-logo brand-logo--mark" src="assets/brands/true-shield.png" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="SparkyLube" data-role="MOLEX client" data-link="projects/sparkylube.html" aria-label="SparkyLube — MOLEX client. Activate for details." data-track="brand_float|SparkyLube|brands"><span class="brand-name brand-wordmark">SparkyLube</span></button>
+            <button class="brand-float" type="button" data-brand="Magna" data-role="Co-op · Magna Dortec" data-link="#journey-app" aria-label="Magna — Co-op, Magna Dortec. Activate for details." data-track="brand_float|Magna|brands"><img class="brand-logo" src="assets/brands/magna.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Cineplex" data-role="Employer · 2018" data-link="#journey-app" aria-label="Cineplex — Employer, 2018. Activate for details." data-track="brand_float|Cineplex|brands"><img class="brand-logo" src="assets/brands/cineplex.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Staples" data-role="Employer · 2019" data-link="#journey-app" aria-label="Staples — Employer, 2019. Activate for details." data-track="brand_float|Staples|brands"><img class="brand-logo" src="assets/brands/staples.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Under Armour" data-role="Employer · 2019–2020" data-link="#journey-app" aria-label="Under Armour — Employer, 2019 to 2020. Activate for details." data-track="brand_float|Under Armour|brands"><img class="brand-logo brand-logo--mark" src="assets/brands/under-armour.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Canada's Wonderland" data-role="Employer · first job" data-link="#journey-app" aria-label="Canada's Wonderland — Employer, first job. Activate for details." data-track="brand_float|Canada's Wonderland|brands"><img class="brand-logo" src="assets/brands/canadas-wonderland.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Pizza Hut" data-role="Employer · early role" data-link="#journey-app" aria-label="Pizza Hut — Employer, early role. Activate for details." data-track="brand_float|Pizza Hut|brands"><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--mark" src="assets/brands/pizza-hut.svg" alt="" loading="lazy"></span></button>
+            <button class="brand-float" type="button" data-brand="Seneca" data-role="Computer Programming · present" data-link="#recognition" aria-label="Seneca — Computer Programming, present. Activate for details." data-track="brand_float|Seneca|brands"><img class="brand-logo" src="assets/brands/seneca.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="OPP Auxiliary" data-role="Community partner · food drives" data-link="projects/community.html" aria-label="OPP Auxiliary — Community partner, food drives. Activate for details." data-track="brand_float|OPP Auxiliary|brands"><img class="brand-logo brand-logo--mark" src="assets/police/opp-patch.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Alliston Food Bank" data-role="Volunteer partner · food drives" data-link="projects/community.html" aria-label="Alliston Food Bank — Volunteer partner, food drives. Activate for details." data-track="brand_float|Alliston Food Bank|brands"><span class="brand-name brand-wordmark">Alliston Food Bank</span></button>
           </div>
         </div>
-        <details class="fold">
+        <details class="fold" data-track="fold|See all 23 brands|brands">
           <summary>See all 23 brands</summary>
           <div class="brands-grid">
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Loblaw|brands">
             <img class="brand-logo" src="assets/brands/loblaw.svg" alt="" loading="lazy">
             <span class="brand-name">Loblaw</span>
             <span class="brand-cap">Employer &middot; Jan 2026 &ndash; present</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Zehrs|brands">
             <img class="brand-logo brand-logo--wide" src="assets/brands/zehrs.png" alt="" loading="lazy">
             <span class="brand-name">Zehrs</span>
             <span class="brand-cap">Employer &middot; Loblaw banner</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Warner Bros.|brands">
             <img class="brand-logo brand-logo--mark" src="assets/brands/warner-bros.svg" alt="" loading="lazy">
             <span class="brand-name">Warner Bros.</span>
             <span class="brand-cap">Contractor via ASP</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Snapchat|brands">
             <img class="brand-logo brand-logo--mark" src="assets/brands/snapchat.svg" alt="" loading="lazy">
             <span class="brand-name">Snapchat</span>
             <span class="brand-cap">Contractor via ASP</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Rogers Stadium|brands">
             <img class="brand-logo brand-logo--wide" src="assets/brands/rogers.svg" alt="" loading="lazy">
             <span class="brand-name">Rogers Stadium</span>
             <span class="brand-cap">Contractor via ASP</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|ASP|brands">
             <span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/asp.png" alt="" loading="lazy"></span>
             <span class="brand-name">ASP</span>
             <span class="brand-cap">Employer &middot; Field security 2020&ndash;25</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|VELD|brands">
             <span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/veld.png" alt="" loading="lazy"></span>
             <span class="brand-name">VELD</span>
             <span class="brand-cap">Event Commander via ASP</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Festa D&rsquo;Italia|brands">
             <span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/festa-ditalia.png" alt="" loading="lazy"></span>
             <span class="brand-name">Festa D&rsquo;Italia</span>
             <span class="brand-cap">Event Commander via ASP</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Vaughan Canada Day|brands">
             <span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/vaughan.svg" alt="" loading="lazy"></span>
             <span class="brand-name">Vaughan Canada Day</span>
             <span class="brand-cap">Event Commander via ASP</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|UJA Walk with Israel|brands">
             <span class="brand-name brand-wordmark">UJA Walk with Israel</span>
             <span class="brand-cap">Behaviour Detection Guard via ASP</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Toronto Police|brands">
             <img class="brand-logo brand-logo--mark" src="assets/police/tps-seal.svg" alt="" loading="lazy">
             <span class="brand-name">Toronto Police</span>
             <span class="brand-cap">Community partner via ASP</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|WLKN|brands">
             <span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/wlkn.png" alt="" loading="lazy"></span>
             <span class="brand-name">WLKN</span>
             <span class="brand-cap">Employer &middot; Store Manager &rarr; Interim DM</span>
           </a>
-          <a class="brand" href="projects/true-shield.html">
+          <a class="brand" href="projects/true-shield.html" data-track="brand_grid|True Shield Security|brands">
             <img class="brand-logo brand-logo--mark" src="assets/brands/true-shield.png" alt="" loading="lazy">
             <span class="brand-name">True Shield Security</span>
             <span class="brand-cap">MOLEX client</span>
           </a>
-          <a class="brand" href="projects/sparkylube.html">
+          <a class="brand" href="projects/sparkylube.html" data-track="brand_grid|SparkyLube|brands">
             <span class="brand-name brand-wordmark">SparkyLube</span>
             <span class="brand-cap">MOLEX client</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Magna|brands">
             <img class="brand-logo" src="assets/brands/magna.svg" alt="" loading="lazy">
             <span class="brand-name">Magna</span>
             <span class="brand-cap">Co-op &middot; Magna Dortec</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Cineplex|brands">
             <img class="brand-logo" src="assets/brands/cineplex.svg" alt="" loading="lazy">
             <span class="brand-name">Cineplex</span>
             <span class="brand-cap">Employer &middot; 2018</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Staples|brands">
             <img class="brand-logo" src="assets/brands/staples.svg" alt="" loading="lazy">
             <span class="brand-name">Staples</span>
             <span class="brand-cap">Employer &middot; 2019</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Under Armour|brands">
             <img class="brand-logo brand-logo--mark" src="assets/brands/under-armour.svg" alt="" loading="lazy">
             <span class="brand-name">Under Armour</span>
             <span class="brand-cap">Employer &middot; 2019&ndash;2020</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Canada&rsquo;s Wonderland|brands">
             <img class="brand-logo" src="assets/brands/canadas-wonderland.svg" alt="" loading="lazy">
             <span class="brand-name">Canada&rsquo;s Wonderland</span>
             <span class="brand-cap">Employer &middot; first job</span>
           </a>
-          <a class="brand" href="#journey-app">
+          <a class="brand" href="#journey-app" data-track="brand_grid|Pizza Hut|brands">
             <span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--mark" src="assets/brands/pizza-hut.svg" alt="" loading="lazy"></span>
             <span class="brand-name">Pizza Hut</span>
             <span class="brand-cap">Employer &middot; early role</span>
           </a>
-          <a class="brand" href="#recognition">
+          <a class="brand" href="#recognition" data-track="brand_grid|Seneca|brands">
             <img class="brand-logo" src="assets/brands/seneca.svg" alt="" loading="lazy">
             <span class="brand-name">Seneca</span>
             <span class="brand-cap">Computer Programming &middot; present</span>
           </a>
-          <a class="brand" href="projects/community.html">
+          <a class="brand" href="projects/community.html" data-track="brand_grid|OPP Auxiliary|brands">
             <img class="brand-logo brand-logo--mark" src="assets/police/opp-patch.svg" alt="" loading="lazy">
             <span class="brand-name">OPP Auxiliary</span>
             <span class="brand-cap">Community partner &middot; food drives</span>
           </a>
-          <a class="brand" href="projects/community.html">
+          <a class="brand" href="projects/community.html" data-track="brand_grid|Alliston Food Bank|brands">
             <span class="brand-name brand-wordmark">Alliston Food Bank</span>
             <span class="brand-cap">Volunteer partner &middot; food drives</span>
           </a>
@@ -651,11 +651,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </details>
         <dialog id="brand-dialog" class="brand-dialog" aria-labelledby="brand-dialog-name">
           <form method="dialog">
-            <button class="brand-dialog-close" aria-label="Close">&times;</button>
+            <button class="brand-dialog-close" aria-label="Close" data-track="brand_dialog|Close|brands">&times;</button>
           </form>
           <h3 id="brand-dialog-name"></h3>
           <p id="brand-dialog-role"></p>
-          <p><a id="brand-dialog-link" href="#journey-app">See the work &rarr;</a></p>
+          <p><a id="brand-dialog-link" href="#journey-app" data-track="brand_dialog|See the work|brands">See the work &rarr;</a></p>
         </dialog>
       </div>
     </section>
@@ -672,28 +672,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="role-meta">Co-founder · Feb 2025 – Present</p>
             <p>Websites and digital solutions for small businesses — built to bring in clients, not just look good.</p>
             <p><strong>Two client sites live: SparkyLube (4,300+ visitors, 344 clients upsold) and True Shield Security (launched 2026, now hiring).</strong></p>
-            <p><a href="projects/molex.html" aria-label="Read the MOLEX case study">Read the case study &rarr;</a></p>
+            <p><a href="projects/molex.html" aria-label="Read the MOLEX case study" data-track="project|MOLEX|projects">Read the case study &rarr;</a></p>
           </article>
           <article class="info-card">
             <h3>SparkyLube — client website</h3>
             <p class="role-meta">Brantford, ON · Mar – Jul 2025</p>
             <p>A site an oil-change shop's customers could actually use — service menus, online booking, local SEO.</p>
             <p><strong>4,300+ unique visitors, 344 confirmed clients upsold in the 2025 campaign.</strong></p>
-            <p><a href="projects/sparkylube-case-study.html" aria-label="Read the SparkyLube case study">Read the case study &rarr;</a> · <a href="projects/sparkylube.html">View the demo &rarr;</a></p>
+            <p><a href="projects/sparkylube-case-study.html" aria-label="Read the SparkyLube case study" data-track="project|SparkyLube case study|projects">Read the case study &rarr;</a> · <a href="projects/sparkylube.html" data-track="project|SparkyLube demo|projects">View the demo &rarr;</a></p>
           </article>
           <article class="info-card">
             <h3>True Shield Security — official site</h3>
             <p class="role-meta">Launched 2026</p>
             <p>An official site for a security company that matched the work — positioning, service pages, inquiry flow.</p>
             <p><strong>Launched 2026 — now multiple clients and hiring.</strong></p>
-            <p><a href="projects/true-shield.html" aria-label="Read the True Shield case study">Read the case study &rarr;</a> · <a href="https://trueshieldsecurity.ca" target="_blank" rel="noopener noreferrer">Visit the live site &rarr;<span class="visually-hidden"> (opens in new tab)</span></a></p>
+            <p><a href="projects/true-shield.html" aria-label="Read the True Shield case study" data-track="project|True Shield|projects">Read the case study &rarr;</a> · <a href="https://trueshieldsecurity.ca" target="_blank" rel="noopener noreferrer">Visit the live site &rarr;<span class="visually-hidden"> (opens in new tab)</span></a></p>
           </article>
           <article class="info-card">
             <h3>Community projects</h3>
             <p class="role-meta">Zehrs + OPP Auxiliary · Oct 2026</p>
             <p>Food drives and community events run with the Loblaw Asset Protection team, OPP Auxiliary, and local partners.</p>
             <p><strong>553 lb of food + $910.90 raised in a single Thanksgiving drive.</strong></p>
-            <p><a href="projects/community.html">See the projects &rarr;</a></p>
+            <p><a href="projects/community.html" data-track="project|Community|projects">See the projects &rarr;</a></p>
           </article>
         </div>
         <h3 class="project-quotes-title">What people say</h3>
@@ -702,13 +702,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <article class="info-card">
             <blockquote class="testimonial">
               <p>&ldquo;I highly recommend Mohammed Mounir! He takes on complex challenges with confidence, delivering measurable results while maintaining focus on team objectives, stakeholder engagement, and improvements. His ability to analyze risk, identify opportunities, and exercise sound judgment sets him apart.&rdquo;</p>
-              <footer><strong>Anwar Bonimy</strong> — Corporate Security, City of Toronto · June 21, 2026 · Worked on the same team<br><a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer">Read the full recommendation on LinkedIn &rarr;<span class="visually-hidden"> (opens in new tab)</span></a></footer>
+              <footer><strong>Anwar Bonimy</strong> — Corporate Security, City of Toronto · June 21, 2026 · Worked on the same team<br><a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer" data-track="testimonial|LinkedIn|projects">Read the full recommendation on LinkedIn &rarr;<span class="visually-hidden"> (opens in new tab)</span></a></footer>
             </blockquote>
           </article>
           <article class="info-card">
             <blockquote class="testimonial">
               <p>&ldquo;Mohammed consistently demonstrated outstanding leadership, professionalism, and dedication to his team. His guidance and mentorship played a significant role in helping me better understand the principles of integrity, accountability, and customer service, which proved invaluable to me for my current role at the City of Hamilton.&rdquo;</p>
-              <footer><strong>Ayush Chauhan</strong> — Transit Operator, City of Hamilton · June 20, 2026 · Reported to Mohammed at Green P<br><a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer">Read the full recommendation on LinkedIn &rarr;<span class="visually-hidden"> (opens in new tab)</span></a></footer>
+              <footer><strong>Ayush Chauhan</strong> — Transit Operator, City of Hamilton · June 20, 2026 · Reported to Mohammed at Green P<br><a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer" data-track="testimonial|LinkedIn|projects">Read the full recommendation on LinkedIn &rarr;<span class="visually-hidden"> (opens in new tab)</span></a></footer>
             </blockquote>
           </article>
         </div>
@@ -727,7 +727,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="role-meta">Outstanding Security Performance Awards (OSPAs)</p>
             <p>For leadership, innovation, and operational excellence in security.</p>
             <figure class="award-logo award-logo--ospa">
-              <a href="https://ca.theospas.com/2025/11/27/2025-canada-ospas-winners-announced/" target="_blank" rel="noopener noreferrer"><img src="assets/brands/ospa.png" alt="Outstanding Security Performance Awards (OSPA) logo" width="220" height="104" loading="lazy"><span class="visually-hidden"> (opens in new tab)</span></a>
+              <a href="https://ca.theospas.com/2025/11/27/2025-canada-ospas-winners-announced/" target="_blank" rel="noopener noreferrer" data-track="award|OSPA|recognition"><img src="assets/brands/ospa.png" alt="Outstanding Security Performance Awards (OSPA) logo" width="220" height="104" loading="lazy"><span class="visually-hidden"> (opens in new tab)</span></a>
               <figcaption>Winner 2025 — listed on the official OSPA winners page.</figcaption>
             </figure>
           </div>
@@ -736,7 +736,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p class="role-meta">Canadian Security Lifesaver Awards · Aug 2023 &amp; Oct 2022</p>
             <p>Award Aug 2023: pulled a pedestrian out of the path of a speeding fire truck at Kipling &amp; Stevenson. Mar 2022: intervened to prevent a child pushed into oncoming traffic from being struck by a TTC bus.</p>
             <figure class="award-logo award-logo--square">
-              <a href="https://canadiansecuritylifesaver.ca/" target="_blank" rel="noopener noreferrer"><img src="assets/brands/csla-240.webp" alt="Canadian Security Lifesaver Association logo" width="120" height="120" loading="lazy"><span class="visually-hidden"> (opens in new tab)</span></a>
+              <a href="https://canadiansecuritylifesaver.ca/" target="_blank" rel="noopener noreferrer" data-track="award|CSLA|recognition"><img src="assets/brands/csla-240.webp" alt="Canadian Security Lifesaver Association logo" width="120" height="120" loading="lazy"><span class="visually-hidden"> (opens in new tab)</span></a>
               <figcaption>Recipient 2022 &amp; 2023.</figcaption>
             </figure>
             <div class="photo-row">
@@ -755,7 +755,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <p class="photo-credit">Photos: Mohammed Mounir&rsquo;s LinkedIn profile, shown as thumbnails.</p>
           </div>
-          <details class="fold fold--grid">
+          <details class="fold fold--grid" data-track="fold|More recognition — 3 awards|recognition">
             <summary>More recognition — 3 awards</summary>
             <div class="info-grid">
           <div class="info-card">
@@ -788,7 +788,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p>Ontario College Diploma, graduated with distinction (GPA 3.8–3.9). Coursework in Canadian Criminal Code, forensics, crisis intervention, interviewing and investigative communications. Invited to complete the Honours Bachelor of Crime &amp; Intelligence Analysis program.</p>
           </article>
         </div>
-        <details class="fold">
+        <details class="fold" data-track="fold|Certifications, skills &amp; languages|recognition">
           <summary>Certifications, skills &amp; languages — see the full list</summary>
           <div class="info-grid">
           <div class="info-card">
@@ -839,9 +839,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="section-sub">I only contact people from the accounts linked on this page. Anything else claiming to be me isn&rsquo;t.</p>
         <div class="contact-card">
           <div class="cta-row">
-            <a class="btn btn-primary" href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer">Connect on LinkedIn<span class="visually-hidden"> (opens in new tab)</span></a>
-            <a class="btn btn-ghost" href="https://github.com/Momospeare/Mohammed-mounir" target="_blank" rel="noopener noreferrer">View GitHub Repository<span class="visually-hidden"> (opens in new tab)</span></a>
-            <a class="btn btn-ghost" href="mailto:business@mohammedmounir.ca">Email for business</a>
+            <a class="btn btn-primary" href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer" data-track="contact|LinkedIn|contact">Connect on LinkedIn<span class="visually-hidden"> (opens in new tab)</span></a>
+            <a class="btn btn-ghost" href="https://github.com/Momospeare/Mohammed-mounir" target="_blank" rel="noopener noreferrer" data-track="contact|GitHub|contact">View GitHub Repository<span class="visually-hidden"> (opens in new tab)</span></a>
+            <a class="btn btn-ghost" href="mailto:business@mohammedmounir.ca" data-track="contact|Email|contact">Email for business</a>
           </div>
         </div>
       </div>
@@ -851,14 +851,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <footer>
     <div class="wrap">
       <span>Mohammed Mounir — Asset Protection Representative, Bradford, Ontario.</span>
-      <span><a href="blog.html">Blog</a> · <a href="momospeare.html">Momospeare</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer">LinkedIn<span class="visually-hidden"> (opens in new tab)</span></a> · <a href="https://github.com/Momospeare/Mohammed-mounir" target="_blank" rel="noopener noreferrer">GitHub<span class="visually-hidden"> (opens in new tab)</span></a></span>
+      <span><a href="blog.html" data-track="footer|Blog|footer">Blog</a> · <a href="momospeare.html" data-track="footer|Momospeare|footer">Momospeare</a> · <a href="privacy.html" data-track="footer|Privacy|footer">Privacy</a> · <a href="terms.html" data-track="footer|Terms|footer">Terms</a> · <a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer" data-track="footer|LinkedIn|footer">LinkedIn<span class="visually-hidden"> (opens in new tab)</span></a> · <a href="https://github.com/Momospeare/Mohammed-mounir" target="_blank" rel="noopener noreferrer" data-track="footer|GitHub|footer">GitHub<span class="visually-hidden"> (opens in new tab)</span></a></span>
       <span>© <span id="year">2026</span> Mohammed Mounir. Built chapter by chapter.</span>
     </div>
   </footer>
 
   <!-- Memo — scripted sidekick (replies are scripted; questions are logged, scrubbed, to his Cloudflare Worker) -->
   <div class="memo-widget">
-    <button type="button" class="memo-toggle" id="memo-toggle" aria-expanded="false" aria-controls="memo-panel">
+    <button type="button" class="memo-toggle" id="memo-toggle" data-track="memo|Open|memo" aria-expanded="false" aria-controls="memo-panel">
       <span class="memo-dot" aria-hidden="true"></span> Memo
     </button>
     <div class="memo-panel" id="memo-panel" role="dialog" aria-modal="true" aria-label="Memo — Momo's sidekick" hidden>
@@ -878,14 +878,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <!-- Back to top -->
-  <a class="to-top" id="to-top" href="#top" aria-label="Back to top">&uarr;</a>
+  <a class="to-top" id="to-top" href="#top" data-track="nav|Back to top|footer" aria-label="Back to top">&uarr;</a>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
           integrity="sha256-Hk4dIpcqOSb0hZjgyvFOP+cEmDXUKKNE/tT542ZbNQg=" crossorigin=""></script>
   <script src="js/analytics.js"></script>
-  <script src="js/main.js?v=25ef9bb"></script>
+  <script src="js/main.js?v=06eb23a"></script>
   <script src="js/memo.js"></script>
 </body>
 </html>
