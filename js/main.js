@@ -50,6 +50,13 @@
      normally and never trigger a flip. */
   var chapterMarkers = {};
   var chapterNodes = {};
+  var journeyMap = null;
+  var chapterCoords = {};
+  // While a programmatic scroll (card click, node/marker jump) is running,
+  // scroll-sync stays quiet so it never fights the scroll or unflips the
+  // open card mid-flight.
+  var scrollLock = false;
+  var scrollLockTimer = null;
 
   function clearSelection() {
     document.querySelectorAll('.j-card.is-selected, .j-card.is-flipped').forEach(function (c) {
@@ -76,7 +83,26 @@
     if (chapterNodes[id]) chapterNodes[id].classList.add('is-active');
     var m = chapterMarkers[id];
     if (m && m.getElement) { var el = m.getElement(); if (el) el.classList.add('is-active'); }
-    card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+    if (!opts || opts.scroll !== false) {
+      scrollLock = true;
+      clearTimeout(scrollLockTimer);
+      scrollLockTimer = setTimeout(function () { scrollLock = false; }, 900);
+      card.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', inline: 'center', block: 'nearest' });
+    }
+    // Fly the map to the chapter's location — the map zooms in on the
+    // place itself, not just a colour change on the marker.
+    if (journeyMap && chapterCoords[id]) {
+      if (reduceMotion) {
+        journeyMap.setView(chapterCoords[id], 13, { animate: false });
+        if (m) m.openPopup();
+      } else {
+        journeyMap.flyTo(chapterCoords[id], 13, { duration: 1.2 });
+        if (m) {
+          journeyMap.once('moveend', function () { m.openPopup(); });
+          m.openPopup();
+        }
+      }
+    }
   }
 
   function wireJourneyCards() {
@@ -128,6 +154,10 @@
     // tap on the map enables it (clicks and marker popups still work).
     var isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
     var map = L.map('journey-map', { scrollWheelZoom: false, dragging: !isTouch }).setView(stops[0].coords, 2);
+    journeyMap = map;
+    chapters.forEach(function (ch) {
+      if (ch.coords && ch.coords.length === 2) chapterCoords[ch.id] = ch.coords;
+    });
     map.on('focus', function () { map.scrollWheelZoom.enable(); });
     map.on('blur', function () { map.scrollWheelZoom.disable(); });
     if (isTouch) { map.on('click', function () { map.dragging.enable(); }); }
@@ -370,6 +400,35 @@
       );
       window.addEventListener('resize', updateTimelineProgress);
       updateTimelineProgress();
+    }
+
+    // Scroll-sync: the card in the centre of the track auto-selects, so
+    // the map follows the dates as you scroll. It selects (highlight +
+    // map fly) but never flips — scrolling past a card shouldn't throw
+    // it open. Programmatic scrolls are locked out above, so sync never
+    // fights a click or unflips the open card mid-flight.
+    if (timeline) {
+      var syncToCenter = function () {
+        if (scrollLock) return;
+        var trackRect = timeline.getBoundingClientRect();
+        var centerX = trackRect.left + trackRect.width / 2;
+        var best = null, bestDist = Infinity;
+        timeline.querySelectorAll('.j-scene').forEach(function (scene) {
+          var r = scene.getBoundingClientRect();
+          var d = Math.abs((r.left + r.width / 2) - centerX);
+          if (d < bestDist) { bestDist = d; best = scene; }
+        });
+        if (!best) return;
+        var card = best.querySelector('.j-card');
+        if (!card || card.classList.contains('is-selected')) return;
+        selectChapter(card.id.replace('chapter-', ''), { flip: false, scroll: false });
+      };
+      var syncTicking = false;
+      timeline.addEventListener('scroll', function () {
+        if (scrollLock || syncTicking) return;
+        syncTicking = true;
+        requestAnimationFrame(function () { syncTicking = false; syncToCenter(); });
+      }, { passive: true });
     }
 
     // Footer year

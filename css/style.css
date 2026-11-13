@@ -323,6 +323,31 @@ section[id] {
   margin: 0 0 8px;
 }
 
+/* Record strip, living inside the journey app (same card language). */
+.j-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 0 0 28px;
+}
+.j-stats-label {
+  grid-column: 1 / -1;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+.j-stat {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  background: linear-gradient(160deg, var(--bg-2), var(--bg-3));
+}
+.j-stat .stat-num { font-size: 2rem; font-weight: 800; color: var(--cyan); margin: 0 0 4px; }
+.j-stat .stat-label { color: var(--muted); font-size: 0.9rem; margin: 0; }
+
 /* Flip scene: perspective on the scene, 3D on the flip wrapper. */
 .j-scene {
   flex: 0 0 320px;
@@ -955,22 +980,6 @@ footer .wrap {
 .about-copy p { color: var(--muted); font-size: 1.05rem; }
 .about-copy p strong { color: var(--ink); }
 
-/* ---------- By the numbers ---------- */
-#numbers { padding-top: 40px; }
-.stat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 20px;
-}
-.stat {
-  background: var(--bg-2);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 24px;
-}
-.stat-num { font-size: 2rem; font-weight: 800; color: var(--cyan); margin: 0 0 4px; }
-.stat-label { color: var(--muted); font-size: 0.9rem; margin: 0; }
-
 /* ---------- Back to top ---------- */
 .to-top {
   position: fixed;
@@ -1147,5 +1156,6 @@ main a.brand {
   /* Journey app on phones: near-full-width flip cards, taller frame */
   .j-scene { flex: 0 0 86vw; }
   .j-card { height: 470px; }
+  .j-stats { grid-template-columns: repeat(2, 1fr); }
   .fold { padding: 0 14px; }
 }
