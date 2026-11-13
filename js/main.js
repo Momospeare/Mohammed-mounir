@@ -453,6 +453,43 @@
       });
     }
 
+    // Floating brands: a logo-only marquee; a click opens one shared
+    // detail dialog. The track's buttons are cloned once (second copy
+    // aria-hidden and unfocusable) so the drift loops seamlessly, and
+    // the drift pauses while the dialog is open.
+    var marqueeTrack = document.getElementById('brands-marquee-track');
+    var brandDialog = document.getElementById('brand-dialog');
+    if (marqueeTrack) {
+      var originals = Array.prototype.slice.call(marqueeTrack.querySelectorAll('.brand-float'));
+      originals.forEach(function (btn) {
+        var copy = btn.cloneNode(true);
+        copy.setAttribute('aria-hidden', 'true');
+        copy.setAttribute('tabindex', '-1');
+        marqueeTrack.appendChild(copy);
+      });
+      marqueeTrack.classList.add('is-looping');
+    }
+    if (marqueeTrack && brandDialog) {
+      var dlgName = document.getElementById('brand-dialog-name');
+      var dlgRole = document.getElementById('brand-dialog-role');
+      var dlgLink = document.getElementById('brand-dialog-link');
+      marqueeTrack.addEventListener('click', function (e) {
+        var btn = e.target.closest ? e.target.closest('.brand-float') : null;
+        if (!btn) return;
+        dlgName.textContent = btn.getAttribute('data-brand') || '';
+        dlgRole.textContent = btn.getAttribute('data-role') || '';
+        dlgLink.setAttribute('href', btn.getAttribute('data-link') || '#journey-app');
+        marqueeTrack.classList.add('is-paused');
+        if (typeof brandDialog.showModal === 'function') brandDialog.showModal();
+      });
+      brandDialog.addEventListener('click', function (e) {
+        if (e.target === brandDialog) brandDialog.close();
+      });
+      brandDialog.addEventListener('close', function () {
+        marqueeTrack.classList.remove('is-paused');
+      });
+    }
+
     // Footer year
     var y = document.getElementById('year');
     if (y) y.textContent = new Date().getFullYear();

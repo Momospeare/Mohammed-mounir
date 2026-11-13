@@ -102,7 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Time-based theme (Toronto time): runs before the stylesheet
        so the first paint is already the right theme. -->
   <script src="js/theme.js"></script>
-  <link rel="stylesheet" href="css/style.css?v=a7b315c">
+  <link rel="stylesheet" href="css/style.css?v=a7aab72">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -504,7 +504,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="wrap">
         <p class="section-kicker">Brands</p>
         <h2 class="section-title" id="brands-title">Brands I&rsquo;ve worked with</h2>
-        <p class="section-sub">Each brand is shown with the capacity I worked with it in &mdash; employer, contractor, event lead, client, or volunteer partner.</p>
+        <p class="section-sub">Tap a logo to see the capacity I worked with it in &mdash; employer, contractor, event lead, client, or volunteer partner.</p>
+        <div class="brands-marquee" id="brands-marquee">
+          <div class="brands-marquee-track" id="brands-marquee-track">
+            <button class="brand-float" type="button" data-brand="Loblaw" data-role="Employer · Jan 2026 – present" data-link="#journey-app" aria-label="Loblaw — Employer, January 2026 to present. Activate for details."><img class="brand-logo" src="assets/brands/loblaw.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Zehrs" data-role="Employer · Loblaw banner" data-link="#journey-app" aria-label="Zehrs — Employer, Loblaw banner. Activate for details."><img class="brand-logo brand-logo--wide" src="assets/brands/zehrs.png" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Warner Bros." data-role="Contractor via ASP" data-link="#journey-app" aria-label="Warner Bros. — Contractor via ASP. Activate for details."><img class="brand-logo brand-logo--mark" src="assets/brands/warner-bros.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Snapchat" data-role="Contractor via ASP" data-link="#journey-app" aria-label="Snapchat — Contractor via ASP. Activate for details."><img class="brand-logo brand-logo--mark" src="assets/brands/snapchat.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Rogers Stadium" data-role="Contractor via ASP" data-link="#journey-app" aria-label="Rogers Stadium — Contractor via ASP. Activate for details."><img class="brand-logo brand-logo--wide" src="assets/brands/rogers.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="ASP" data-role="Employer · Field security 2020–25" data-link="#journey-app" aria-label="ASP — Employer, field security 2020 to 2025. Activate for details."><span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/asp.png" alt="" loading="lazy"></span></button>
+            <button class="brand-float" type="button" data-brand="VELD" data-role="Event Commander via ASP" data-link="#journey-app" aria-label="VELD — Event Commander via ASP. Activate for details."><span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/veld.png" alt="" loading="lazy"></span></button>
+            <button class="brand-float" type="button" data-brand="Festa D'Italia" data-role="Event Commander via ASP" data-link="#journey-app" aria-label="Festa D'Italia — Event Commander via ASP. Activate for details."><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/festa-ditalia.png" alt="" loading="lazy"></span></button>
+            <button class="brand-float" type="button" data-brand="Vaughan Canada Day" data-role="Event Commander via ASP" data-link="#journey-app" aria-label="Vaughan Canada Day — Event Commander via ASP. Activate for details."><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/vaughan.svg" alt="" loading="lazy"></span></button>
+            <button class="brand-float" type="button" data-brand="UJA Walk with Israel" data-role="Behaviour Detection Guard via ASP" data-link="#journey-app" aria-label="UJA Walk with Israel — Behaviour Detection Guard via ASP. Activate for details."><span class="brand-name brand-wordmark">UJA Walk with Israel</span></button>
+            <button class="brand-float" type="button" data-brand="Toronto Police" data-role="Community partner via ASP" data-link="#journey-app" aria-label="Toronto Police — Community partner via ASP. Activate for details."><img class="brand-logo brand-logo--mark" src="assets/police/tps-seal.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="WLKN" data-role="Employer · Store Manager → Interim DM" data-link="#journey-app" aria-label="WLKN — Employer, Store Manager to Interim District Manager. Activate for details."><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/wlkn.png" alt="" loading="lazy"></span></button>
+            <button class="brand-float" type="button" data-brand="True Shield Security" data-role="MOLEX client" data-link="projects/true-shield.html" aria-label="True Shield Security — MOLEX client. Activate for details."><img class="brand-logo brand-logo--mark" src="assets/brands/true-shield.png" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="SparkyLube" data-role="MOLEX client" data-link="projects/sparkylube.html" aria-label="SparkyLube — MOLEX client. Activate for details."><span class="brand-name brand-wordmark">SparkyLube</span></button>
+            <button class="brand-float" type="button" data-brand="Magna" data-role="Co-op · Magna Dortec" data-link="#journey-app" aria-label="Magna — Co-op, Magna Dortec. Activate for details."><img class="brand-logo" src="assets/brands/magna.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Cineplex" data-role="Employer · 2018" data-link="#journey-app" aria-label="Cineplex — Employer, 2018. Activate for details."><img class="brand-logo" src="assets/brands/cineplex.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Staples" data-role="Employer · 2019" data-link="#journey-app" aria-label="Staples — Employer, 2019. Activate for details."><img class="brand-logo" src="assets/brands/staples.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Under Armour" data-role="Employer · 2019–2020" data-link="#journey-app" aria-label="Under Armour — Employer, 2019 to 2020. Activate for details."><img class="brand-logo brand-logo--mark" src="assets/brands/under-armour.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Canada's Wonderland" data-role="Employer · first job" data-link="#journey-app" aria-label="Canada's Wonderland — Employer, first job. Activate for details."><img class="brand-logo" src="assets/brands/canadas-wonderland.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Pizza Hut" data-role="Employer · early role" data-link="#journey-app" aria-label="Pizza Hut — Employer, early role. Activate for details."><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--mark" src="assets/brands/pizza-hut.svg" alt="" loading="lazy"></span></button>
+            <button class="brand-float" type="button" data-brand="Seneca" data-role="Computer Programming · present" data-link="#recognition" aria-label="Seneca — Computer Programming, present. Activate for details."><img class="brand-logo" src="assets/brands/seneca.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="OPP Auxiliary" data-role="Community partner · food drives" data-link="projects/community.html" aria-label="OPP Auxiliary — Community partner, food drives. Activate for details."><img class="brand-logo brand-logo--mark" src="assets/police/opp-patch.svg" alt="" loading="lazy"></button>
+            <button class="brand-float" type="button" data-brand="Alliston Food Bank" data-role="Volunteer partner · food drives" data-link="projects/community.html" aria-label="Alliston Food Bank — Volunteer partner, food drives. Activate for details."><span class="brand-name brand-wordmark">Alliston Food Bank</span></button>
+          </div>
+        </div>
         <details class="fold">
           <summary>See all 23 brands</summary>
           <div class="brands-grid">
@@ -622,6 +649,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </a>
         </div>
         </details>
+        <dialog id="brand-dialog" class="brand-dialog" aria-labelledby="brand-dialog-name">
+          <form method="dialog">
+            <button class="brand-dialog-close" aria-label="Close">&times;</button>
+          </form>
+          <h3 id="brand-dialog-name"></h3>
+          <p id="brand-dialog-role"></p>
+          <p><a id="brand-dialog-link" href="#journey-app">See the work &rarr;</a></p>
+        </dialog>
       </div>
     </section>
 
@@ -850,7 +885,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
           integrity="sha256-Hk4dIpcqOSb0hZjgyvFOP+cEmDXUKKNE/tT542ZbNQg=" crossorigin=""></script>
   <script src="js/analytics.js"></script>
-  <script src="js/main.js?v=a7b315c"></script>
+  <script src="js/main.js?v=a7aab72"></script>
   <script src="js/memo.js"></script>
 </body>
 </html>

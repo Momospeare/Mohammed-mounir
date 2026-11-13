@@ -1060,6 +1060,66 @@ main a.brand {
 .brand-wordmark { font-size: 1.25rem; font-weight: 700; letter-spacing: 0.02em; color: var(--ink); }
 .brand-cap { font-size: 0.8rem; color: var(--muted); }
 
+/* Floating brands: a logo-only marquee. The folded grid below stays as
+   the accessible, SEO-readable version of the same list. */
+.brands-marquee {
+  overflow: hidden;
+  margin: 0 0 20px;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.brands-marquee-track {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  width: max-content;
+}
+.brands-marquee-track.is-looping { animation: brands-drift 70s linear infinite; }
+.brands-marquee:hover .brands-marquee-track,
+.brands-marquee:focus-within .brands-marquee-track,
+.brands-marquee-track.is-paused { animation-play-state: paused; }
+@keyframes brands-drift { to { transform: translateX(-50%); } }
+.brand-float {
+  background: none;
+  border: 0;
+  padding: 6px 0;
+  cursor: pointer;
+  flex: 0 0 auto;
+}
+.brand-float:focus-visible { outline: 2px solid var(--cyan); outline-offset: 4px; border-radius: 6px; }
+.brand-float img.brand-logo { height: 42px; width: auto; max-width: 150px; object-fit: contain; display: block; }
+.brand-float .brand-wordmark { font-size: 1.05rem; white-space: nowrap; }
+.brand-dialog {
+  background: var(--bg-3);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  max-width: min(420px, calc(100vw - 40px));
+}
+.brand-dialog::backdrop { background: rgba(0, 0, 0, 0.6); }
+.brand-dialog h3 { margin: 0 0 6px; padding-right: 32px; }
+.brand-dialog p { margin: 0 0 14px; color: var(--muted); }
+.brand-dialog p:last-child { margin-bottom: 0; }
+.brand-dialog-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+@media (prefers-reduced-motion: reduce) {
+  .brands-marquee-track.is-looping { animation: none; }
+  .brands-marquee { overflow-x: auto; }
+}
+
 /* Police services strip (Nov 9, 2026) — services worked with / reported to, not employers */
 .police-strip {
   display: grid;
