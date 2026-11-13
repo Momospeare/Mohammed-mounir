@@ -327,10 +327,6 @@ section[id] {
   -webkit-user-select: none;
 }
 .j-scrubber.is-dragging { cursor: grabbing; }
-/* Temporary drag diagnostic (fix v3): one-line readout of the scrub state,
-   so a browser check can see whether the drag started and moved. Remove
-   in the follow-up push once the node drag is fixed. */
-.j-scrub-debug { font: 11px/1.4 monospace; color: var(--muted); opacity: .75; margin: 4px 0 0; }
 .j-scrubber-label {
   color: var(--muted);
   font-size: 0.85rem;

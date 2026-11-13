@@ -415,9 +415,7 @@
     // uniformly — the nodes' large invisible hit areas cover most of
     // the line, so the start must not depend on which element the press
     // lands on, and contains() (not closest()) decides whether the
-    // press is inside the scrubber. A one-line debug readout under the
-    // path (temporary, fix v3) shows the drag state so a browser check
-    // can see whether the drag started, moved, or was cancelled. Pointer
+    // press is inside the scrubber. Pointer
     // capture is set lazily, only once the pointer has actually moved:
     // a tap never captures, so a tap on a node still fires the node's
     // own click handler, while a real drag gets capture and is
@@ -428,8 +426,6 @@
     var scrubber = document.getElementById('journey-scrubber');
     if (scrubber && timeline && !reduceMotion) {
       var dragStartX = 0, dragStartScroll = 0, dragging = false, moved = false, captured = false;
-      var debugEl = document.getElementById('j-scrub-debug');
-      var scrubDebug = function (msg) { if (debugEl) debugEl.textContent = 'scrub: ' + msg; };
       var onScrubMove = function (e) {
         if (!dragging) return;
         var dx = e.clientX - dragStartX;
@@ -443,7 +439,6 @@
         var range = timeline.scrollWidth - timeline.clientWidth;
         var ratio = range > 0 ? range / scrubber.clientWidth : 0;
         timeline.scrollLeft = dragStartScroll - dx * ratio;
-        if (moved) scrubDebug('dragging dx=' + Math.round(dx) + ' scrollLeft=' + Math.round(timeline.scrollLeft));
       };
       var stopScrubListeners = function () {
         window.removeEventListener('pointermove', onScrubMove);
@@ -455,7 +450,6 @@
         timeline.style.scrollSnapType = '';
         scrubber.classList.remove('is-dragging');
         stopScrubListeners();
-        scrubDebug('cancelled');
       };
       var endScrub = function (e) {
         if (!dragging) return;
@@ -463,7 +457,6 @@
         timeline.style.scrollSnapType = '';
         scrubber.classList.remove('is-dragging');
         stopScrubListeners();
-        scrubDebug('up moved=' + moved + ' scrollLeft=' + Math.round(timeline.scrollLeft));
         if (!moved && e.target.closest && !e.target.closest('.pp-node')) {
           var rect = scrubber.getBoundingClientRect();
           var frac = (e.clientX - rect.left) / rect.width;
@@ -483,7 +476,6 @@
         dragStartScroll = timeline.scrollLeft;
         timeline.style.scrollSnapType = 'none';
         scrubber.classList.add('is-dragging');
-        scrubDebug('down target=' + (e.target.tagName || '?') + ' x=' + e.clientX + ' scrollLeft=' + Math.round(dragStartScroll));
         window.addEventListener('pointermove', onScrubMove);
         window.addEventListener('pointerup', endScrub);
         window.addEventListener('pointercancel', cancelScrub);
