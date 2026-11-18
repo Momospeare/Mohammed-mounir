@@ -53,6 +53,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .gear-price { font-weight: 700; font-size: 1.1rem; }
     .gear-price small { font-weight: 400; opacity: .75; }
     .gear-note { font-size: .9rem; opacity: .8; margin-top: 20px; }
+    .save-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 24px; }
+    .save-card { position: relative; border: 1px solid var(--border, rgba(128,128,128,.35)); border-radius: 14px; padding: 24px 20px 20px; overflow: hidden; box-shadow: 0 2px 18px rgba(0,0,0,.08); }
+    .save-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #ff2e88, #7b2ff7, #ff9a3d); }
+    .save-badge { display: inline-block; background: var(--pink, #ff2e88); color: #fff; font-weight: 800; font-size: .85rem; letter-spacing: .06em; text-transform: uppercase; padding: 5px 12px; border-radius: 999px; margin: 0 0 12px; }
+    .save-pick { position: absolute; top: 12px; right: 12px; background: #ffb020; color: #1a1a1a; font-weight: 800; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+    .save-card h3 { margin: 0 0 4px; font-size: 1.15rem; }
+    .save-role { font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; opacity: .7; margin: 0 0 10px; }
+    .save-card p { margin: 0 0 12px; }
+    .save-card p:last-child { margin-bottom: 0; }
+    .save-foot { font-weight: 700; font-size: 1.05rem; }
+    .save-foot small { font-weight: 400; opacity: .75; }
     .short-embeds { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 24px; }
     .short-embed { flex: 1 1 280px; max-width: 340px; }
     .short-embed-player { border-radius: 12px; overflow: hidden; background: #000; aspect-ratio: 9 / 16; }
@@ -132,6 +143,70 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </article>
         </div>
         <p class="gear-note">As an Amazon Associate I earn from qualifying purchases. That keeps the lights on for the channel, and it costs you nothing extra.</p>
+      </div>
+    </section>
+
+    <!-- ================= SAVE ON GTA 6 ================= -->
+    <section aria-labelledby="save-title">
+      <div class="wrap">
+        <p class="section-kicker">Save on GTA 6</p>
+        <h2 class="section-title" id="save-title">More ways to save on GTA 6.</h2>
+        <p class="section-sub">The Costco method from the Short is the one I use, but it's not the only one. Six ways in, each with what it actually saves you. Prices and offers change, check the terms before you buy.</p>
+        <div class="save-grid">
+          <article class="save-card">
+            <span class="save-pick">&#9733; My pick</span>
+            <p class="save-badge">Save $15</p>
+            <h3>Costco Xbox gift cards</h3>
+            <p class="save-role">My method &middot; Canada</p>
+            <p>Three $50 Xbox gift cards at Costco, $44.99 each, that's $134.97 for $150 credit. GTA 6 Ultimate is $139.99 plus 13% HST, $158.19. $150 credit plus $8.19 by card, $143.16 out of pocket.</p>
+            <p class="save-foot">$15.03 saved <small>&middot; out of pocket $143.16, Ultimate, Canada</small></p>
+          </article>
+          <article class="save-card">
+            <p class="save-badge">Save ~$30</p>
+            <h3>Uber + Best Buy</h3>
+            <p class="save-role">US &middot; Uber One</p>
+            <p>Buy two $50 Uber gift cards at Costco for $79.99, that's $100 value. Sign up for the Uber One free trial, it waives delivery fees. Order GTA 6 from Best Buy Express on Uber Eats, the 30% off Uber One deal knocks about $33 off. Pay with the Uber Cash. Cancel the trial before it charges you.</p>
+            <p class="save-foot">~$30 saved <small>&middot; US, the 30% off may not show for everyone</small></p>
+          </article>
+          <article class="save-card">
+            <p class="save-badge">Save ~$14</p>
+            <h3>Costco PSN bundle</h3>
+            <p class="save-role">PS5 &middot; Costco</p>
+            <p>Costco sells a $100 PlayStation gift card bundle, four $25 cards, for $89.99. With a 2% Executive rebate and 2% Costco Visa cashback, the effective cost is about $86.39. That puts Ultimate at an effective ~$86 instead of $99.99.</p>
+            <p class="save-foot">~$14 saved <small>&middot; effective ~$86.39, Ultimate, PS5</small></p>
+          </article>
+          <article class="save-card">
+            <p class="save-badge">Save $10</p>
+            <h3>Best Buy $10 off gift card</h3>
+            <p class="save-role">Simplest &middot; In store</p>
+            <p>Best Buy is running a promotion: save $10 off a gaming gift card, PlayStation Store, Xbox Store, or Nintendo eShop, when you buy a select game, including GTA 6.</p>
+            <p class="save-foot">$10 saved <small>&middot; on a gift card, with a select game</small></p>
+          </article>
+          <article class="save-card">
+            <p class="save-badge">Up to $50 back</p>
+            <h3>Best Buy member rewards</h3>
+            <p class="save-role">Members &middot; My Best Buy</p>
+            <p>10% back in rewards for paid My Best Buy Plus and Total members who buy GTA 6, through Nov 18, about $8 on Standard, arrives roughly 15 days after fulfillment. Plus a $50 certificate if you pre-order GTA 6 and buy an eligible PS5 or Xbox Series X|S, both required, the certificate arrives after fulfillment.</p>
+            <p class="save-foot">$8&ndash;$50 back <small>&middot; members only</small></p>
+          </article>
+          <article class="save-card">
+            <p class="save-badge">Save $6&ndash;$10</p>
+            <h3>Newegg gift cards</h3>
+            <p class="save-role">Online &middot; Newegg</p>
+            <p>A $75 Sony (PSN) card at $69 at Newegg with a coupon code. A $90 Xbox card at $80 at Newegg.</p>
+            <p class="save-foot">$6&ndash;$10 saved <small>&middot; per card</small></p>
+          </article>
+        </div>
+        <p class="gear-note">Don't cancel a pre-order for a lottery ticket. Kick is giving away 10,000 Ultimate codes and Twitch has daily code drops, but those are a chance, not a guarantee. And anything much cheaper than the official price from a reseller or unknown site is more likely a scam than a sale.</p>
+      </div>
+    </section>
+
+    <!-- ================= GIVEAWAY ================= -->
+    <section aria-labelledby="giveaway-title">
+      <div class="wrap">
+        <p class="section-kicker">Giveaway</p>
+        <h2 class="section-title" id="giveaway-title">Win a $50 Xbox gift card.</h2>
+        <p class="section-sub">Three $50 Xbox gift cards, given away during launch week, Nov 19-25. Details coming soon.</p>
       </div>
     </section>
 
