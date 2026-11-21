@@ -40,6 +40,9 @@
   --max-w: 1120px;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto,
     "Helvetica Neue", Arial, sans-serif;
+  /* Display type (editorial reskin, slice 1): Oswald 500-700. Body keeps --font. */
+  --font-display: "Oswald", "Arial Narrow", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 /* ---------- Light theme — Toronto time, 7am–7pm ET (Nov 8 loop, item 12) ----------
@@ -115,6 +118,7 @@ section[id], footer[id], h2[id] { scroll-margin-top: 80px; }
 .info-card, .j-card, .brand { scroll-margin-top: 90px; }
 
 .section-kicker {
+  font-family: var(--font-display);
   text-transform: uppercase;
   letter-spacing: 0.22em;
   font-size: 0.75rem;
@@ -124,6 +128,8 @@ section[id], footer[id], h2[id] { scroll-margin-top: 80px; }
 }
 
 .section-title {
+  font-family: var(--font-display);
+  font-weight: 600;
   font-size: clamp(1.7rem, 4vw, 2.6rem);
   line-height: 1.15;
   margin: 0 0 12px;
@@ -162,7 +168,9 @@ section[id], footer[id], h2[id] { scroll-margin-top: 80px; }
   letter-spacing: 0.01em;
 }
 
-.brand .maple-leaf { width: 0.8em; height: 0.87em; margin-left: 0.06em; vertical-align: -0.1em; fill: var(--pink); }
+.brand .maple-leaf { display: inline-block; width: 0.8em; height: 0.87em; margin-left: 0.06em; vertical-align: -0.1em; fill: var(--pink); }
+/* Nav brand stays on one line so the leaf sits beside the name, not under it. */
+.nav-inner .brand { white-space: nowrap; }
 .brand .maple-leaf path { fill: var(--pink); }
 
 .nav-links {
@@ -233,11 +241,43 @@ section[id] {
 
 .hero h1 {
   color: #fff;
-  font-size: clamp(2.4rem, 6vw, 4.2rem);
-  line-height: 1.04;
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: clamp(2.1rem, 5.5vw, 4rem);
+  line-height: 1.05;
   margin: 0 0 16px;
   letter-spacing: -0.02em;
   text-shadow: 0 2px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* Stacked headline lines (Oswald). The portfolio hero is single-column
+   copy now — the jumpsuit cutout moved to the Momospeare hero below. */
+.hero-line { display: block; }
+
+/* Momospeare hero (creator side): the jumpsuit cutout lives here.
+   Two-column grid on desktop, stacks on phones. The transparent
+   cutout reads on both the light and dark theme. */
+.momo-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+  gap: 48px;
+  align-items: end;
+}
+
+.momo-hero-figure {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+/* Height-driven to keep the tall full-body aspect; width follows. */
+.momo-hero-figure img {
+  height: clamp(420px, 48vw, 600px);
+  width: auto;
+  max-width: 100%;
 }
 
 .hero h1 .neon-pink {
@@ -333,30 +373,63 @@ section[id] {
   margin: 0 0 8px;
 }
 
-/* Record strip, living inside the journey app (same card language). */
+/* Editorial wrapper: the journey is chapter 05 — a pink rule breaks the
+   page like a magazine chapter, and the kicker carries the section number
+   in the same pink Oswald voice as the doors' 01–04. */
+#journey-app { border-top: 3px solid var(--pink); }
+/* Editorial chapter rules: every numbered section opens with the same
+   pink rule — About 06, brands 07, Projects 08, Recognition 09 on the
+   homepage; the Momospeare and gear pages reuse the same voice for
+   their own sequences. */
+#about, #brands, #projects, #recognition { border-top: 3px solid var(--pink); }
+#channel, #streaming, #track-days, #car-meetups, #business-contact { border-top: 3px solid var(--pink); }
+section[aria-labelledby="gear-title"],
+section[aria-labelledby="save-title"],
+section[aria-labelledby="giveaway-title"],
+section[aria-labelledby="short-title"] { border-top: 3px solid var(--pink); }
+.section-kicker .section-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--pink);
+  letter-spacing: 0.06em;
+  margin-right: 10px;
+}
+
+/* Proof spread, living inside the journey app — a magazine stats grid, not
+   a card strip: ruled cells, large Oswald numbers, no boxes. */
 .j-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin: 0 0 28px;
+  column-gap: 28px;
+  row-gap: 32px;
+  margin: 0 0 40px;
 }
 .j-stats-label {
   grid-column: 1 / -1;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--muted);
+  color: var(--pink);
   margin: 0;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
 }
 .j-stat {
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 18px;
-  background: linear-gradient(160deg, var(--bg-2), var(--bg-3));
+  border-top: 1px solid var(--line);
+  padding: 18px 0 0;
 }
-.j-stat .stat-num { font-size: 2rem; font-weight: 800; color: var(--cyan); margin: 0 0 4px; }
-.j-stat .stat-label { color: var(--muted); font-size: 0.9rem; margin: 0; }
+.j-stat .stat-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+  line-height: 1;
+  color: var(--pink);
+  margin: 0 0 8px;
+}
+.j-stat .stat-label { color: var(--muted); font-size: 0.95rem; line-height: 1.45; margin: 0; }
 
 /* Flip scene: perspective on the scene, 3D on the flip wrapper. */
 .j-scene {
@@ -513,7 +586,8 @@ section[id] {
    (~161px each at 390px) that spilled right instead of stacking. The
    band keeps the two from ever overlapping, so order stops mattering. */
 @media (min-width: 721px) and (max-width: 900px) {
-  #paths .info-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Doors stay a single-column TOC list here too (slice 2). */
+  #paths .info-grid { grid-template-columns: 1fr; }
   #recognition .info-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -645,8 +719,38 @@ main a.door-card {
   color: var(--cyan);
   font-weight: 600;
 }
-/* Four doors: a true 4-across row (auto-fit at 260px wrapped 3+1) */
-#paths .info-grid { grid-template-columns: repeat(4, 1fr); }
+/* Doors as a table of contents (slice 2): numbered rows with rules,
+   not cards. One column at every width. */
+#paths .info-grid { grid-template-columns: 1fr; gap: 0; }
+#paths .door-card {
+  display: flex;
+  gap: 20px;
+  align-items: baseline;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-radius: 0;
+  padding: 22px 4px;
+}
+#paths .door-card:first-child { border-top: 1px solid var(--line); }
+#paths .door-card:hover { transform: none; border-bottom-color: var(--cyan); }
+.door-num {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+  color: var(--pink);
+  letter-spacing: 0.06em;
+  flex: 0 0 auto;
+}
+.door-body { min-width: 0; }
+.door-body h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: clamp(1.15rem, 2.6vw, 1.5rem);
+}
+.door-card .door-proof { margin-top: 8px; }
 @media (prefers-reduced-motion: reduce) {
   .door-card { transition: none; }
   .door-card:hover { transform: none; }
@@ -963,7 +1067,7 @@ footer .wrap {
 /* ---------- About ---------- */
 #about { padding-bottom: 40px; }
 .about-copy { max-width: 720px; }
-.about-copy p { color: var(--muted); font-size: 1.05rem; }
+.about-copy p { color: var(--muted); font-size: 1.05rem; margin: 0 0 18px; }
 .about-copy p strong { color: var(--ink); }
 
 /* Slim "latest writing" strip at the bottom of About. */
@@ -976,6 +1080,16 @@ footer .wrap {
 
 /* "What people say" row inside Projects. */
 .project-quotes-title { margin: 32px 0 4px; font-size: 1.15rem; }
+
+/* Projects as magazine entries: ruled, not boxed — the same voice as the
+   stats spread. Scoped to #projects so Recognition cards keep their boxes. */
+#projects .info-card {
+  background: transparent;
+  border: none;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  padding: 20px 0 4px;
+}
 
 /* ---------- Back to top ---------- */
 .to-top {
@@ -1202,6 +1316,9 @@ main a.brand {
   #paths .info-grid { grid-template-columns: 1fr; }
   #recognition .info-grid { grid-template-columns: 1fr; }
   .hero { padding: 72px 0 64px; }
+  /* Momospeare hero stacks on phones: copy first, figure below. */
+  .momo-hero-grid { grid-template-columns: 1fr; gap: 28px; }
+  #paths .door-card { padding: 18px 2px; gap: 14px; }
   section { padding: 44px 0; }
   /* The stacked nav is ~105px tall at 390px, so anchors need more room. */
   section[id], footer[id], h2[id] { scroll-margin-top: 112px; }
@@ -1209,6 +1326,6 @@ main a.brand {
   /* Journey app on phones: near-full-width flip cards, taller frame */
   .j-scene { flex: 0 0 86vw; }
   .j-card { height: 470px; }
-  .j-stats { grid-template-columns: repeat(2, 1fr); }
+  .j-stats { grid-template-columns: repeat(2, 1fr); column-gap: 20px; row-gap: 28px; }
   .fold { padding: 0 14px; }
 }

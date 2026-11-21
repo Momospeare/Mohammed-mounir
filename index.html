@@ -102,7 +102,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Time-based theme (Toronto time): runs before the stylesheet
        so the first paint is already the right theme. -->
   <script src="js/theme.js"></script>
-  <link rel="stylesheet" href="css/style.css?v=06eb23a">
+  <!-- Display type: Oswald (editorial reskin, slice 1). Variable 500-700. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=8bdd854">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -129,7 +133,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <header class="hero" id="top">
     <div class="wrap">
       <h1>
-        Protecting people and assets, <span class="neon-pink">first in person — now in systems.</span>
+        <span class="hero-line">Protecting</span>
+        <span class="hero-line">people and assets,</span>
+        <span class="hero-line neon-pink">first in person —</span>
+        <span class="hero-line neon-pink">now in systems.</span>
       </h1>
       <p class="lede">
         Asset protection and investigations at Loblaw — organized retail crime, evidence packages, and the digital solutions I build through MOLEX. 244 incident reports filed, zero rejections.
@@ -151,62 +158,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p class="section-sub">Four doors, one story — pick yours.</p>
         <div class="info-grid">
           <a class="info-card door-card" href="#journey-app" data-track="door|You're hiring|paths">
-            <h3>You&rsquo;re hiring</h3>
-            <p>Security, investigations, or tech — six years of proof, not adjectives.</p>
-            <p class="door-proof">244 incident reports filed, zero rejections.</p>
+            <span class="door-num" aria-hidden="true">01</span>
+            <span class="door-body">
+              <h3>You&rsquo;re hiring</h3>
+              <p>Security, investigations, or tech — six years of proof, not adjectives.</p>
+              <p class="door-proof">244 incident reports filed, zero rejections.</p>
+            </span>
           </a>
           <a class="info-card door-card" href="projects/molex.html" data-track="door|You need a website|paths">
-            <h3>You need a website</h3>
-            <p>Fast, honest websites for small businesses, built through MOLEX.</p>
-            <p class="door-proof">SparkyLube: 4,300+ visitors, 344 clients.</p>
+            <span class="door-num" aria-hidden="true">02</span>
+            <span class="door-body">
+              <h3>You need a website</h3>
+              <p>Fast, honest websites for small businesses, built through MOLEX.</p>
+              <p class="door-proof">SparkyLube: 4,300+ visitors, 344 clients.</p>
+            </span>
           </a>
           <a class="info-card door-card" href="projects/community.html" data-track="door|Police &amp; community|paths">
-            <h3>Police &amp; community</h3>
-            <p>Police Foundations, OACP certificate — the record behind them.</p>
-            <p class="door-proof">14 Division CPLC liaison, 2022&ndash;2024.</p>
+            <span class="door-num" aria-hidden="true">03</span>
+            <span class="door-body">
+              <h3>Police &amp; community</h3>
+              <p>Police Foundations, OACP certificate — the record behind them.</p>
+              <p class="door-proof">14 Division CPLC liaison, 2022&ndash;2024.</p>
+            </span>
           </a>
           <a class="info-card door-card" href="projects/community.html#volunteering" data-track="door|Volunteering|paths">
-            <h3>Volunteering</h3>
-            <p>Food drives, Legion, and community initiatives — with the receipts.</p>
-            <p class="door-proof">Thanksgiving 2026: 553 lb + $910.90.</p>
+            <span class="door-num" aria-hidden="true">04</span>
+            <span class="door-body">
+              <h3>Volunteering</h3>
+              <p>Food drives, Legion, and community initiatives — with the receipts.</p>
+              <p class="door-proof">Thanksgiving 2026: 553 lb + $910.90.</p>
+            </span>
           </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= ABOUT ================= -->
-    <section id="about" aria-labelledby="about-title">
-      <div class="wrap">
-        <p class="section-kicker">About</p>
-        <h2 class="section-title" id="about-title">From the shop floor to the systems behind it.</h2>
-        <div class="about-copy">
-          <p>I'm Mohammed Mounir. I work in asset protection at Loblaw, where I run investigations, build evidence packages, and keep stores ahead of organized retail crime. Before that I led field security teams and major events across Toronto, and ran a retail store end to end. I like work where the details matter and the pressure is real.</p>
-          <p>On the other side, I build. I co-founded MOLEX, a digital solutions business, and started Computer Programming &amp; Analysis at Seneca (present). The long game is crime intelligence analysis — the same instinct, applied differently: protect people, then build the systems that protect them. The current step is the OPP civilian path: Civilian Data Entry and Technology Disclosure.</p>
-          <p class="about-now"><strong>Currently:</strong> Asset Protection at Loblaw · MOLEX builds · Seneca CPA (present) · Working toward crime intelligence.</p>
-        </div>
-        <details class="fold" data-track="fold|Off the clock|about">
-          <summary>Off the clock — motovlog, drag strip, gaming, RC planes</summary>
-          <div class="info-grid">
-          <div class="info-card">
-            <h3>Momospeare motovlog</h3>
-            <p>Duo motovlog with partner Alex — destination rides on the Yamaha MT-07 and Kawasaki Ninja 300, with garage-education content. <a href="https://www.youtube.com/@Momospeare" target="_blank" rel="noopener noreferrer">Watch on YouTube &rarr;<span class="visually-hidden"> (opens in new tab)</span></a> · <a href="momospeare.html">More on the Momospeare page &rarr;</a></p>
-          </div>
-          <div class="info-card">
-            <h3>Drag strip days</h3>
-            <p>Quarter-mile runs in the Hyundai Elantra N at Cayuga Dragway — May 2022 and May 2023, with the runs on video. <a href="momospeare.html#track-days">See the runs &rarr;</a></p>
-          </div>
-          <div class="info-card">
-            <h3>Gaming</h3>
-            <p>Call of Duty, GTA, Minecraft and Fortnite. Streams Call of Duty live on Twitch and YouTube.</p>
-          </div>
-          <div class="info-card">
-            <h3>RC planes</h3>
-            <p>Flying RC model aircraft.</p>
-          </div>
-        </div>
-        </details>
-        <div class="about-strip">
-          <p><strong>Latest writing:</strong> <a href="blog.html" data-track="blog|November 2026|about">November 2026: The Month the Portfolio Went Live</a> — one short post a month, the work as it happens.</p>
         </div>
       </div>
     </section>
@@ -220,7 +202,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          static HTML, so it stays indexable. -->
     <section id="journey-app" aria-labelledby="journey-app-title">
       <div class="wrap">
-        <p class="section-kicker">The journey</p>
+        <p class="section-kicker"><span class="section-num" aria-hidden="true">05</span> The journey</p>
         <h2 class="section-title" id="journey-app-title">Eight stops on the way here.</h2>
         <p class="section-sub">Six years across asset protection, field security leadership, retail management, and web development. The map, the path, and the cards are the same story — drag the path, or tap a marker, a date, or a card, and they move together. Tap a card to flip it and see the work behind the chapter.</p>
 
@@ -498,10 +480,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
+    <!-- ================= ABOUT ================= -->
+    <section id="about" aria-labelledby="about-title">
+      <div class="wrap">
+        <p class="section-kicker"><span class="section-num" aria-hidden="true">06</span> About</p>
+        <h2 class="section-title" id="about-title">From the shop floor to the systems behind it.</h2>
+        <div class="about-copy">
+          <p>I'm Mohammed Mounir. I work in asset protection at Loblaw, where I run investigations, build evidence packages, and keep stores ahead of organized retail crime. Before that I led field security teams and major events across Toronto, and ran a retail store end to end. I like work where the details matter and the pressure is real.</p>
+          <p>On the other side, I build. I co-founded MOLEX, a digital solutions business, and started Computer Programming &amp; Analysis at Seneca (present). The long game is crime intelligence analysis — the same instinct, applied differently: protect people, then build the systems that protect them. The current step is the OPP civilian path: Civilian Data Entry and Technology Disclosure.</p>
+          <p class="about-now"><strong>Currently:</strong> Asset Protection at Loblaw · MOLEX builds · Seneca CPA (present) · Working toward crime intelligence.</p>
+        </div>
+        <details class="fold" data-track="fold|Off the clock|about">
+          <summary>Off the clock — motovlog, drag strip, gaming, RC planes</summary>
+          <div class="info-grid">
+          <div class="info-card">
+            <h3>Momospeare motovlog</h3>
+            <p>Duo motovlog with partner Alex — destination rides on the Yamaha MT-07 and Kawasaki Ninja 300, with garage-education content. <a href="https://www.youtube.com/@Momospeare" target="_blank" rel="noopener noreferrer">Watch on YouTube &rarr;<span class="visually-hidden"> (opens in new tab)</span></a> · <a href="momospeare.html">More on the Momospeare page &rarr;</a></p>
+          </div>
+          <div class="info-card">
+            <h3>Drag strip days</h3>
+            <p>Quarter-mile runs in the Hyundai Elantra N at Cayuga Dragway — May 2022 and May 2023, with the runs on video. <a href="momospeare.html#track-days">See the runs &rarr;</a></p>
+          </div>
+          <div class="info-card">
+            <h3>Gaming</h3>
+            <p>Call of Duty, GTA, Minecraft and Fortnite. Streams Call of Duty live on Twitch and YouTube.</p>
+          </div>
+          <div class="info-card">
+            <h3>RC planes</h3>
+            <p>Flying RC model aircraft.</p>
+          </div>
+        </div>
+        </details>
+        <div class="about-strip">
+          <p><strong>Latest writing:</strong> <a href="blog.html" data-track="blog|November 2026|about">November 2026: The Month the Portfolio Went Live</a> — one short post a month, the work as it happens.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= BRANDS ================= -->
     <section id="brands" aria-labelledby="brands-title">
       <div class="wrap">
-        <p class="section-kicker">Brands</p>
+        <p class="section-kicker"><span class="section-num" aria-hidden="true">07</span> Brands</p>
         <h2 class="section-title" id="brands-title">Brands I&rsquo;ve worked with</h2>
         <p class="section-sub">Tap a logo to see the capacity I worked with it in &mdash; employer, contractor, event lead, client, or volunteer partner.</p>
         <div class="brands-marquee" id="brands-marquee">
@@ -662,7 +681,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ================= PROJECTS ================= -->
     <section id="projects" aria-labelledby="projects-title">
       <div class="wrap">
-        <p class="section-kicker">Built</p>
+        <p class="section-kicker"><span class="section-num" aria-hidden="true">08</span> Built</p>
         <h2 class="section-title" id="projects-title">Projects</h2>
         <p class="section-sub">Shipped, live, and measured — client work and community projects.</p>
         <div class="info-grid">
@@ -717,7 +736,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ================= RECOGNITION & EDUCATION ================= -->
     <section id="recognition" aria-labelledby="recognition-title">
       <div class="wrap">
-        <p class="section-kicker">Recognition &amp; development</p>
+        <p class="section-kicker"><span class="section-num" aria-hidden="true">09</span> Recognition &amp; development</p>
         <h2 class="section-title" id="recognition-title">Recognition &amp; education</h2>
         <p class="section-sub">Recognition for operational leadership and decisive action on the job.</p>
         <div class="info-grid">

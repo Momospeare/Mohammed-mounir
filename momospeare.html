@@ -33,7 +33,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- Time-based theme (Toronto time): runs before the stylesheet
        so the first paint is already the right theme. -->
   <script src="js/theme.js"></script>
-  <link rel="stylesheet" href="css/style.css?v=06eb23a">
+  <!-- Display type: Oswald (editorial reskin, slice 1). Variable 500-700. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=8bdd854">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -67,21 +71,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <main id="main" tabindex="-1">
     <!-- ================= HERO ================= -->
     <section aria-labelledby="momospeare-title">
-      <div class="wrap">
-        <p class="section-kicker">Online presence</p>
-        <h1 class="section-title" id="momospeare-title">Momospeare.</h1>
-        <p class="section-sub">Rides, games, and real talk. The duo motovlog, the live streams, and the community — everything that isn't the portfolio, in one place.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="https://www.youtube.com/@Momospeare" target="_blank" rel="noopener noreferrer" data-track="content|Watch on YouTube|momospeare">Watch on YouTube<span class="visually-hidden"> (opens in new tab)</span></a>
-          <a class="btn btn-ghost" href="https://www.twitch.tv/momospeare" target="_blank" rel="noopener noreferrer" data-track="content|Watch live on Twitch|momospeare">Watch live on Twitch<span class="visually-hidden"> (opens in new tab)</span></a>
+      <div class="wrap momo-hero-grid">
+        <div class="momo-hero-copy">
+          <p class="section-kicker">Online presence</p>
+          <h1 class="section-title" id="momospeare-title">Momospeare.</h1>
+          <p class="section-sub">Rides, games, and real talk. The duo motovlog, the live streams, and the community — everything that isn't the portfolio, in one place.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://www.youtube.com/@Momospeare" target="_blank" rel="noopener noreferrer" data-track="content|Watch on YouTube|momospeare">Watch on YouTube<span class="visually-hidden"> (opens in new tab)</span></a>
+            <a class="btn btn-ghost" href="https://www.twitch.tv/momospeare" target="_blank" rel="noopener noreferrer" data-track="content|Watch live on Twitch|momospeare">Watch live on Twitch<span class="visually-hidden"> (opens in new tab)</span></a>
+          </div>
         </div>
+        <figure class="momo-hero-figure">
+          <img src="assets/hero/hero-jumpsuit-cutout.webp" alt="Mohammed Mounir in a red jumpsuit and AGV helmet" width="373" height="1325" fetchpriority="high">
+        </figure>
       </div>
     </section>
 
     <!-- ================= THE CHANNEL ================= -->
     <section id="channel" aria-labelledby="channel-title">
       <div class="wrap">
-        <p class="section-kicker">The channel</p>
+        <p class="section-kicker"><span class="section-num" aria-hidden="true">01</span> The channel</p>
         <h2 class="section-title" id="channel-title">The motovlog</h2>
         <p class="section-sub">Destination rides and garage education, filmed first-person.</p>
         <div class="info-grid">
@@ -104,7 +113,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ================= STREAMING ================= -->
     <section id="streaming" aria-labelledby="streaming-title">
       <div class="wrap">
-        <p class="section-kicker">Live</p>
+        <p class="section-kicker"><span class="section-num" aria-hidden="true">02</span> Live</p>
         <h2 class="section-title" id="streaming-title">Streams &amp; community</h2>
         <p class="section-sub">Call of Duty on PC, multistreamed to Twitch, YouTube, and Kick. Shorts on TikTok and YouTube.</p>
         <div class="info-grid">
@@ -127,7 +136,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ================= PROJECTS ================= -->
     <section id="projects" aria-labelledby="projects-title">
       <div class="wrap">
-        <p class="section-kicker">Projects</p>
+        <p class="section-kicker"><span class="section-num" aria-hidden="true">03</span> Projects</p>
         <h2 class="section-title" id="projects-title">Momospeare projects.</h2>
         <p class="section-sub">Blog-style posts from the channel &mdash; the builds and setups behind the videos.</p>
         <div class="info-grid">
@@ -143,7 +152,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ================= DRAG STRIP DAYS ================= -->
     <section id="track-days" aria-labelledby="track-title">
       <div class="wrap">
-        <p class="section-kicker">Off the bike</p>
+        <p class="section-kicker"><span class="section-num" aria-hidden="true">04</span> Off the bike</p>
         <h2 class="section-title" id="track-title">Drag strip days — Cayuga</h2>
         <p class="section-sub">The Hyundai Elantra N at Cayuga Dragway, Toronto Motorsports Park. Drag-strip days — standing starts and roll races, not road-course laps. The car ran as #741.</p>
 
@@ -231,7 +240,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ================= CAR MEETUPS ================= -->
     <section id="car-meetups" aria-labelledby="meetups-title">
       <div class="wrap">
-        <p class="section-kicker">Off the bike</p>
+        <p class="section-kicker"><span class="section-num" aria-hidden="true">05</span> Off the bike</p>
         <h2 class="section-title" id="meetups-title">Car meetups</h2>
         <p class="section-sub">Parked meetup with the Toronto Genesis / Kia Stinger Owners Club — Apr 3, 2022, 200 Whitmore Road, Woodbridge. A parked meetup, not a cruise. The Elantra N among the G70s and Stingers.</p>
 
@@ -289,7 +298,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ================= BUSINESS CONTACT ================= -->
     <section id="business-contact" aria-labelledby="business-title">
       <div class="wrap">
-        <p class="section-kicker">Business</p>
+        <p class="section-kicker"><span class="section-num" aria-hidden="true">06</span> Business</p>
         <h2 class="section-title" id="business-title">Work with Momospeare.</h2>
         <p class="section-sub">Collabs, sponsorships, and business for the channel — rides, streams, and gaming.</p>
         <div class="contact-card">
