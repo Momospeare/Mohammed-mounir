@@ -469,11 +469,11 @@ section[aria-labelledby="short-title"] { border-top: 3px solid var(--pink); }
 }
 .j-card:hover .j-face {
   border-color: rgba(46, 230, 255, 0.45);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(46, 230, 255, 0.15);
+  box-shadow: 0 0 0 1px rgba(46, 230, 255, 0.15);
 }
 .j-card.is-selected .j-face {
   border-color: var(--cyan);
-  box-shadow: 0 0 0 1px var(--cyan), 0 8px 24px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 0 0 1px var(--cyan);
 }
 
 .j-back {
