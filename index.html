@@ -10,95 +10,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>
-    Mohammed Mounir | Asset Protection, Investigations &amp; Digital Solutions
-  </title>
+  <title>Mohammed Mounir | Asset Protection, Investigations &amp; Digital Solutions</title>
   <meta
     name="description"
-    content="Mohammed Mounir's portfolio: asset protection investigations, organized retail crime, and digital solutions through MOLEX — toward crime intelligence."
+    content="Mohammed Mounir — asset protection and investigations at Loblaw, MOLEX digital solutions, police & community work, and the Momospeare channel. Pick your path."
   >
   <meta name="author" content="Mohammed Mounir">
-  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#0d0f1c">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="canonical"
-    href="https://mohammedmounir.ca/"
-  >
-  <!-- Open Graph -->
+  <link rel="canonical" href="https://mohammedmounir.ca/">
+  <!-- Open Graph (so link previews in iMessage/WhatsApp/Discord look right) -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_CA">
-  <meta
-    property="og:title"
-    content="Mohammed Mounir | Asset Protection, Investigations &amp; Digital Solutions"
-  >
+  <meta property="og:title" content="Mohammed Mounir | Asset Protection, Investigations &amp; Digital Solutions">
   <meta
     property="og:description"
-    content="Asset protection investigations, organized retail crime, and digital solutions — working toward crime intelligence."
+    content="Protecting people and assets, first in person — now in systems. Pick your path: hiring, MOLEX builds, police & community, or Momospeare."
   >
-  <meta
-    property="og:url"
-    content="https://mohammedmounir.ca/"
-  >
-  <meta
-    property="og:image"
-    content="https://mohammedmounir.ca/assets/og-image.jpg"
-  >
+  <meta property="og:url" content="https://mohammedmounir.ca/">
+  <meta property="og:image" content="https://mohammedmounir.ca/assets/og-image.jpg">
   <meta property="og:image:alt" content="Mohammed Mounir — Security experience. Technology in progress.">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta
-    name="twitter:image"
-    content="https://mohammedmounir.ca/assets/og-image.jpg"
-  >
+  <meta name="twitter:image" content="https://mohammedmounir.ca/assets/og-image.jpg">
   <meta name="twitter:image:alt" content="Mohammed Mounir — Security experience. Technology in progress.">
-  <meta
-    name="twitter:title"
-    content="Mohammed Mounir | Asset Protection, Investigations &amp; Digital Solutions"
-  >
+  <meta name="twitter:title" content="Mohammed Mounir | Asset Protection, Investigations &amp; Digital Solutions">
   <meta
     name="twitter:description"
-    content="Asset protection investigations, organized retail crime, and digital solutions — working toward crime intelligence."
+    content="Protecting people and assets, first in person — now in systems. Pick your path: hiring, MOLEX builds, police & community, or Momospeare."
   >
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Mohammed Mounir",
-    "url": "https://mohammedmounir.ca/",
-    "sameAs": [
-      "https://www.linkedin.com/in/mohammed-mounir-10587621b/",
-      "https://github.com/Momospeare/Mohammed-mounir"
-    ],
-    "jobTitle": "Asset Protection Representative",
-    "description": "Asset protection professional: investigations, organized retail crime and evidence packages at Loblaw; digital solutions through MOLEX. Computer Programming and Analysis at Seneca (present), working toward crime intelligence.",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Loblaw Companies Limited"
-    },
-    "knowsAbout": [
-      "Asset Protection",
-      "Security Operations",
-      "Loss Prevention",
-      "Web Development",
-      "JavaScript",
-      "Python",
-      "SQL",
-      "Open-Source Intelligence"
-    ]
-  }
-  </script>
-
-  <!-- Preconnect to the third-party origins the page fetches from -->
-  <link rel="preconnect" href="https://unpkg.com">
-  <link rel="preconnect" href="https://server.arcgisonline.com">
-  <link rel="preconnect" href="https://www.googletagmanager.com">
-  <!-- Leaflet (journey map) — only external dependency -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
-        integrity="sha256-YU3qCpj/P06tdPBJGPax0bm6Q1wltfwjsho5TR4+TYc=" crossorigin="">
   <!-- Time-based theme (Toronto time): runs before the stylesheet
        so the first paint is already the right theme. -->
   <script src="js/theme.js"></script>
@@ -107,772 +49,227 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=06d0028">
+  <style>
+    /* Gateway-homepage layout. Theme tokens come from css/style.css.
+       Same centered column as /links, widened for the four doors. */
+    .gateway {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 32px;
+    }
+    .gateway-col { width: 100%; max-width: 640px; text-align: center; }
+    .gateway-avatar {
+      width: 96px; height: 96px; margin: 0 auto 16px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; font-weight: 800; color: #fff;
+      background: linear-gradient(135deg, var(--pink-btn), var(--purple));
+      box-shadow: 0 8px 32px rgba(255, 46, 136, 0.35);
+    }
+    img.gateway-avatar { object-fit: cover; }
+    .gateway-name { font-size: 1.5rem; margin: 0 0 6px; }
+    .gateway-bio { color: var(--muted); margin: 0 0 14px; font-size: 0.98rem; }
+    .gateway-hero {
+      font-family: var(--font-display);
+      font-size: clamp(1.9rem, 6vw, 2.6rem);
+      line-height: 1.12; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.01em; margin: 0 0 8px;
+    }
+    .gateway-hero .neon-pink { color: var(--pink); }
+    .gateway-lede { color: var(--muted); margin: 0 0 22px; font-size: 1rem; line-height: 1.55; }
+    .gateway-share {
+      background: none; border: 1px solid var(--line); color: var(--muted);
+      border-radius: 999px; padding: 11px 18px; font-size: 0.85rem;
+      cursor: pointer; margin-bottom: 20px;
+    }
+    .gateway-share:hover { color: var(--ink); border-color: var(--cyan); }
+    .gateway-socials { display: flex; gap: 10px; justify-content: center; margin-bottom: 28px; }
+    .gateway-socials a {
+      color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 600;
+      border: 1px solid var(--line); border-radius: 999px; padding: 11px 18px;
+    }
+    .gateway-socials a:hover { color: var(--ink); border-color: var(--cyan); }
+    .gateway-kicker {
+      font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.12em;
+      font-size: 0.85rem; color: var(--muted); margin: 0 0 12px;
+    }
+    .gateway-doors { display: flex; flex-direction: column; gap: 14px; text-align: left; margin-bottom: 28px; }
+    .door {
+      display: block; text-decoration: none; color: var(--ink);
+      background: var(--bg-2); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 18px 20px; min-height: 48px;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .door:hover { transform: translateY(-2px); border-color: var(--cyan); }
+    button.door { font-family: var(--font); font-size: 1rem; text-align: left; width: 100%; }
+    .door-num {
+      font-family: var(--font-display); font-size: 0.95rem; font-weight: 600;
+      color: var(--pink); margin-right: 10px;
+    }
+    .door-label { font-weight: 700; font-size: 1.05rem; }
+    .door-sub { display: block; color: var(--muted); font-size: 0.9rem; line-height: 1.45; margin-top: 4px; }
+    .door-proof { display: block; font-size: 0.88rem; font-weight: 700; margin-top: 6px; }
+    .door-primary { background: var(--pink-btn); border-color: transparent; box-shadow: 0 6px 28px rgba(255, 46, 136, 0.45); color: #fff; }
+    .door-primary .door-sub { color: #fff; }
+    .door-primary .door-proof { color: #fff; }
+    .door-primary .door-num { color: #fff; }
+    .door-coming { border-style: dashed; background: transparent; cursor: pointer; }
+    .pill {
+      display: inline-block; font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em;
+      border: 1px solid currentColor; border-radius: 999px; padding: 2px 8px;
+      margin-left: 8px; vertical-align: middle; text-transform: uppercase;
+    }
+    .gateway-row { display: flex; flex-direction: column; gap: 14px; text-align: left; margin-bottom: 28px; }
+    .waitlist { display: none; margin-top: 14px; }
+    .waitlist.open { display: block; }
+    .waitlist form { display: flex; gap: 10px; flex-wrap: wrap; }
+    .waitlist input[type="email"] {
+      flex: 1; min-width: 200px; padding: 12px 16px; border-radius: 999px;
+      border: 1px solid var(--chip-line); background: var(--bg);
+      color: var(--ink); font-size: 0.95rem; font-family: var(--font);
+    }
+    .waitlist input[type="email"]::placeholder { color: var(--muted); }
+    .waitlist button {
+      padding: 12px 22px; border-radius: 999px; border: none; cursor: pointer;
+      background: var(--pink-btn); color: #fff; font-weight: 700; font-size: 0.95rem;
+    }
+    .waitlist-note { color: var(--muted); font-size: 0.85rem; margin: 10px 0 0; }
+    .waitlist-note a { color: var(--ink); }
+    .waitlist-success { display: none; color: var(--ink); font-size: 0.95rem; margin: 10px 0 0; }
+    .waitlist-success a { color: var(--ink); }
+    .gateway-latest { color: var(--muted); font-size: 0.95rem; margin: 0 0 28px; line-height: 1.6; }
+    .gateway-latest a { color: var(--ink); font-weight: 700; }
+    .gateway-proof {
+      color: var(--muted); font-size: 0.88rem; margin: 0 0 10px; line-height: 1.6;
+    }
+    .gateway-counter {
+      color: var(--pink); font-size: 1.05rem; font-weight: 700; margin: 0 0 10px;
+    }
+    .gateway-counter:empty { display: none; }
+    .gateway-contact { color: var(--muted); font-size: 0.88rem; margin: 0 0 28px; line-height: 1.6; }
+    .gateway-footer { color: var(--muted); font-size: 0.85rem; margin: 0; }
+    .gateway-footer a { color: var(--ink); }
+    /* NOTE (v2): no live-Twitch badge yet. A static GitHub Pages page cannot check
+       Twitch live status securely — that needs a small serverless proxy (Cloudflare
+       Worker / Netlify function) calling the Twitch Helix API. Until then the Live
+       door is static and shows no LIVE pill; never fake one. */
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M9WRWPDF"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
+  <main class="gateway" id="main" tabindex="-1">
+    <div class="gateway-col">
+      <!-- Headshot: golf-day selfie, Jun 11, 2026, from Mohammed's Google Photos library. -->
+      <img class="gateway-avatar" src="assets/photos/headshot-golf-selfie-192.jpg" alt="Mohammed Mounir smiling in a light blue polo, sitting in a golf cart" width="192" height="192" fetchpriority="high">
+      <h1 class="gateway-name">Mohammed Mounir</h1>
+      <p class="gateway-bio">Asset protection @ Loblaw &middot; Streamer Momospeare &middot; Co-founder MOLEX</p>
 
-  <a class="skip-link" href="#main">Skip to content</a>
+      <p class="gateway-hero">Protecting people and assets,<br><span class="neon-pink">first in person &mdash; now in systems.</span></p>
+      <p class="gateway-lede">Asset protection and investigations at Loblaw &mdash; organized retail crime, evidence packages, and the digital solutions I build through MOLEX. 244 incident reports filed, zero rejections.</p>
 
-  <nav class="nav" aria-label="Primary">
-    <div class="wrap nav-inner">
-      <a class="brand" href="#top" data-track="nav|Home|header">MOHAMMED MOUNIR<img class="maple-leaf" src="assets/maple-leaf.png" width="14" height="15" alt="" aria-hidden="true"></a>
-      <ul class="nav-links">
-        <li><a href="#about" data-track="nav|About|header">About</a></li>
-        <li><a href="#journey-app" data-track="nav|Experience|header">Experience</a></li>
-        <li><a href="#projects" data-track="nav|Projects|header">Projects</a></li>
-        <li><a href="projects/community.html" data-track="nav|Community|header">Community</a></li>
-        <li><a href="#contact" data-track="nav|Contact|header">Contact</a></li>
-      </ul>
+      <button class="gateway-share" id="share-btn" type="button" aria-live="polite">Share this page</button>
+
+      <div class="gateway-socials">
+        <a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer" data-track="gateway|LinkedIn|gateway">LinkedIn<span class="visually-hidden"> (opens in new tab)</span></a>
+        <a href="https://github.com/Momospeare/Mohammed-mounir" target="_blank" rel="noopener noreferrer" data-track="gateway|GitHub|gateway">GitHub<span class="visually-hidden"> (opens in new tab)</span></a>
+      </div>
+
+      <p class="gateway-kicker">What brought you here?</p>
+      <div class="gateway-doors">
+        <a class="door door-primary" href="portfolio.html" data-track="gateway_door|You're hiring|gateway">
+          <span class="door-num" aria-hidden="true">01</span>
+          <span class="door-label">You&rsquo;re hiring</span>
+          <span class="door-sub">Security, investigations, or tech &mdash; six years of proof, not adjectives.</span>
+          <span class="door-proof">244 incident reports filed, zero rejections.</span>
+        </a>
+
+        <a class="door" href="projects/molex.html" data-track="gateway_door|You need a website|gateway">
+          <span class="door-num" aria-hidden="true">02</span>
+          <span class="door-label">You need a website</span>
+          <span class="door-sub">Fast, honest websites for small businesses, built through MOLEX.</span>
+          <span class="door-proof">SparkyLube: 4,300+ visitors, 344 clients.</span>
+        </a>
+
+        <a class="door" href="projects/community.html" data-track="gateway_door|Police &amp; community|gateway">
+          <span class="door-num" aria-hidden="true">03</span>
+          <span class="door-label">Police &amp; community</span>
+          <span class="door-sub">Police Foundations, OACP certificate &mdash; the record behind them.</span>
+          <span class="door-proof">14 Division CPLC liaison, 2022&ndash;2024.</span>
+        </a>
+
+        <a class="door" href="projects/community.html#volunteering" data-track="gateway_door|Volunteering|gateway">
+          <span class="door-num" aria-hidden="true">04</span>
+          <span class="door-label">Volunteering</span>
+          <span class="door-sub">Food drives, Legion, and community initiatives &mdash; with the receipts.</span>
+          <span class="door-proof">Thanksgiving 2026: 553 lb + $910.90.</span>
+        </a>
+      </div>
+
+      <p class="gateway-kicker">Momospeare</p>
+      <div class="gateway-row">
+        <a class="door" href="https://www.twitch.tv/momospeare?utm_source=homepage&amp;utm_medium=bio&amp;utm_campaign=live" target="_blank" rel="noopener noreferrer" data-track="gateway_door|Watch me live on Twitch|gateway">
+          <span class="door-label">Watch me live on Twitch</span>
+          <span class="door-sub">Momospeare &mdash; Call of Duty on PC, live on Twitch.</span>
+        <span class="visually-hidden"> (opens in new tab)</span></a>
+
+        <a class="door" href="https://www.youtube.com/@Momospeare?utm_source=homepage&amp;utm_medium=bio&amp;utm_campaign=content" target="_blank" rel="noopener noreferrer" data-track="gateway_door|Watch on YouTube|gateway">
+          <span class="door-label">Watch on YouTube</span>
+          <span class="door-sub">Momospeare &mdash; gaming, motovlog &amp; Vice City chaos.</span>
+        <span class="visually-hidden"> (opens in new tab)</span></a>
+
+        <a class="door" href="momospeare.html" data-track="gateway_door|Momospeare|gateway">
+          <span class="door-label">Momospeare</span>
+          <span class="door-sub">Rides, games, and real talk. The duo motovlog, the live streams, and the community.</span>
+        </a>
+
+        <a class="door" href="momospeare/capturegta6.html" data-track="gateway_door|My GTA 6 stream loadout|gateway">
+          <span class="door-label">My GTA 6 stream loadout</span>
+          <span class="door-sub">Console, monitor, PC, and the $36 capture card that does the same job as the $320 Elgato for a 1080p stream.</span>
+        </a>
+
+        <button type="button" class="door door-coming" id="molex-door" data-track="gateway_door|MOLEX waitlist|gateway" aria-expanded="false" aria-controls="molex-waitlist">
+          <span class="door-label">MOLEX &mdash; Join the waitlist<span class="pill">Coming soon</span></span>
+          <span class="door-sub">Digital solutions for small business &mdash; coming soon. Be first to know.</span>
+        </button>
+      </div>
+
+      <div class="waitlist" id="molex-waitlist">
+        <form action="mailto:business@mohammedmounir.ca?subject=MOLEX%20waitlist" method="post" enctype="text/plain" id="waitlist-form">
+          <label class="visually-hidden" for="waitlist-email">Email address</label>
+          <input type="email" id="waitlist-email" name="email" placeholder="Your email address" required autocomplete="email">
+          <button type="submit" data-track="gateway|Join the waitlist|gateway">Join the waitlist</button>
+        </form>
+        <p class="waitlist-note">No spam &mdash; I&rsquo;ll only email when MOLEX is ready. Submitting opens your email app with the message ready to send.</p>
+        <p class="waitlist-success" id="waitlist-success" aria-live="polite">Your email app should have opened &mdash; send the draft to join the list.</p>
+        <p class="waitlist-note"><a href="projects/molex.html" data-track="gateway|MOLEX case study|gateway">See what MOLEX has built so far &rarr;</a></p>
+      </div>
+
+      <p class="gateway-latest">Latest writing: <a href="blog.html" data-track="gateway|Mid-November Summit|gateway">Mid-November: the summit, and the business we&rsquo;re building</a> &mdash; one short post a month, the work as it happens.</p>
+
+      <p class="gateway-proof">OSPA Outstanding Young Security Professional 2025 &middot; Canadian Security Lifesaver Award &times;2</p>
+
+      <!-- Visitor counter (staged Nov 15, 2026 — monthly site review).
+           Filled in by the script below from /api/visits; stays empty
+           (hidden) if the Worker does not answer. -->
+      <p class="gateway-counter" id="visitor-counter" aria-live="polite"></p>
+
+      <p class="gateway-contact">I only contact people from the accounts linked on this page. Anything else claiming to be me isn&rsquo;t.</p>
+
+      <p class="gateway-footer">&copy; 2026 Mohammed Mounir. Built chapter by chapter.<br><a href="https://mohammedmounir.ca/" data-track="gateway|Home|gateway">mohammedmounir.ca</a></p>
     </div>
-  </nav>
-
-  <!-- ================= HERO ================= -->
-  <header class="hero" id="top">
-    <div class="wrap">
-      <h1>
-        <span class="hero-line">Protecting</span>
-        <span class="hero-line">people and assets,</span>
-        <span class="hero-line neon-pink">first in person —</span>
-        <span class="hero-line neon-pink">now in systems.</span>
-      </h1>
-      <p class="lede">
-        Asset protection and investigations at Loblaw — organized retail crime, evidence packages, and the digital solutions I build through MOLEX. 244 incident reports filed, zero rejections.
-      </p>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="#journey-app" data-track-cta="explore_journey" data-track="hero_cta|Explore the journey|hero">Explore the journey</a>
-        <a class="btn btn-ghost" href="#journey-app" data-track-cta="view_journey_map" data-track="hero_cta|View the journey map|hero">View the journey map</a>
-        <a class="btn btn-ghost" href="links/" data-track="hero_cta|All my links|hero">All my links</a>
-      </div>
-    </div>
-  </header>
-
-  <main id="main" tabindex="-1">
-    <!-- ================= CHOOSE YOUR PATH ================= -->
-    <section id="paths" aria-labelledby="paths-title">
-      <div class="wrap">
-        <p class="section-kicker">Choose your path</p>
-        <h2 class="section-title" id="paths-title">What brought you here?</h2>
-        <p class="section-sub">Four doors, one story — pick yours.</p>
-        <div class="info-grid">
-          <a class="info-card door-card" href="#journey-app" data-track="door|You're hiring|paths">
-            <span class="door-num" aria-hidden="true">01</span>
-            <span class="door-body">
-              <h3>You&rsquo;re hiring</h3>
-              <p>Security, investigations, or tech — six years of proof, not adjectives.</p>
-              <p class="door-proof">244 incident reports filed, zero rejections.</p>
-            </span>
-          </a>
-          <a class="info-card door-card" href="projects/molex.html" data-track="door|You need a website|paths">
-            <span class="door-num" aria-hidden="true">02</span>
-            <span class="door-body">
-              <h3>You need a website</h3>
-              <p>Fast, honest websites for small businesses, built through MOLEX.</p>
-              <p class="door-proof">SparkyLube: 4,300+ visitors, 344 clients.</p>
-            </span>
-          </a>
-          <a class="info-card door-card" href="projects/community.html" data-track="door|Police &amp; community|paths">
-            <span class="door-num" aria-hidden="true">03</span>
-            <span class="door-body">
-              <h3>Police &amp; community</h3>
-              <p>Police Foundations, OACP certificate — the record behind them.</p>
-              <p class="door-proof">14 Division CPLC liaison, 2022&ndash;2024.</p>
-            </span>
-          </a>
-          <a class="info-card door-card" href="projects/community.html#volunteering" data-track="door|Volunteering|paths">
-            <span class="door-num" aria-hidden="true">04</span>
-            <span class="door-body">
-              <h3>Volunteering</h3>
-              <p>Food drives, Legion, and community initiatives — with the receipts.</p>
-              <p class="door-proof">Thanksgiving 2026: 553 lb + $910.90.</p>
-            </span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= JOURNEY APP ================= -->
-    <!-- One linked app: the map, the progression path, and the timeline
-         cards are three views of the same eight chapters. Tap a marker,
-         a node, or a card and they move together. Tap a card to flip it:
-         the front is the chapter, the back is the work (the old
-         Experience section, now living on the cards). All content is
-         static HTML, so it stays indexable. -->
-    <section id="journey-app" aria-labelledby="journey-app-title">
-      <div class="wrap">
-        <p class="section-kicker"><span class="section-num" aria-hidden="true">05</span> The journey</p>
-        <h2 class="section-title" id="journey-app-title">Eight stops on the way here.</h2>
-        <p class="j-throughline">One direction: from a games booth at Wonderland to building the systems that protect people.</p>
-        <p class="section-sub">Six years across asset protection, field security leadership, retail management, and web development. The map, the path, and the cards are the same story — drag the path, or tap a marker, a date, or a card, and they move together. Tap a card to flip it and see the work behind the chapter.</p>
-
-        <div class="j-stats" role="list" aria-label="By the numbers">
-          <p class="j-stats-label">By the numbers</p>
-          <div class="j-stat" role="listitem">
-            <p class="stat-num">6+</p>
-            <p class="stat-label">Years in security &amp; retail operations</p>
-          </div>
-          <div class="j-stat" role="listitem">
-            <p class="stat-num">50+</p>
-            <p class="stat-label">Frontline personnel led at ASP</p>
-          </div>
-          <div class="j-stat" role="listitem">
-            <p class="stat-num">244</p>
-            <p class="stat-label">Incident reports filed with zero case rejections</p>
-          </div>
-          <div class="j-stat" role="listitem">
-            <p class="stat-num">50+</p>
-            <p class="stat-label">Criminal investigations closed, internal &amp; external</p>
-          </div>
-          <div class="j-stat" role="listitem">
-            <p class="stat-num">100+</p>
-            <p class="stat-label">Store incidents resolved</p>
-          </div>
-          <div class="j-stat" role="listitem">
-            <p class="stat-num">350+</p>
-            <p class="stat-label">Crosswalks audited for Toronto's crossing-guard program</p>
-          </div>
-          <div class="j-stat" role="listitem">
-            <p class="stat-num">4,300+</p>
-            <p class="stat-label">Unique visitors, SparkyLube 2025 campaign</p>
-          </div>
-          <div class="j-stat" role="listitem">
-            <p class="stat-num">344</p>
-            <p class="stat-label">Confirmed clients upsold, SparkyLube 2025</p>
-          </div>
-        </div>
-
-        <div class="j-navigator">
-          <div class="map-grid">
-            <div class="map-card">
-              <h3>Geographic map</h3>
-              <div id="journey-map" role="region" aria-label="Geographic journey map"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="j-scrubber" id="journey-scrubber" role="group" aria-label="Progression path — drag to travel through the chapters, or tap a date to jump to it">
-          <p class="j-scrubber-label">Drag the path to travel — or tap a date to jump to it.</p>
-          <svg id="progress-path" role="group" aria-label="Progression path through timeline chapters" viewBox="0 0 1000 160"></svg>
-        </div>
-        <div class="j-viewport">
-          <div class="j-track" id="journey-track">
-
-            <div class="j-scene">
-              <article class="j-card" id="chapter-first-job" tabindex="0" aria-label="Chapter: First Job, 2015. Activate to flip the card." data-track="chapter_card|first-job|journey">
-                <div class="j-flip">
-                  <div class="j-face j-front">
-                    <div class="j-visual j-visual--brand"><img src="assets/brands/canadas-wonderland.svg" alt="" aria-hidden="true"></div>
-                    <span class="t-era">2015</span>
-                    <h3>First Job</h3>
-                    <p class="t-location">Vaughan, ON</p>
-                    <p class="t-text">Seasonal games sales associate &mdash; Canada&rsquo;s Wonderland.</p>
-                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
-                  </div>
-                  <div class="j-face j-back">
-                    <p class="j-back-kicker">The work</p>
-                    <h3>First Job</h3>
-                    <ul>
-                      <li>Canada&rsquo;s Wonderland &mdash; seasonal games sales associate; first job, bussed both ways all summer.</li>
-                    </ul>
-                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div class="j-scene">
-              <article class="j-card" id="chapter-early-roles" tabindex="0" aria-label="Chapter: Early Retail and Service, 2017 to 2020. Activate to flip the card." data-track="chapter_card|early-roles|journey">
-                <div class="j-flip">
-                  <div class="j-face j-front">
-                    <div class="j-visual j-visual--type"><span class="j-visual-type j-visual-type--long" aria-hidden="true">2017–20</span></div>
-                    <span class="t-era">2017&ndash;2020</span>
-                    <h3>Early Retail &amp; Service</h3>
-                    <p class="t-location">GTA, ON</p>
-                    <p class="t-text">Cook and delivery driver, Cineplex cast member, Staples technology sales, and Under Armour sales.</p>
-                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
-                  </div>
-                  <div class="j-face j-back">
-                    <p class="j-back-kicker">The work</p>
-                    <h3>Early Retail &amp; Service</h3>
-                    <ul>
-                      <li>Magna International &mdash; co-op, Industrial Programming / Electrical Engineering (600+ hours); presented work to a Magna VP and HR. Magna Closures &mdash; quality control / manufacturing (2016&ndash;2018).</li>
-                      <li>Staples, Newmarket &mdash; Technology Sales Associate (Jan&ndash;Sep 2019); led tech sales including warranties &amp; peripherals.</li>
-                      <li>Under Armour, Innisfil &mdash; Sales Associate (Sep 2019&ndash;Jun 2020); won two consecutive monthly sales challenges.</li>
-                      <li>Cineplex, Newmarket &mdash; Cast Member (Jan&ndash;Sep 2018); Employee of the Month, May 2018.</li>
-                      <li>Pizza Hut &mdash; cook and delivery driver.</li>
-                      <li>Gino&rsquo;s Pizza Inc., Newmarket &mdash; Cook &amp; Delivery Driver (Sep 2017&ndash;Dec 2018).</li>
-                    </ul>
-                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div class="j-scene">
-              <article class="j-card" id="chapter-asp" tabindex="0" aria-label="Chapter: Field Security Leadership, 2020 to 2025. Activate to flip the card." data-track="chapter_card|asp|journey">
-                <div class="j-flip">
-                  <div class="j-face j-front">
-                    <div class="j-visual j-visual--brand"><img src="assets/brands/asp.png" alt="" aria-hidden="true"></div>
-                    <span class="t-era">2020&ndash;2025</span>
-                    <h3>Field Security Leadership</h3>
-                    <p class="t-location">Toronto, ON</p>
-                    <p class="t-text">Field Security Manager at ASP Incorporated. Oversaw security contracts, event operations and teams of 50+ frontline personnel.</p>
-                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
-                  </div>
-                  <div class="j-face j-back">
-                    <p class="j-back-kicker">The work</p>
-                    <h3>Field Security Manager &mdash; ASP Incorporated</h3>
-                    <p class="role-meta">Toronto, ON &middot; Jan 2022 &ndash; Dec 2025</p>
-                    <ul>
-                      <li>Oversaw major contracts including Toronto respite sites, Snapchat, and Rogers Stadium; provided contracted security through ASP at Warner Bros. Entertainment.</li>
-                      <li>Event Commander &mdash; Festa D&rsquo;Italia 2025 (14-guard day shift), Vaughan Canada Day 2025, VELD 2024 &amp; 2025: zero critical incidents, direct client commendations, and contract invitations for 2026.</li>
-                      <li>Event scale (as event manager): VELD 35,000+ daily, Vaughan Canada Day 20,000+, Festa D&rsquo;Italia 15,000+. Behaviour Detection Guard &mdash; UJA Walk with Israel, 55,000+.</li>
-                      <li>Unified Command Communications Supervisor &mdash; Oasis at Rogers Stadium, Aug 24, 2025 (Live Nation): ran event comms on two radios.</li>
-                      <li>Invited by Sarah Miller (Director &ndash; Operations and Training) and Humberto Pimentel to apply for Service Delivery Manager &ndash; GTA; mentored by Sarah Miller.</li>
-                      <li>Led 50+ frontline personnel; coordinated with police, EMS, and municipal officials.</li>
-                      <li>Earlier at ASP: corporate security for Snapchat, crossing-guard mobile supervision, Shelter Movers protection for domestic-abuse relocations, COVID rapid-response across Toronto respites.</li>
-                      <li>Previously Security Specialist / Mobile Patrol Supervisor (Nov 2020 &ndash; Jan 2022): audited 350+ crosswalks for the City of Toronto School Crossing Guard program.</li>
-                    </ul>
-                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div class="j-scene">
-              <article class="j-card" id="chapter-wlkn" tabindex="0" aria-label="Chapter: Retail Operations Leadership, 2023 to 2024. Activate to flip the card." data-track="chapter_card|wlkn|journey">
-                <div class="j-flip">
-                  <div class="j-face j-front">
-                    <div class="j-visual j-visual--type"><span class="j-visual-type j-visual-type--short" aria-hidden="true">WLKN</span></div>
-                    <span class="t-era">2023&ndash;2024</span>
-                    <h3>Retail Operations Leadership</h3>
-                    <p class="t-location">Barrie / GTA</p>
-                    <p class="t-text">Store Manager and Interim District Manager at WLKN. Led store operations, hiring, training and multi-store coverage.</p>
-                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
-                  </div>
-                  <div class="j-face j-back">
-                    <p class="j-back-kicker">The work</p>
-                    <h3>Store Manager &rarr; Interim District Manager &mdash; WLKN</h3>
-                    <p class="role-meta">Barrie / GTA &middot; Oct 2023 &ndash; Dec 2024</p>
-                    <ul>
-                      <li>Launched the Barrie (Georgian Mall) location end-to-end: merchandising, hiring and training, scheduling, POS/CCTV setup, community marketing.</li>
-                      <li>Covered as Interim District Manager across GTA stores (10-week multi-store coverage).</li>
-                      <li>June 2024: $26,245.63 in sales on 2,897 traffic &mdash; 10.87% conversion, $83.32 sales per transaction.</li>
-                      <li>WLKN Owner&rsquo;s Award &amp; Employee of the Year, 2024.</li>
-                    </ul>
-                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div class="j-scene">
-              <article class="j-card" id="chapter-molex" tabindex="0" aria-label="Chapter: MOLEX Digital Solutions, 2025 to present. Activate to flip the card." data-track="chapter_card|molex|journey">
-                <div class="j-flip">
-                  <div class="j-face j-front">
-                    <div class="j-visual j-visual--photo"><img src="assets/photos/derivatives/summit-2026-11-12-640.jpg" alt="Mohammed and Alex at the Small Business Value Summit, November 2026"><span class="j-visual-overlay" aria-hidden="true"></span></div>
-                    <span class="t-era">2025&ndash;Present</span>
-                    <h3>MOLEX Digital Solutions</h3>
-                    <p class="t-location">Bradford, ON (Remote)</p>
-                    <p class="t-text">Co-founded a digital solutions business focused on web development, digital platforms and SaaS products.</p>
-                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
-                  </div>
-                  <div class="j-face j-back">
-                    <p class="j-back-kicker">The work</p>
-                    <h3>Co-Founder &mdash; MOLEX Web Development &amp; Digital Solutions</h3>
-                    <p class="role-meta">Bradford, ON (Remote) &middot; Feb 2025 &ndash; Present</p>
-                    <ul>
-                      <li>Design and build digital platforms and SaaS products &mdash; lead generation, web design, automated billing, directories.</li>
-                      <li>2026: launched True Shield Security&rsquo;s official site, landing foundational client contracts.</li>
-                      <li>2025: SparkyLube campaign &mdash; 4,300+ unique visitors, 344 confirmed clients upsold.</li>
-                      <li>Local search, lead capture, and tracking that shows what's working.</li>
-                    </ul>
-                    <p><a href="projects/molex.html" data-track="project|MOLEX|projects">Read the MOLEX case study &rarr;</a></p>
-                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div class="j-scene">
-              <article class="j-card" id="chapter-sparky" tabindex="0" aria-label="Chapter: SparkyLube Client Internship, 2025. Activate to flip the card." data-track="chapter_card|sparky|journey">
-                <div class="j-flip">
-                  <div class="j-face j-front">
-                    <div class="j-visual j-visual--brand"><img src="assets/sparkylube/logo.png" alt="" aria-hidden="true"></div>
-                    <span class="t-era">2025</span>
-                    <h3>SparkyLube Client Internship</h3>
-                    <p class="t-location">Brantford, ON (Remote)</p>
-                    <p class="t-text">Designed and maintained a business website, including print-friendly service menus and online booking.</p>
-                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
-                  </div>
-                  <div class="j-face j-back">
-                    <p class="j-back-kicker">The work</p>
-                    <h3>Client Internship &mdash; SparkyLube</h3>
-                    <p class="role-meta">Brantford, ON (Remote) &middot; Contract &middot; Mar 2025 &ndash; Jul 2025</p>
-                    <ul>
-                      <li>Designed, built, and maintained the company website for a local automotive/oil-change business.</li>
-                      <li>Print-friendly service menus, integrated online booking, and improved business marketing.</li>
-                    </ul>
-                    <p><a href="projects/sparkylube-case-study.html" data-track="project|SparkyLube case study|projects">Read the case study &rarr;</a> &middot; <a href="sparkylube.html" data-track="project|SparkyLube demo|projects">View the demo &rarr;</a></p>
-                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div class="j-scene">
-              <article class="j-card" id="chapter-loblaw" tabindex="0" aria-label="Chapter: Asset Protection, 2026 to present. Activate to flip the card." data-track="chapter_card|loblaw|journey">
-                <div class="j-flip">
-                  <div class="j-face j-front">
-                    <div class="j-visual j-visual--photo"><img src="assets/photos/derivatives/apr-open-house-2026-640.jpg" alt="APR Open House display at Zehrs Alliston, November 2026"><span class="j-visual-overlay" aria-hidden="true"></span></div>
-                    <span class="t-era">2026&ndash;Present</span>
-                    <h3>Asset Protection</h3>
-                    <p class="t-location">New Tecumseth, ON</p>
-                    <p class="t-text">Asset Protection Representative at Loblaw Companies Ltd. Focused on investigations, loss prevention, evidence development and operational risk.</p>
-                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
-                  </div>
-                  <div class="j-face j-back">
-                    <p class="j-back-kicker">The work</p>
-                    <h3>Asset Protection Representative &mdash; Loblaw Companies Ltd.</h3>
-                    <p class="role-meta">New Tecumseth, ON &middot; Jan 2026 &ndash; Present</p>
-                    <ul>
-                      <li>Deter theft, fraud, and organized retail crime through surveillance, investigations, and risk-based loss prevention.</li>
-                      <li>Run internal and external investigations, build evidence packages, and liaise with law enforcement.</li>
-                      <li>244 incident reports filed with zero case rejections (Criminal Code ss. 494, 322/334, 380; Trespass to Property Act).</li>
-                      <li>Audit shrink, analyze trends, and coach store leadership on AP policy and emergency procedures.</li>
-                    </ul>
-                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-            <div class="j-scene">
-              <article class="j-card" id="chapter-seneca" tabindex="0" aria-label="Chapter: Computer Programming and Analysis, 2024 to present. Activate to flip the card." data-track="chapter_card|seneca|journey">
-                <div class="j-flip">
-                  <div class="j-face j-front">
-                    <div class="j-visual j-visual--type"><span class="j-visual-type j-visual-type--short" aria-hidden="true">2024</span></div>
-                    <span class="t-era">2024 &ndash; Present</span>
-                    <h3>Computer Programming &amp; Analysis</h3>
-                    <p class="t-location">Seneca</p>
-                    <p class="t-text">Post-secondary studies in software development and programming.</p>
-                    <span class="j-flip-hint">Tap to flip &mdash; see the work &rarr;</span>
-                  </div>
-                  <div class="j-face j-back">
-                    <p class="j-back-kicker">The work</p>
-                    <h3>Computer Programming &amp; Analysis</h3>
-                    <p class="role-meta">Seneca Polytechnic &middot; Jan 2024 &ndash; Present</p>
-                    <ul>
-                      <li>Diploma focused on software engineering, relational databases, data structures, and enterprise mainframe analysis.</li>
-                      <li>Direction: digital solutions and policing &mdash; crime intelligence.</li>
-                      <li>Also: Police Foundations, Seneca College, Sep 2019 &ndash; Apr 2022 &mdash; Ontario College Diploma, graduated with distinction (GPA 3.8&ndash;3.9).</li>
-                    </ul>
-                    <p><a href="#recognition">Full education &rarr;</a></p>
-                    <button type="button" class="j-flip-btn">&larr; Back to the chapter</button>
-                  </div>
-                </div>
-              </article>
-            </div>
-
-          </div>
-        </div>
-        <p class="j-now">Now &mdash; building MOLEX, and writing about it as it happens. Latest: <a href="blog.html" data-track="blog|Mid-November Summit|journey">Mid-November: the summit, and the business we&rsquo;re building</a>.</p>
-      </div>
-    </section>
-
-    <!-- ================= ABOUT ================= -->
-    <section id="about" aria-labelledby="about-title">
-      <div class="wrap">
-        <p class="section-kicker"><span class="section-num" aria-hidden="true">06</span> About</p>
-        <h2 class="section-title" id="about-title">From the shop floor to the systems behind it.</h2>
-        <div class="about-copy">
-          <p>I'm Mohammed Mounir. I work in asset protection at Loblaw, where I run investigations, build evidence packages, and keep stores ahead of organized retail crime. Before that I led field security teams and major events across Toronto, and ran a retail store end to end. I like work where the details matter and the pressure is real.</p>
-          <p>On the other side, I build. I co-founded MOLEX, a digital solutions business, and started Computer Programming &amp; Analysis at Seneca (present). The long game is crime intelligence analysis — the same instinct, applied differently: protect people, then build the systems that protect them. The current step is the OPP civilian path: Civilian Data Entry and Technology Disclosure.</p>
-          <p class="about-now"><strong>Currently:</strong> Asset Protection at Loblaw · MOLEX builds · Seneca CPA (present) · Working toward crime intelligence.</p>
-        </div>
-        <details class="fold" data-track="fold|Off the clock|about">
-          <summary>Off the clock — motovlog, drag strip, gaming, RC planes</summary>
-          <div class="info-grid">
-          <div class="info-card">
-            <h3>Momospeare motovlog</h3>
-            <p>Duo motovlog with partner Alex — destination rides on the Yamaha MT-07 and Kawasaki Ninja 300, with garage-education content. <a href="https://www.youtube.com/@Momospeare" target="_blank" rel="noopener noreferrer">Watch on YouTube &rarr;<span class="visually-hidden"> (opens in new tab)</span></a> · <a href="momospeare.html">More on the Momospeare page &rarr;</a></p>
-          </div>
-          <div class="info-card">
-            <h3>Drag strip days</h3>
-            <p>Quarter-mile runs in the Hyundai Elantra N at Cayuga Dragway — May 2022 and May 2023, with the runs on video. <a href="momospeare.html#track-days">See the runs &rarr;</a></p>
-          </div>
-          <div class="info-card">
-            <h3>Gaming</h3>
-            <p>Call of Duty, GTA, Minecraft and Fortnite. Streams Call of Duty live on Twitch and YouTube.</p>
-          </div>
-          <div class="info-card">
-            <h3>RC planes</h3>
-            <p>Flying RC model aircraft.</p>
-          </div>
-        </div>
-        </details>
-        <div class="about-strip">
-          <p><strong>Latest writing:</strong> <a href="blog.html" data-track="blog|Mid-November Summit|about">Mid-November: the summit, and the business we&rsquo;re building</a> — one short post a month, the work as it happens.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= BRANDS ================= -->
-    <section id="brands" aria-labelledby="brands-title">
-      <div class="wrap">
-        <p class="section-kicker"><span class="section-num" aria-hidden="true">07</span> Brands</p>
-        <h2 class="section-title" id="brands-title">Brands I&rsquo;ve worked with</h2>
-        <p class="section-sub">Tap a logo to see the capacity I worked with it in &mdash; employer, contractor, event lead, client, or volunteer partner.</p>
-        <div class="brands-marquee" id="brands-marquee">
-          <div class="brands-marquee-track" id="brands-marquee-track">
-            <button class="brand-float" type="button" data-brand="Loblaw" data-role="Employer · Jan 2026 – Present" data-link="#journey-app" aria-label="Loblaw — Employer, January 2026 to present. Activate for details." data-track="brand_float|Loblaw|brands"><img class="brand-logo" src="assets/brands/loblaw.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Zehrs" data-role="Employer · Loblaw banner" data-link="#journey-app" aria-label="Zehrs — Employer, Loblaw banner. Activate for details." data-track="brand_float|Zehrs|brands"><img class="brand-logo brand-logo--wide" src="assets/brands/zehrs.png" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Warner Bros." data-role="Contractor via ASP" data-link="#journey-app" aria-label="Warner Bros. — Contractor via ASP. Activate for details." data-track="brand_float|Warner Bros.|brands"><img class="brand-logo brand-logo--mark" src="assets/brands/warner-bros.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Snapchat" data-role="Contractor via ASP" data-link="#journey-app" aria-label="Snapchat — Contractor via ASP. Activate for details." data-track="brand_float|Snapchat|brands"><img class="brand-logo brand-logo--mark" src="assets/brands/snapchat.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Rogers Stadium" data-role="Contractor via ASP" data-link="#journey-app" aria-label="Rogers Stadium — Contractor via ASP. Activate for details." data-track="brand_float|Rogers Stadium|brands"><img class="brand-logo brand-logo--wide" src="assets/brands/rogers.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="ASP" data-role="Employer · Field security 2020–25" data-link="#journey-app" aria-label="ASP — Employer, field security 2020 to 2025. Activate for details." data-track="brand_float|ASP|brands"><span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/asp.png" alt="" loading="lazy"></span></button>
-            <button class="brand-float" type="button" data-brand="VELD" data-role="Event Commander via ASP" data-link="#journey-app" aria-label="VELD — Event Commander via ASP. Activate for details." data-track="brand_float|VELD|brands"><span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/veld.png" alt="" loading="lazy"></span></button>
-            <button class="brand-float" type="button" data-brand="Festa D'Italia" data-role="Event Commander via ASP" data-link="#journey-app" aria-label="Festa D'Italia — Event Commander via ASP. Activate for details." data-track="brand_float|Festa D'Italia|brands"><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/festa-ditalia.png" alt="" loading="lazy"></span></button>
-            <button class="brand-float" type="button" data-brand="Vaughan Canada Day" data-role="Event Commander via ASP" data-link="#journey-app" aria-label="Vaughan Canada Day — Event Commander via ASP. Activate for details." data-track="brand_float|Vaughan Canada Day|brands"><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/vaughan.svg" alt="" loading="lazy"></span></button>
-            <button class="brand-float" type="button" data-brand="UJA Walk with Israel" data-role="Behaviour Detection Guard via ASP" data-link="#journey-app" aria-label="UJA Walk with Israel — Behaviour Detection Guard via ASP. Activate for details." data-track="brand_float|UJA Walk with Israel|brands"><span class="brand-name brand-wordmark">UJA Walk with Israel</span></button>
-            <button class="brand-float" type="button" data-brand="Toronto Police" data-role="Community partner via ASP" data-link="#journey-app" aria-label="Toronto Police — Community partner via ASP. Activate for details." data-track="brand_float|Toronto Police|brands"><img class="brand-logo brand-logo--mark" src="assets/police/tps-seal.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="WLKN" data-role="Employer · Store Manager → Interim DM" data-link="#journey-app" aria-label="WLKN — Employer, Store Manager to Interim District Manager. Activate for details." data-track="brand_float|WLKN|brands"><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/wlkn.png" alt="" loading="lazy"></span></button>
-            <button class="brand-float" type="button" data-brand="True Shield Security" data-role="MOLEX client" data-link="projects/true-shield.html" aria-label="True Shield Security — MOLEX client. Activate for details." data-track="brand_float|True Shield Security|brands"><img class="brand-logo brand-logo--mark" src="assets/brands/true-shield.png" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="SparkyLube" data-role="MOLEX client" data-link="projects/sparkylube.html" aria-label="SparkyLube — MOLEX client. Activate for details." data-track="brand_float|SparkyLube|brands"><span class="brand-name brand-wordmark">SparkyLube</span></button>
-            <button class="brand-float" type="button" data-brand="Magna" data-role="Co-op · Magna Dortec" data-link="#journey-app" aria-label="Magna — Co-op, Magna Dortec. Activate for details." data-track="brand_float|Magna|brands"><img class="brand-logo" src="assets/brands/magna.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Cineplex" data-role="Employer · 2018" data-link="#journey-app" aria-label="Cineplex — Employer, 2018. Activate for details." data-track="brand_float|Cineplex|brands"><img class="brand-logo" src="assets/brands/cineplex.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Staples" data-role="Employer · 2019" data-link="#journey-app" aria-label="Staples — Employer, 2019. Activate for details." data-track="brand_float|Staples|brands"><img class="brand-logo" src="assets/brands/staples.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Under Armour" data-role="Employer · 2019–2020" data-link="#journey-app" aria-label="Under Armour — Employer, 2019 to 2020. Activate for details." data-track="brand_float|Under Armour|brands"><img class="brand-logo brand-logo--mark" src="assets/brands/under-armour.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Canada's Wonderland" data-role="Employer · first job" data-link="#journey-app" aria-label="Canada's Wonderland — Employer, first job. Activate for details." data-track="brand_float|Canada's Wonderland|brands"><img class="brand-logo" src="assets/brands/canadas-wonderland.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Pizza Hut" data-role="Employer · early role" data-link="#journey-app" aria-label="Pizza Hut — Employer, early role. Activate for details." data-track="brand_float|Pizza Hut|brands"><span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--mark" src="assets/brands/pizza-hut.svg" alt="" loading="lazy"></span></button>
-            <button class="brand-float" type="button" data-brand="Seneca" data-role="Computer Programming · present" data-link="#recognition" aria-label="Seneca — Computer Programming, present. Activate for details." data-track="brand_float|Seneca|brands"><img class="brand-logo" src="assets/brands/seneca.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="OPP Auxiliary" data-role="Community partner · food drives" data-link="projects/community.html" aria-label="OPP Auxiliary — Community partner, food drives. Activate for details." data-track="brand_float|OPP Auxiliary|brands"><img class="brand-logo brand-logo--mark" src="assets/police/opp-patch.svg" alt="" loading="lazy"></button>
-            <button class="brand-float" type="button" data-brand="Alliston Food Bank" data-role="Volunteer partner · food drives" data-link="projects/community.html" aria-label="Alliston Food Bank — Volunteer partner, food drives. Activate for details." data-track="brand_float|Alliston Food Bank|brands"><span class="brand-name brand-wordmark">Alliston Food Bank</span></button>
-          </div>
-        </div>
-        <details class="fold" data-track="fold|See all 23 brands|brands">
-          <summary>See all 23 brands</summary>
-          <div class="brands-grid">
-          <a class="brand" href="#journey-app" data-track="brand_grid|Loblaw|brands">
-            <img class="brand-logo" src="assets/brands/loblaw.svg" alt="" loading="lazy">
-            <span class="brand-name">Loblaw</span>
-            <span class="brand-cap">Employer &middot; Jan 2026 &ndash; Present</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Zehrs|brands">
-            <img class="brand-logo brand-logo--wide" src="assets/brands/zehrs.png" alt="" loading="lazy">
-            <span class="brand-name">Zehrs</span>
-            <span class="brand-cap">Employer &middot; Loblaw banner</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Warner Bros.|brands">
-            <img class="brand-logo brand-logo--mark" src="assets/brands/warner-bros.svg" alt="" loading="lazy">
-            <span class="brand-name">Warner Bros.</span>
-            <span class="brand-cap">Contractor via ASP</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Snapchat|brands">
-            <img class="brand-logo brand-logo--mark" src="assets/brands/snapchat.svg" alt="" loading="lazy">
-            <span class="brand-name">Snapchat</span>
-            <span class="brand-cap">Contractor via ASP</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Rogers Stadium|brands">
-            <img class="brand-logo brand-logo--wide" src="assets/brands/rogers.svg" alt="" loading="lazy">
-            <span class="brand-name">Rogers Stadium</span>
-            <span class="brand-cap">Contractor via ASP</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|ASP|brands">
-            <span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/asp.png" alt="" loading="lazy"></span>
-            <span class="brand-name">ASP</span>
-            <span class="brand-cap">Employer &middot; Field security 2020&ndash;25</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|VELD|brands">
-            <span class="brand-chip brand-chip--dark"><img class="brand-logo brand-logo--wide" src="assets/brands/veld.png" alt="" loading="lazy"></span>
-            <span class="brand-name">VELD</span>
-            <span class="brand-cap">Event Commander via ASP</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Festa D&rsquo;Italia|brands">
-            <span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/festa-ditalia.png" alt="" loading="lazy"></span>
-            <span class="brand-name">Festa D&rsquo;Italia</span>
-            <span class="brand-cap">Event Commander via ASP</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Vaughan Canada Day|brands">
-            <span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/vaughan.svg" alt="" loading="lazy"></span>
-            <span class="brand-name">Vaughan Canada Day</span>
-            <span class="brand-cap">Event Commander via ASP</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|UJA Walk with Israel|brands">
-            <span class="brand-name brand-wordmark">UJA Walk with Israel</span>
-            <span class="brand-cap">Behaviour Detection Guard via ASP</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Toronto Police|brands">
-            <img class="brand-logo brand-logo--mark" src="assets/police/tps-seal.svg" alt="" loading="lazy">
-            <span class="brand-name">Toronto Police</span>
-            <span class="brand-cap">Community partner via ASP</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|WLKN|brands">
-            <span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--wide" src="assets/brands/wlkn.png" alt="" loading="lazy"></span>
-            <span class="brand-name">WLKN</span>
-            <span class="brand-cap">Employer &middot; Store Manager &rarr; Interim DM</span>
-          </a>
-          <a class="brand" href="projects/true-shield.html" data-track="brand_grid|True Shield Security|brands">
-            <img class="brand-logo brand-logo--mark" src="assets/brands/true-shield.png" alt="" loading="lazy">
-            <span class="brand-name">True Shield Security</span>
-            <span class="brand-cap">MOLEX client</span>
-          </a>
-          <a class="brand" href="projects/sparkylube.html" data-track="brand_grid|SparkyLube|brands">
-            <span class="brand-name brand-wordmark">SparkyLube</span>
-            <span class="brand-cap">MOLEX client</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Magna|brands">
-            <img class="brand-logo" src="assets/brands/magna.svg" alt="" loading="lazy">
-            <span class="brand-name">Magna</span>
-            <span class="brand-cap">Co-op &middot; Magna Dortec</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Cineplex|brands">
-            <img class="brand-logo" src="assets/brands/cineplex.svg" alt="" loading="lazy">
-            <span class="brand-name">Cineplex</span>
-            <span class="brand-cap">Employer &middot; 2018</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Staples|brands">
-            <img class="brand-logo" src="assets/brands/staples.svg" alt="" loading="lazy">
-            <span class="brand-name">Staples</span>
-            <span class="brand-cap">Employer &middot; 2019</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Under Armour|brands">
-            <img class="brand-logo brand-logo--mark" src="assets/brands/under-armour.svg" alt="" loading="lazy">
-            <span class="brand-name">Under Armour</span>
-            <span class="brand-cap">Employer &middot; 2019&ndash;2020</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Canada&rsquo;s Wonderland|brands">
-            <img class="brand-logo" src="assets/brands/canadas-wonderland.svg" alt="" loading="lazy">
-            <span class="brand-name">Canada&rsquo;s Wonderland</span>
-            <span class="brand-cap">Employer &middot; first job</span>
-          </a>
-          <a class="brand" href="#journey-app" data-track="brand_grid|Pizza Hut|brands">
-            <span class="brand-chip brand-chip--light"><img class="brand-logo brand-logo--mark" src="assets/brands/pizza-hut.svg" alt="" loading="lazy"></span>
-            <span class="brand-name">Pizza Hut</span>
-            <span class="brand-cap">Employer &middot; early role</span>
-          </a>
-          <a class="brand" href="#recognition" data-track="brand_grid|Seneca|brands">
-            <img class="brand-logo" src="assets/brands/seneca.svg" alt="" loading="lazy">
-            <span class="brand-name">Seneca</span>
-            <span class="brand-cap">Computer Programming &middot; present</span>
-          </a>
-          <a class="brand" href="projects/community.html" data-track="brand_grid|OPP Auxiliary|brands">
-            <img class="brand-logo brand-logo--mark" src="assets/police/opp-patch.svg" alt="" loading="lazy">
-            <span class="brand-name">OPP Auxiliary</span>
-            <span class="brand-cap">Community partner &middot; food drives</span>
-          </a>
-          <a class="brand" href="projects/community.html" data-track="brand_grid|Alliston Food Bank|brands">
-            <span class="brand-name brand-wordmark">Alliston Food Bank</span>
-            <span class="brand-cap">Volunteer partner &middot; food drives</span>
-          </a>
-        </div>
-        </details>
-        <dialog id="brand-dialog" class="brand-dialog" aria-labelledby="brand-dialog-name">
-          <form method="dialog">
-            <button class="brand-dialog-close" aria-label="Close" data-track="brand_dialog|Close|brands">&times;</button>
-          </form>
-          <h3 id="brand-dialog-name"></h3>
-          <p id="brand-dialog-role"></p>
-          <p><a id="brand-dialog-link" href="#journey-app" data-track="brand_dialog|See the work|brands">See the work &rarr;</a></p>
-        </dialog>
-      </div>
-    </section>
-
-    <!-- ================= PROJECTS ================= -->
-    <section id="projects" aria-labelledby="projects-title">
-      <div class="wrap">
-        <p class="section-kicker"><span class="section-num" aria-hidden="true">08</span> Built</p>
-        <h2 class="section-title" id="projects-title">Projects</h2>
-        <p class="section-sub">Shipped, live, and measured — client work and community projects.</p>
-        <div class="info-grid">
-          <article class="info-card">
-            <h3>MOLEX Digital Solutions</h3>
-            <p class="role-meta">Co-founder · Feb 2025 – Present</p>
-            <p>Websites and digital solutions for small businesses — built to bring in clients, not just look good.</p>
-            <p><strong>Two client sites live: SparkyLube (4,300+ visitors, 344 clients upsold) and True Shield Security (launched 2026, now hiring).</strong></p>
-            <p><a href="projects/molex.html" aria-label="Read the MOLEX case study" data-track="project|MOLEX|projects">Read the case study &rarr;</a></p>
-          </article>
-          <article class="info-card">
-            <h3>SparkyLube — client website</h3>
-            <p class="role-meta">Brantford, ON · Mar – Jul 2025</p>
-            <p>A site an oil-change shop's customers could actually use — service menus, online booking, local SEO.</p>
-            <p><strong>4,300+ unique visitors, 344 confirmed clients upsold in the 2025 campaign.</strong></p>
-            <p><a href="projects/sparkylube-case-study.html" aria-label="Read the SparkyLube case study" data-track="project|SparkyLube case study|projects">Read the case study &rarr;</a> · <a href="projects/sparkylube.html" data-track="project|SparkyLube demo|projects">View the demo &rarr;</a></p>
-          </article>
-          <article class="info-card">
-            <h3>True Shield Security — official site</h3>
-            <p class="role-meta">Launched 2026</p>
-            <p>An official site for a security company that matched the work — positioning, service pages, inquiry flow.</p>
-            <p><strong>Launched 2026 — now multiple clients and hiring.</strong></p>
-            <p><a href="projects/true-shield.html" aria-label="Read the True Shield case study" data-track="project|True Shield|projects">Read the case study &rarr;</a> · <a href="https://trueshieldsecurity.ca" target="_blank" rel="noopener noreferrer">Visit the live site &rarr;<span class="visually-hidden"> (opens in new tab)</span></a></p>
-          </article>
-          <article class="info-card">
-            <h3>Community projects</h3>
-            <p class="role-meta">Zehrs + OPP Auxiliary · Oct 2026</p>
-            <p>Food drives and community events run with the Loblaw Asset Protection team, OPP Auxiliary, and local partners.</p>
-            <p><strong>553 lb of food + $910.90 raised in a single Thanksgiving drive.</strong></p>
-            <p><a href="projects/community.html" data-track="project|Community|projects">See the projects &rarr;</a></p>
-          </article>
-        </div>
-        <h3 class="project-quotes-title">What people say about working with me.</h3>
-        <p class="section-sub">Public recommendations from LinkedIn — quoted with attribution.</p>
-        <div class="info-grid">
-          <article class="info-card">
-            <blockquote class="testimonial">
-              <p>&ldquo;I highly recommend Mohammed Mounir! He takes on complex challenges with confidence, delivering measurable results while maintaining focus on team objectives, stakeholder engagement, and improvements. His ability to analyze risk, identify opportunities, and exercise sound judgment sets him apart.&rdquo;</p>
-              <footer><strong>Anwar Bonimy</strong> — Corporate Security, City of Toronto · June 21, 2026 · Worked on the same team<br><a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer" data-track="testimonial|LinkedIn|projects">Read the full recommendation on LinkedIn &rarr;<span class="visually-hidden"> (opens in new tab)</span></a></footer>
-            </blockquote>
-          </article>
-          <article class="info-card">
-            <blockquote class="testimonial">
-              <p>&ldquo;Mohammed consistently demonstrated outstanding leadership, professionalism, and dedication to his team. His guidance and mentorship played a significant role in helping me better understand the principles of integrity, accountability, and customer service, which proved invaluable to me for my current role at the City of Hamilton.&rdquo;</p>
-              <footer><strong>Ayush Chauhan</strong> — Transit Operator, City of Hamilton · June 20, 2026 · Reported to Mohammed at Green P<br><a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer" data-track="testimonial|LinkedIn|projects">Read the full recommendation on LinkedIn &rarr;<span class="visually-hidden"> (opens in new tab)</span></a></footer>
-            </blockquote>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================= RECOGNITION & EDUCATION ================= -->
-    <section id="recognition" aria-labelledby="recognition-title">
-      <div class="wrap">
-        <p class="section-kicker"><span class="section-num" aria-hidden="true">09</span> Recognition &amp; development</p>
-        <h2 class="section-title" id="recognition-title">Recognition &amp; education</h2>
-        <p class="section-sub">Recognition for operational leadership and decisive action on the job.</p>
-        <div class="info-grid">
-          <div class="info-card">
-            <h3>Outstanding Young Security Professional (2025)</h3>
-            <p class="role-meta">Outstanding Security Performance Awards (OSPAs)</p>
-            <p>For leadership, innovation, and operational excellence in security.</p>
-            <figure class="award-logo award-logo--ospa">
-              <a href="https://ca.theospas.com/2025/11/27/2025-canada-ospas-winners-announced/" target="_blank" rel="noopener noreferrer" data-track="award|OSPA|recognition"><img src="assets/brands/ospa.png" alt="Outstanding Security Performance Awards (OSPA) logo" width="220" height="104" loading="lazy"><span class="visually-hidden"> (opens in new tab)</span></a>
-              <figcaption>Winner 2025 — listed on the official OSPA winners page.</figcaption>
-            </figure>
-          </div>
-          <div class="info-card">
-            <h3>Canadian Security Lifesaver Award — twice</h3>
-            <p class="role-meta">Canadian Security Lifesaver Awards · Aug 2023 &amp; Oct 2022</p>
-            <p>Award Aug 2023: pulled a pedestrian out of the path of a speeding fire truck at Kipling &amp; Stevenson. Mar 2022: intervened to prevent a child pushed into oncoming traffic from being struck by a TTC bus.</p>
-            <figure class="award-logo award-logo--square">
-              <a href="https://canadiansecuritylifesaver.ca/" target="_blank" rel="noopener noreferrer" data-track="award|CSLA|recognition"><img src="assets/brands/csla-240.webp" alt="Canadian Security Lifesaver Association logo" width="120" height="120" loading="lazy"><span class="visually-hidden"> (opens in new tab)</span></a>
-              <figcaption>Recipient 2022 &amp; 2023.</figcaption>
-            </figure>
-            <div class="photo-row">
-              <figure class="photo-thumb">
-                <img src="assets/linkedin/lifesaver-firetruck-award.jpg" alt="Mohammed holding the framed Lifesaver Award certificate between two people, in front of ASP Security Services banners" width="160" height="112" loading="lazy">
-                <figcaption>Lifesaver Award presentation — the Kipling &amp; Stevenson fire-truck rescue (award Aug 2023).</figcaption>
-              </figure>
-              <figure class="photo-thumb">
-                <img src="assets/linkedin/lifesaver-handshake.jpg" alt="Mohammed in a black ASP polo holding the framed Lifesaver Award certificate while shaking hands" width="160" height="116" loading="lazy">
-                <figcaption>Holding the framed certificate — the bus-intervention award, Oct 2022.</figcaption>
-              </figure>
-              <figure class="photo-thumb">
-                <img src="assets/linkedin/lifesaver-pimentel-miller.jpg" alt="Mohammed in a dark suit holding the framed Lifesaver Award certificate between Humberto Pimentel and Sarah Miller" width="160" height="101" loading="lazy">
-                <figcaption>With Humberto Pimentel and Sarah Miller.</figcaption>
-              </figure>
-            </div>
-            <p class="photo-credit">Photos: Mohammed Mounir&rsquo;s LinkedIn profile, shown as thumbnails.</p>
-          </div>
-          <details class="fold fold--grid" data-track="fold|More recognition — 3 awards|recognition">
-            <summary>More recognition — 3 awards</summary>
-            <div class="info-grid">
-          <div class="info-card">
-            <h3>CEO Award of Excellence (2023)</h3>
-            <p class="role-meta">ASP Incorporated</p>
-            <p>Awarded for contributions to mobile patrol operations.</p>
-          </div>
-          <div class="info-card">
-            <h3>Owner's Award &amp; Employee of the Year (2024)</h3>
-            <p class="role-meta">WLKN</p>
-            <p>Awarded for launch execution and multi-store management across the GTA.</p>
-          </div>
-          <div class="info-card">
-            <h3>Employee of the Month (May 2018)</h3>
-            <p class="role-meta">Cineplex</p>
-            <p>Recognized for guest satisfaction during peak traffic.</p>
-          </div>
-            </div>
-          </details>
-        </div>
-        <div class="info-grid">
-          <article class="info-card">
-            <h3>Computer Programming &amp; Analysis</h3>
-            <p class="role-meta">Seneca Polytechnic · Jan 2024 – Present</p>
-            <p>Diploma focused on software engineering, relational databases, data structures, and enterprise mainframe analysis. Direction: digital solutions and policing — crime intelligence.</p>
-          </article>
-          <article class="info-card">
-            <h3>Police Foundations</h3>
-            <p class="role-meta">Seneca College · Sep 2019 – Apr 2022</p>
-            <p>Ontario College Diploma, graduated with distinction (GPA 3.8–3.9). Coursework in Canadian Criminal Code, forensics, crisis intervention, interviewing and investigative communications. Invited to complete the Honours Bachelor of Crime &amp; Intelligence Analysis program.</p>
-          </article>
-        </div>
-        <details class="fold" data-track="fold|Certifications, skills &amp; languages|recognition">
-          <summary>Certifications, skills &amp; languages — see the full list</summary>
-          <div class="info-grid">
-          <div class="info-card">
-            <h3>Certifications &amp; licences</h3>
-            <ul>
-              <li>PSISB Security Guard &amp; Private Investigator Licence — Ministry of the Solicitor General (to Aug 2028)</li>
-              <li><a href="https://learn.baselgovernance.org/mod/customcert/verify_certificate.php?code=VvToQbpxOE&qrcode=1">Open-Source Intelligence (OSINT)</a> — Basel Institute on Governance (Aug 2026)</li>
-              <li><a href="https://www.credential.net/a3a825cf-adf0-452e-b28b-be9508713b11">Google Analytics (GA4)</a> — Google Skillshop (Oct 2026)</li>
-              <li>Municipal Law Enforcement Officer, Parking — City of Toronto / TPS (renewed Aug 2026)</li>
-              <li>Behavior Detection Training (BDT) — ACTS USA, Toronto (May 2025)</li>
-              <li>OACP Pre-Hiring Assessment — Certificate of Results (Dec 2021)</li>
-              <li>Use of Force, Tactical Baton, Defensive Tactics &amp; Handcuffing — Life Safety Specialists / ASP</li>
-              <li>Managing of Resistant Behaviour (MORB) — ASP (Jun 2023)</li>
-              <li>Standard First Aid, CPR-C &amp; AED — Rescue7 / CSA (recertification in progress)</li>
-              <li>Naloxone: Overdose Prevention, Recognition &amp; Response — Public Health</li>
-              <li>Supervisor Health &amp; Safety Awareness — Ontario Ministry of Labour</li>
-            </ul>
-          </div>
-          <div class="info-card">
-            <h3>Skills</h3>
-            <ul>
-              <li><strong>Enforcement:</strong> Criminal Code (ss. 494, 322/334, 380), Trespass to Property Act, PSISA, municipal bylaws, WHMIS, AODA</li>
-              <li><strong>Tactical:</strong> defensive tactics &amp; handcuffing, tactical baton, use-of-force theory, managing resistant behaviour, verbal de-escalation</li>
-              <li><strong>Software &amp; data:</strong> Python, Java, C++, JavaScript, HTML/CSS, SQL, SaaS development, systems analysis, SEO, GA4, OSINT analysis, applied generative AI</li>
-              <li><strong>Platforms:</strong> TrackTik, GeoTab, xGuard, Gatekeeper Purchek, CCTV administration, POS systems, Emprez, Lightspeed, Workday, Microsoft 365, Google Workspace</li>
-              <li><strong>Leadership:</strong> multi-unit operational leadership, team coaching &amp; mentorship, conflict resolution, stakeholder &amp; law-enforcement liaison</li>
-            </ul>
-          </div>
-          <div class="info-card">
-            <h3>Languages &amp; driving</h3>
-            <ul>
-              <li>English — native</li>
-              <li>Arabic — conversational</li>
-              <li>Ontario Driver's Licence — Class G &amp; M</li>
-            </ul>
-          </div>
-        </div>
-        </details>
-      </div>
-    </section>
-
-    <!-- ================= CONTACT ================= -->
-    <section id="contact" aria-labelledby="contact-title">
-      <div class="wrap">
-        <p class="section-kicker">Connect</p>
-        <h2 class="section-title" id="contact-title">Work with me.</h2>
-        <p class="section-sub">Currently taking on MOLEX builds — and always up for a conversation about security, tech, or policing.</p>
-        <p class="section-sub">I only contact people from the accounts linked on this page. Anything else claiming to be me isn&rsquo;t.</p>
-        <div class="contact-card">
-          <div class="cta-row">
-            <a class="btn btn-primary" href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer" data-track="contact|LinkedIn|contact">Connect on LinkedIn<span class="visually-hidden"> (opens in new tab)</span></a>
-            <a class="btn btn-ghost" href="https://github.com/Momospeare/Mohammed-mounir" target="_blank" rel="noopener noreferrer" data-track="contact|GitHub|contact">View GitHub Repository<span class="visually-hidden"> (opens in new tab)</span></a>
-            <a class="btn btn-ghost" href="mailto:business@mohammedmounir.ca" data-track="contact|Email|contact">Email for business</a>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer>
     <div class="wrap">
       <span>Mohammed Mounir — Asset Protection Representative, Bradford, Ontario.</span>
-      <span><a href="blog.html" data-track="footer|Blog|footer">Blog</a> · <a href="momospeare.html" data-track="footer|Momospeare|footer">Momospeare</a> · <a href="privacy.html" data-track="footer|Privacy|footer">Privacy</a> · <a href="terms.html" data-track="footer|Terms|footer">Terms</a> · <a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer" data-track="footer|LinkedIn|footer">LinkedIn<span class="visually-hidden"> (opens in new tab)</span></a> · <a href="https://github.com/Momospeare/Mohammed-mounir" target="_blank" rel="noopener noreferrer" data-track="footer|GitHub|footer">GitHub<span class="visually-hidden"> (opens in new tab)</span></a></span>
-      <span>© <span id="year">2026</span> Mohammed Mounir. Built chapter by chapter.</span>
+      <span><a href="portfolio.html" data-track="footer|Portfolio|footer">Portfolio</a> · <a href="blog.html" data-track="footer|Blog|footer">Blog</a> · <a href="momospeare.html" data-track="footer|Momospeare|footer">Momospeare</a> · <a href="privacy.html" data-track="footer|Privacy|footer">Privacy</a> · <a href="terms.html" data-track="footer|Terms|footer">Terms</a> · <a href="https://www.linkedin.com/in/mohammed-mounir-10587621b/" target="_blank" rel="noopener noreferrer" data-track="footer|LinkedIn|footer">LinkedIn<span class="visually-hidden"> (opens in new tab)</span></a> · <a href="https://github.com/Momospeare/Mohammed-mounir" target="_blank" rel="noopener noreferrer" data-track="footer|GitHub|footer">GitHub<span class="visually-hidden"> (opens in new tab)</span></a></span>
+      <span>&copy; 2026 Mohammed Mounir. Built chapter by chapter.</span>
     </div>
   </footer>
 
@@ -897,15 +294,58 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <!-- Back to top -->
-  <a class="to-top" id="to-top" href="#top" data-track="nav|Back to top|footer" aria-label="Back to top">&uarr;</a>
-
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-          integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
-          integrity="sha256-Hk4dIpcqOSb0hZjgyvFOP+cEmDXUKKNE/tT542ZbNQg=" crossorigin=""></script>
   <script src="js/analytics.js"></script>
-  <script src="js/main.js?v=06eb23a"></script>
   <script src="js/memo.js"></script>
+  <script>
+    // MOLEX waitlist: reveal the inline form on tap; never a dead button.
+    (function () {
+      var door = document.getElementById('molex-door');
+      var panel = document.getElementById('molex-waitlist');
+      var form = document.getElementById('waitlist-form');
+      var success = document.getElementById('waitlist-success');
+      door.addEventListener('click', function (e) {
+        e.preventDefault();
+        var open = panel.classList.toggle('open');
+        door.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) document.getElementById('waitlist-email').focus();
+      });
+      form.addEventListener('submit', function () {
+        // mailto: opens the visitor's email app; show the honest next step.
+        setTimeout(function () { success.style.display = 'block'; }, 600);
+      });
+    })();
+
+    // Share / copy-link button: Web Share API with clipboard fallback.
+    (function () {
+      var btn = document.getElementById('share-btn');
+      btn.addEventListener('click', function () {
+        var url = 'https://mohammedmounir.ca/';
+        var done = function (msg) { btn.textContent = msg; setTimeout(function () { btn.textContent = 'Share this page'; }, 2000); };
+        if (navigator.share) {
+          navigator.share({ title: 'Mohammed Mounir', url: url }).catch(function () {});
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(url).then(function () { done('Link copied'); }, function () { done('Copy: mohammedmounir.ca'); });
+        } else {
+          done('Copy: mohammedmounir.ca');
+        }
+      });
+    })();
+
+    // Visitor counter (staged Nov 15, 2026 — monthly site review):
+    // POST /api/visits counts this load for the current ISO week and
+    // returns the week's total; show "You are visitor #N this week."
+    // Fail silently — a dead counter line is worse than no line.
+    (function () {
+      var el = document.getElementById('visitor-counter');
+      if (!el || !window.fetch) return;
+      fetch('/api/visits', { method: 'POST', credentials: 'same-origin' })
+        .then(function (res) { return res.ok ? res.json() : null; })
+        .then(function (data) {
+          if (!data || typeof data.count !== 'number' || data.count < 1) return;
+          el.textContent = 'You are visitor #' + data.count + ' this week.';
+        })
+        .catch(function () { /* counter stays hidden */ });
+    })();
+  </script>
 </body>
 </html>
