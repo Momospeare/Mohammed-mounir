@@ -142,6 +142,25 @@ section[id], footer[id], h2[id] { scroll-margin-top: 80px; }
   margin: 0 0 40px;
 }
 
+/* Journey through-line: the story frame, right under the section title. */
+.j-throughline {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  color: var(--ink);
+  max-width: 640px;
+  margin: 0 0 12px;
+  line-height: 1.35;
+}
+
+/* Journey "now" endpoint: the destination, after the cards. */
+.j-now {
+  margin: 28px 0 0;
+  font-size: 1.05rem;
+  color: var(--ink);
+  max-width: 640px;
+}
+
 /* ---------- Nav ---------- */
 .nav {
   position: sticky;
