@@ -50,7 +50,7 @@
     {
       name: 'projects',
       keys: ['project', 'molex', 'sparkylube', 'true shield', 'built', 'website'],
-      reply: 'MOLEX is the business. SparkyLube\'s site did 4,300+ visitors and 344 upsold clients in 2025 — there\'s a demo in Projects. True Shield Security\'s official site launched 2026.'
+      reply: 'MOLEX is the business. SparkyLube\'s site brought thousands of visitors and hundreds of new clients in 2025 — there\'s a demo in Projects. True Shield Security\'s official site launched 2026.'
     },
     {
       name: 'education',
